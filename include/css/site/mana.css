@@ -1,0 +1,169 @@
+.mtg_mana {
+    width: 14px;
+    height: 14px;
+    background: transparent url(../../img/mana_sprite.png) no-repeat scroll 0 0;
+}
+
+.mtg_mana_1 {
+    background-position: -14px 0px;
+}
+
+.mtg_mana_2 {
+    background-position: -28px 0px;
+}
+
+.mtg_mana_3 {
+    background-position: -42px 0px;
+}
+
+.mtg_mana_4 {
+    background-position: -56px 0px;
+}
+
+.mtg_mana_5 {
+    background-position: -70px 0px;
+}
+
+.mtg_mana_6 {
+    background-position: 0px -14px;
+}
+
+.mtg_mana_7 {
+    background-position: -14px -14px;
+}
+
+.mtg_mana_8 {
+    background-position: -28px -14px;
+}
+
+.mtg_mana_9 {
+    background-position: -42px -14px;
+}
+
+.mtg_mana_10 {
+    background-position: -56px -14px;
+}
+
+.mtg_mana_11 {
+    background-position: -70px -14px;
+}
+
+.mtg_mana_12 {
+    background-position: 0px -28px;
+}
+
+.mtg_mana_15 {
+    background-position: -14px -28px;
+}
+
+.mtg_mana_16 {
+    background-position: -28px -28px;
+}
+
+.mtg_mana_X {
+    background-position: -42px -28px;
+}
+
+.mtg_mana_WB {
+    background-position: -56px -28px;
+}
+
+.mtg_mana_WU {
+    background-position: -70px -28px;
+}
+
+.mtg_mana_2B {
+    background-position: 0px -42px;
+}
+
+.mtg_mana_2G {
+    background-position: -14px -42px;
+}
+
+.mtg_mana_2R {
+    background-position: -28px -42px;
+}
+
+.mtg_mana_2U {
+    background-position: -42px -42px;
+}
+
+.mtg_mana_2W {
+    background-position: -56px -42px;
+}
+
+.mtg_mana_UR {
+    background-position: -70px -42px;
+}
+
+.mtg_mana_B {
+    background-position: 0px -56px;
+}
+
+.mtg_mana_G {
+    background-position: -14px -56px;
+}
+
+.mtg_mana_R {
+    background-position: -28px -56px;
+}
+
+.mtg_mana_U {
+    background-position: -42px -56px;
+}
+
+.mtg_mana_W {
+    background-position: -56px -56px;
+}
+
+.mtg_mana_BG {
+    background-position: -70px -56px;
+}
+
+.mtg_mana_BR {
+    background-position: 0px -70px;
+}
+
+.mtg_mana_GU {
+    background-position: -14px -70px;
+}
+
+.mtg_mana_GW {
+    background-position: -28px -70px;
+}
+
+.mtg_mana_RG {
+    background-position: -42px -70px;
+}
+
+.mtg_mana_RW {
+    background-position: -56px -70px;
+}
+
+.mtg_mana_UB {
+    background-position: -70px -70px;
+}
+
+.mtg_mana_BP {
+    background-position: 0px -84px;
+}
+
+.mtg_mana_GP {
+    background-position: -14px -84px;
+}
+
+.mtg_mana_RP {
+    background-position: -28px -84px;
+}
+
+.mtg_mana_UP {
+    background-position: -42px -84px;
+}
+
+.mtg_mana_WP {
+    background-position: -56px -84px;
+}
+
+.mtg_mana_T {
+    background-position: -70px -84px;
+}

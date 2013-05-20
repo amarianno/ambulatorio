@@ -1,0 +1,53 @@
+/* ITENS ABAIXO SÃO DA LISTA DE EXIBIÇÃO (RESULTADOS) DE CARTAS DA BUSCA */
+.cardItem {
+    width: 100%;
+    display: table;
+    border-bottom: 1px dotted #77897f;
+    margin: 0 auto;
+}
+
+.cellBox {
+    padding: 6px;
+    height: 80px;
+    width: 20%;
+    display: table-cell;
+    margin: 0 auto;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.cardNameBox {
+    border-bottom: 2px #031966 dotted;
+    min-width: 10%;
+    max-width: 30%;
+    text-align: center;
+    margin: 30px auto 10px;
+    font-size: larger;
+    padding-bottom: 12px;
+}
+
+.precoPequeno {
+    font-size: x-small;
+    font-weight: bold;
+}
+
+.precoGrande {
+    font-size: larger;
+    font-weight: bold;
+    color: #99CC33;
+}
+
+.imagem_carta {
+    margin: 0 auto;
+    width: 170px;
+}
+
+.qtde {
+
+}
+
+.invisivel {
+
+    visibility: hidden;
+
+}

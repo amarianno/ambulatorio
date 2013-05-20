@@ -1,0 +1,367 @@
+/* REFERENTE AO AUTOCOMPLETE */
+#nomeCartaEN {
+    width: 400px;
+}
+
+#sitesParserBox {
+    margin-top: 20px;
+}
+
+.nameEN {
+    font-weight: bold;
+    color: #000000;
+    letter-spacing: 1pt;
+    word-spacing: 2pt;
+    font-size: 14px;
+    text-align: left;
+    font-family: 'Ubuntu', arial, serif;
+}
+
+.namePT {
+    font-weight: bold;
+    color: #000000;
+    letter-spacing: 1pt;
+    word-spacing: 2pt;
+    font-size: 11px;
+    text-align: left;
+    font-family: 'Ubuntu', arial, serif;
+}
+
+.highlight_search {
+    color: #95927a;
+}
+
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}
+
+#g-search-button {
+    display: inline-block;
+    width: 24px;
+    height: 21px;
+    position: relative;
+    left: -38px;
+    top: 6px;
+    background-image: url("../../img/icon/search-submit-icon.png");
+}
+
+/* IE 6 doesn't support max-height
+ * we use height instead, but this forces the menu to always be this tall
+ */
+* html .ui-autocomplete {
+    height: 200px;
+}
+
+/* ITENS ABAIXO SÃO DA LISTA DE EXIBIÇÃO (RESULTADOS) DE CARTAS DA BUSCA */
+div.cardItem {
+    display: table;
+    border-bottom: 1px dotted #77897f;
+    margin: 0 auto;
+}
+
+#resultado_busca tr.cardItem {
+    text-align: center;
+}
+
+#resultado_busca td.loja, #resultado_busca td.preco,
+#resultado_busca td.edicao_foil, #resultado_busca td.qtde_condicao,
+#resultado_busca td.link,
+.cellBox {
+    padding: 6px;
+    height: 80px;
+    width: 20%;
+    display: table-cell;
+    margin: 0 auto;
+    vertical-align: middle;
+    text-align: center;
+    border-bottom: 1px dotted #77897f;
+}
+
+span.ordenacao {
+    float: right;
+    font-size: 14px;
+}
+
+span.subtitulo {
+    font-size: 12px;
+}
+
+.cardNameBox {
+    border-bottom: 2px #031966 dotted;
+    min-width: 10%;
+    max-width: 30%;
+    text-align: center;
+    margin: 30px auto 10px;
+    font-size: larger;
+    padding-bottom: 12px;
+}
+
+.precoPequeno {
+    font-size: x-small;
+    font-weight: bold;
+}
+
+.precoGrande {
+    font-size: larger;
+    font-weight: bold;
+    color: #99CC33;
+}
+
+.qtde {
+
+}
+
+.invisivel {
+
+    visibility: hidden;
+
+}
+
+/* VALIDAÇÃO DO FORMULÁRIO */
+#contactForm .error {
+    color: #b9002e;
+    font-style: italic;
+    font-size: smaller;
+}
+
+#contactForm input.error {
+    font-size: 14px;
+    font-style: normal;
+    background-color: rgb(233, 233, 233);
+}
+
+#contactForm .req {
+    color: #b9002e;
+}
+
+h3.success {
+    color: #07c362;
+}
+
+h3.fail {
+    color: #b9002e;
+}
+
+/* DETALHES DA CARTA */
+#dialogDetalhes td.label {
+    text-align: right;
+    font-weight: bold;
+    vertical-align: top;
+    font-size: 14px;
+    width: 30%;
+    border-bottom: 1px solid #eeeeee;
+}
+
+#dialogDetalhes td.content {
+    vertical-align: top;
+    font-size: 14px;
+    margin-right: 4px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+#dialogDetalhes td.content p {
+    margin: 0 auto 2px;
+}
+
+/* ITENS APÓS BUSCA */
+.titulo {
+    border-bottom: 1px solid #d7d7d7;
+}
+
+/* EXIBIÇÃO DO DECK */
+#listaDeDecks ul {
+    margin: 10px auto;
+    padding: 0;
+    list-style: none;
+}
+
+#listaDeDecks li.deck a {
+    font-size: 12px;
+    color: rgb(51, 48, 51);
+}
+
+#listaDeDecks li.deck a:hover {
+    font-size: 12px;
+    color: rgb(115, 122, 140);
+}
+
+#listaDeDecks ul li {
+}
+
+h4.tituloDeck {
+    font-size: 18px;
+    border-bottom: 1px dotted rgb(88, 88, 88);
+}
+
+h4.tituloSide {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+span.sideboard {
+}
+
+img.grayscale {
+    filter: none;
+    -webkit-filter: grayscale(0%);
+}
+
+img.grayscale:hover {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+    -webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
+    -webkit-backface-visibility: hidden; /* Fix for transition flickering */
+}
+
+/* TABLE */
+.datagrid table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+}
+
+.datagrid {
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    overflow: hidden;
+    border: 1px solid #ceccd0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.datagrid table td, .datagrid table th {
+    padding: 3px 10px;
+}
+
+.datagrid table thead th {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #313031), color-stop(1, #1d2023));
+    background: -moz-linear-gradient(center top, #313031 5%, #1d2023 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#313031', endColorstr = '#1d2023');
+    background-color: #1d2023;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+    border-left: 1px solid #1d2023;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.datagrid table thead th:first-child {
+    border: none;
+}
+
+.datagrid table tbody td {
+    color: #222;
+    border-left: 1px solid #ceccd0;
+    font-size: 12px;
+    border-bottom: 1px solid #ceccd0;
+    font-weight: normal;
+}
+
+.datagrid table tbody .alt td {
+    background: #fafafa;
+    color: #222;
+}
+
+.datagrid table tbody td:first-child {
+    border-left: none;
+}
+
+.datagrid table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.datagrid table tbody td.qtde {
+    width: 6%;
+    text-align: center;
+}
+
+.datagrid table tbody td.nome {
+    width: 37%;
+}
+
+.datagrid table tbody td.nome a,
+.datagrid table tbody td.semCartas a,
+.datagrid table tbody a.item_lista {
+    color: rgb(115, 122, 140);
+}
+
+.datagrid table tbody td.nome a:hover,
+.datagrid table tbody td.semCartas:hover,
+.datagrid table tbody a:hover.item_lista {
+    color: rgb(78, 83, 97);
+}
+
+.datagrid table tbody td.tipo {
+    width: 33%;
+}
+
+.datagrid table tbody td.corCusto {
+    text-align: center;
+    width: 9%;
+}
+
+.datagrid table tbody td.edicao {
+    text-align: center;
+    width: 12%;
+}
+
+.datagrid table tbody td.vlMedio {
+    text-align: right;
+    width: 12%;
+}
+
+.datagrid table tbody td.semCartas {
+    text-align: center;
+    padding: 40px;
+}
+
+.datagrid table tbody th.cabecalho {
+    text-align: center;
+}
+
+.datagrid table tbody input.qtdeCarta {
+    width: 100%;
+    border: 0px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    text-align: center;
+}
+
+.datagrid table tbody td.qtde:hover,
+.datagrid table tbody input.qtdeCarta:hover {
+    background: #ffffff;
+}
+
+#qtdeAdd {
+    width: 14px;
+}
+
+#divAdicionarCartaIndividual {
+    margin-bottom: 10px;
+}
+
+.datagrid table.tablesorter thead tr .tablesorter-header {
+    background-image: url(../../img/table/bg.gif) ;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center right;
+    margin-left: -1px;
+}
+
+.datagrid table.tablesorter thead tr .tablesorter-headerAsc {
+    background-image: url(../../img/table/asc.gif);
+    /*background-color: #3399FF;*/
+}
+
+.datagrid table.tablesorter thead tr .tablesorter-headerDesc {
+    background-image: url(../../img/table/desc.gif);
+    /*background-color: #3399FF;*/
+}

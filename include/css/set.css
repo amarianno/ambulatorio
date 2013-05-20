@@ -1,0 +1,25 @@
+.texto_fonte{
+	font-size: 100%;
+}
+
+.texto_hora{
+	font-size: 110%;
+	text-align:right;
+	font-style:italic
+}
+
+.texto_nome{
+    font-size: 110%;
+    text-align:right;
+    font-style:italic
+}
+
+.texto_titulo{
+	font-size: 110%;
+	font-weight:bold;
+}
+
+.texto_noticia{
+	font-size: 120%;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}

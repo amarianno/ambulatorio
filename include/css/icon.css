@@ -1,0 +1,378 @@
+.sprite {
+    background: url(../img/icon_sprite.png) no-repeat;
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+.sprite-accept {
+    background-position: -1px -1px;
+}
+
+.sprite-add {
+    background-position: -19px -1px;
+}
+
+.sprite-addfile {
+    background-position: -37px -1px;
+}
+
+.sprite-adduser {
+    background-position: -55px -1px;
+}
+
+.sprite-app {
+    background-position: -73px -1px;
+}
+
+.sprite-back {
+    background-position: -91px -1px;
+}
+
+.sprite-backward {
+    background-position: -109px -1px;
+}
+
+.sprite-bug {
+    background-position: -127px -1px;
+}
+
+.sprite-burn {
+    background-position: -145px -1px;
+}
+
+.sprite-cd {
+    background-position: -1px -19px;
+}
+
+.sprite-chat {
+    background-position: -19px -19px;
+}
+
+.sprite-clock {
+    background-position: -37px -19px;
+}
+
+.sprite-close {
+    background-position: -55px -19px;
+}
+
+.sprite-configure {
+    background-position: -73px -19px;
+}
+
+.sprite-console {
+    background-position: -91px -19px;
+}
+
+.sprite-cut {
+    background-position: -109px -19px;
+}
+
+.sprite-cutb {
+    background-position: -127px -19px;
+}
+
+.sprite-database {
+    background-position: -145px -19px;
+}
+
+.sprite-delete {
+    background-position: -1px -37px;
+}
+
+.sprite-deletefile {
+    background-position: -19px -37px;
+}
+
+.sprite-deleteuser {
+    background-position: -37px -37px;
+}
+
+.sprite-documentsorcopy {
+    background-position: -55px -37px;
+}
+
+.sprite-down {
+    background-position: -73px -37px;
+}
+
+.sprite-edit {
+    background-position: -91px -37px;
+}
+
+.sprite-fav {
+    background-position: -109px -37px;
+}
+
+.sprite-favadd {
+    background-position: -127px -37px;
+}
+
+.sprite-favb {
+    background-position: -145px -37px;
+}
+
+.sprite-favbadd {
+    background-position: -1px -55px;
+}
+
+.sprite-file {
+    background-position: -19px -55px;
+}
+
+.sprite-filelocked {
+    background-position: -37px -55px;
+}
+
+.sprite-filesearch {
+    background-position: -55px -55px;
+}
+
+.sprite-find {
+    background-position: -73px -55px;
+}
+
+.sprite-floppy {
+    background-position: -91px -55px;
+}
+
+.sprite-folder {
+    background-position: -109px -55px;
+}
+
+.sprite-folderlocked {
+    background-position: -127px -55px;
+}
+
+.sprite-foldermove {
+    background-position: -145px -55px;
+}
+
+.sprite-folderopenb {
+    background-position: -1px -73px;
+}
+
+.sprite-foldersearch {
+    background-position: -19px -73px;
+}
+
+.sprite-forward {
+    background-position: -37px -73px;
+}
+
+.sprite-gotoapp {
+    background-position: -55px -73px;
+}
+
+.sprite-gowebsite {
+    background-position: -73px -73px;
+}
+
+.sprite-groupofusers {
+    background-position: -91px -73px;
+}
+
+.sprite-hd {
+    background-position: -109px -73px;
+}
+
+.sprite-hdlocked {
+    background-position: -127px -73px;
+}
+
+.sprite-hdsearch {
+    background-position: -145px -73px;
+}
+
+.sprite-help {
+    background-position: -1px -91px;
+}
+
+.sprite-home {
+    background-position: -19px -91px;
+}
+
+.sprite-infoabout {
+    background-position: -37px -91px;
+}
+
+.sprite-key {
+    background-position: -55px -91px;
+}
+
+.sprite-lock {
+    background-position: -73px -91px;
+}
+
+.sprite-mail {
+    background-position: -91px -91px;
+}
+
+.sprite-mailpgp {
+    background-position: -109px -91px;
+}
+
+.sprite-mailsend {
+    background-position: -127px -91px;
+}
+
+.sprite-money {
+    background-position: -145px -91px;
+}
+
+.sprite-moneyb {
+    background-position: -1px -109px;
+}
+
+.sprite-moneyc {
+    background-position: -19px -109px;
+}
+
+.sprite-movefile {
+    background-position: -37px -109px;
+}
+
+.sprite-music {
+    background-position: -55px -109px;
+}
+
+.sprite-network {
+    background-position: -73px -109px;
+}
+
+.sprite-networkoptions {
+    background-position: -91px -109px;
+}
+
+.sprite-networksearch {
+    background-position: -109px -109px;
+}
+
+.sprite-next {
+    background-position: -127px -109px;
+}
+
+.sprite-paint {
+    background-position: -145px -109px;
+}
+
+.sprite-pastfile {
+    background-position: -1px -127px;
+}
+
+.sprite-pause {
+    background-position: -19px -127px;
+}
+
+.sprite-pictures {
+    background-position: -37px -127px;
+}
+
+.sprite-play {
+    background-position: -55px -127px;
+}
+
+.sprite-printer {
+    background-position: -73px -127px;
+}
+
+.sprite-printpreview {
+    background-position: -91px -127px;
+}
+
+.sprite-redo {
+    background-position: -109px -127px;
+}
+
+.sprite-refresh {
+    background-position: -127px -127px;
+}
+
+.sprite-saveas {
+    background-position: -145px -127px;
+}
+
+.sprite-stats {
+    background-position: -1px -145px;
+}
+
+.sprite-stop {
+    background-position: -19px -145px;
+}
+
+.sprite-textfile {
+    background-position: -37px -145px;
+}
+
+.sprite-trash {
+    background-position: -55px -145px;
+}
+
+.sprite-trashb {
+    background-position: -73px -145px;
+}
+
+.sprite-undo {
+    background-position: -91px -145px;
+}
+
+.sprite-up {
+    background-position: -109px -145px;
+}
+
+.sprite-user {
+    background-position: -127px -145px;
+}
+
+.sprite-userb {
+    background-position: -145px -145px;
+}
+
+.sprite-userid {
+    background-position: -163px -1px;
+}
+
+.sprite-userlock {
+    background-position: -163px -19px;
+}
+
+.sprite-web {
+    background-position: -163px -37px;
+}
+
+.sprite-webhd {
+    background-position: -163px -55px;
+}
+
+.sprite-weblocked {
+    background-position: -163px -73px;
+}
+
+.sprite-weboptions {
+    background-position: -163px -91px;
+}
+
+.sprite-websearch {
+    background-position: -163px -109px;
+}
+
+.sprite-window {
+    background-position: -163px -127px;
+}
+
+.sprite-windowb {
+    background-position: -163px -145px;
+}
+
+.sprite-wizard {
+    background-position: -1px -163px;
+}
+
+.sprite-zoomin {
+    background-position: -19px -163px;
+}
+
+.sprite-zoomout {
+    background-position: -37px -163px;
+}

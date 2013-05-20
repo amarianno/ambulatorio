@@ -1,0 +1,412 @@
+jQuery(function($){
+    $("#txtDtRecebimento").mask("99/99/9999");
+    $("#txtDtIniAfastamento").mask("99/99/9999");
+});
+
+function numdias(mes,ano) {
+    if((mes<8 && mes%2==1) || (mes>7 && mes%2==0)) return 31;
+    if(mes!=2) return 30;
+    if(ano%4==0) return 29;
+    return 28;
+}
+
+function somadias(data, dias) {
+    data=data.split('/');
+    diafuturo=parseInt(data[0])+parseInt(dias);
+    mes=parseInt(data[1]);
+    ano=parseInt(data[2]);
+    while(diafuturo>numdias(mes,ano)) {
+        diafuturo-=numdias(mes,ano);
+        mes++;
+        if(mes>12) {
+            mes=1;
+            ano++;
+        }
+    }
+
+    if(diafuturo<10) diafuturo='0'+diafuturo;
+    if(mes<10) mes='0'+mes;
+
+    return diafuturo+"/"+mes+"/"+ano;
+}
+
+function calculaDataFinalDeAfastamento() {
+
+    if($('#txtDtIniAfastamento').val() != "" && $('#txtQtdeDiasAfastado').val() != "") {
+        $('#txtDtFimAfastamento').val(somadias($('#txtDtIniAfastamento').val(), $('#txtQtdeDiasAfastado').val()));
+    }
+}
+
+function preencheGridAtestados() {
+
+    if($("#txtMatricula").val() == '') {return false;}
+
+    var campos =  "txtMatricula=" + $("#txtMatricula").val();
+    preencheGridAtestadosBanco('atestadoLST.php', campos, 'conteudoGrid');
+}
+
+function preencheGridAtestadosBanco(url, campos, destino) {
+    var elemento = document.getElementById(destino);
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: campos,
+        success: function (data) {
+            elemento.innerHTML = data;
+        }
+    });
+}
+
+function apagarAtestado(codigo) {
+
+    var campos = 'codigo=' + codigo;
+
+    $.ajax({
+        type: "POST",
+        url: 'atestadoDEL.php',
+        data: campos,
+        success: function (data) {
+            $('#mensagemCadastro').html("<h3 style='color: green'>" + data + "</h3>").delay(3000).hide(0);
+            preencheGridAtestados();
+        }
+    });
+}
+
+function limparCamposAtestado() {
+
+    $("#codigo").val('');
+    $("#txtQtdeDiasAfastado").val('');
+    $("#txtDtIniAfastamento").val('');
+    $("#txtDtFimAfastamento").val('');
+    document.getElementById('chkAcompanhamentoFamiliar').checked = false;
+    document.getElementById("selgrauParentesco").selectedIndex = 0;
+    document.getElementById('chkConcedidosInternos').checked = false;
+    document.getElementById('chkHomologados').checked = false;
+    $("#txtCID").val('');
+    document.getElementById('chklicencaMaternidade').checked = false;
+    document.getElementById('chkHomologadoMedico').checked = false;
+}
+
+function addAtestado() {
+
+    var campos = "txtDtRecebimento=" + $("#txtDtRecebimento").val() + "&txtMatricula=" + $("#txtMatricula").val();
+    campos += "&txtQtdeDiasAfastado=" + $("#txtQtdeDiasAfastado").val() + "&txtDtIniAfastamento=" + $("#txtDtIniAfastamento").val();
+    campos += "&txtDtFimAfastamento=" + $("#txtDtFimAfastamento").val();
+    campos += "&chkAcompanhamentoFamiliar=" + (document.getElementById('chkAcompanhamentoFamiliar').checked ? '1' : '0');
+    campos += "&selgrauParentesco=" + document.getElementById("selgrauParentesco").value;
+    campos += "&chkConcedidosInternos=" + (document.getElementById('chkConcedidosInternos').checked ? '1' : '0');
+    campos += "&chkHomologados=" + (document.getElementById('chkHomologados').checked ? '1' : '0');
+    campos += "&txtCID=" + $("#txtCID").val();
+    campos += "&chklicencaMaternidade=" + (document.getElementById('chklicencaMaternidade').checked ? '1' : '0');
+    campos += "&chkHomologadoMedico=" + (document.getElementById('chkHomologadoMedico').checked ? '1' : '0');
+    if($("#codigo").val() != '') {
+        campos += "&codigo=" + $("#codigo").val();
+    }
+
+
+    addAtestadoBanco('atestadoCAD.php', campos, 'conteudoGrid');
+}
+
+function addAtestadoBanco(url, campos, destino) {
+    var elemento = document.getElementById(destino);
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: campos,
+        success: function (data) {
+            $('#mensagemCadastro').html("<h3 style='color: green'>" + data + "</h3>").delay(3000).hide(0);
+            limparCamposAtestado();
+            preencheGridAtestados();
+        }
+    });
+}
+
+
+$(function() {
+    if ($("#txtMatricula").size() > 0) {
+        $( "#txtMatricula" ).autocomplete({
+            source: 'include/autocomplete.php',
+            minLength: 2,
+            highlight: true,
+            autoFocus: false,
+            focus: function (event, ui) {
+                $("#txtMatricula").val(ui.item.matricula);
+                $("#nomeEmpregado").html('<b>' + ui.item.nome + '</b>');
+                return false;
+            },
+            select: function (event, ui) {
+                $("#txtMatricula").val(ui.item.matricula);
+                $("#nomeEmpregado").html('<b>' + ui.item.nome + '</b>');
+                return false;
+            }
+        }).data("uiAutocomplete")._renderItem = function (ul, item) {
+            return $("<li></li>")
+                .data("item.autocomplete", item)
+                .append("<a><span class='nameEN'>" + item.matricula + "</span></a>")
+                .appendTo(ul);
+        };
+    }
+});
+
+$(function() {
+
+    if ($("#txtCID").size() > 0) {
+        $( "#txtCID" ).autocomplete({
+            source: 'include/autocompletecid.php',
+            minLength: 2,
+            highlight: true,
+            autoFocus: true,
+            focus: function (event, ui) {
+                $("#txtCID").val(ui.item.nome);
+                return false;
+            },
+            select: function (event, ui) {
+                $("#txtCID").val(ui.item.nome);
+                return false;
+            }
+        }).data("uiAutocomplete")._renderItem = function (ul, item) {
+            return $("<li></li>")
+                .data("item.autocomplete", item)
+                .append("<a><span class='nameEN'>" + item.nome + "</span></a>")
+                .appendTo(ul);
+        };
+    }
+});
+
+function formataData(dataParaFormatar) {
+    var dataSplit = dataParaFormatar.split("-");
+    return dataSplit[2] + "/" + dataSplit[1] + "/" + dataSplit[0];
+}
+
+function editarAtestado(value) {
+
+    var campos = 'codigo=' + value;
+
+    $.ajax({
+        type: "POST",
+        url: 'atestadoEDT.php',
+        data: campos,
+        success: function (data) {
+
+            var atestado = jQuery.parseJSON ( data );
+
+            $("#codigo").val(atestado.codigo);
+            $("#txtDtRecebimento").val(formataData(atestado.dataRecebimento));
+            $("#txtMatricula").val(atestado.empregado.matricula);
+            $("#txtQtdeDiasAfastado").val(atestado.diasAfastado);
+            $("#txtDtIniAfastamento").val(formataData(atestado.dataInicialAfastamento));
+            $("#txtDtFimAfastamento").val(formataData(atestado.dataFinalAfastamento));
+            document.getElementById('chkAcompanhamentoFamiliar').checked = (atestado.isAcompanhamentoFamiliar == '1' ? true : false);
+
+            var meuSelect = document.getElementById("selgrauParentesco");
+            var i = 0;
+            while (true) {
+                if (meuSelect.options[i].value == atestado.grauParentesco) {
+                    meuSelect.selectedIndex = i;
+                    break;
+                } else {
+                    i++;
+                }
+            }
+
+            document.getElementById('chkConcedidosInternos').checked = (atestado.isConcedidos == '1' ? true : false);
+            document.getElementById('chkHomologados').checked = (atestado.isHomologados == '1' ? true : false);
+            $("#txtCID").val(atestado.cid);
+            document.getElementById('chklicencaMaternidade').checked = (atestado.isLicencaMaternidade == '1' ? true : false);
+            document.getElementById('chkHomologadoMedico').checked = (atestado.isHomologadoMedico == '1' ? true : false);
+
+        }
+    });
+}
+ /*
+$(document).ready(function () {
+    $("#cadAtestadoForm").validate({
+        rules: {
+            txtDtRecebimento: {
+                required: true
+            },
+            txtMatricula: {
+                required: true
+            },
+            txtQtdeDiasAfastado: {
+                required: true
+            },
+            txtDtIniAfastamento: {
+                cpf: true
+            },
+            txtCID: {
+                required: true
+            }
+        },
+        // Define as mensagens de erro para cada regra
+        messages: {
+            txtDtRecebimento: {
+                required: "Data Recebimento Obrigatório"
+            },
+            txtMatricula: {
+                required: "Matrícula Obrigatório"
+            },
+            txtQtdeDiasAfastado: {
+                required: "Quantidade de dias Afastado Obrigatório"
+            },
+            txtDtIniAfastamento: {
+                required: "Data Inicial Obrigatório"
+            },
+            txtCID: {
+                required: "CID Obrigatória"
+            }
+        },
+        submitHandler: function(e) {
+            addAtestado();
+        }
+    });
+});*/
+/**************************************** CONSULTAS *******************************************************************/
+
+function consultaPorMatricula() {
+
+    if($("#txtMatricula").val() == '') {return false;}
+
+    var campos =  "txtMatricula=" + $("#txtMatricula").val();
+    campos += "&consultar=1"
+    preencheGridAtestadosBanco('consulta_matricula.php', campos, 'conteudoGrid');
+}
+
+function consultaPorMatriculaBanco(url, campos, destino) {
+    var elemento = document.getElementById(destino);
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: campos,
+        success: function (data) {
+            elemento.innerHTML = data;
+        }
+    });
+}
+
+function toogle(idDiv) {
+    if(idDiv == 1) {
+        var o = document.getElementById("gridAcompanhamentoFamiliar");
+
+        if(o.style.display == 'none') {
+            o.style.display = 'block';
+            $('#addSubaddSubAcompanhamentoFamiliar').html("<img id='addSubAcompanhamentoFamiliar' src='include/img/icon/remove.png' />");
+        }  else {
+            o.style.display = 'none';
+            $('#addSubaddSubAcompanhamentoFamiliar').html("<img id='addSubAcompanhamentoFamiliar' src='include/img/icon/add.png' />");
+        }
+    } else if(idDiv == 2) {
+        var o = document.getElementById("gridHomologados");
+
+        if(o.style.display == 'none') {
+            o.style.display = 'block';
+            $('#addSubHomologados').html("<img id='addSubHomologados' src='include/img/icon/remove.png' />");
+        }  else {
+            o.style.display = 'none';
+            $('#addSubHomologados').html("<img id='addSubHomologados' src='include/img/icon/add.png' />");
+        }
+    } else if(idDiv == 3) {
+        var o = document.getElementById("gridConcedidos");
+
+        if(o.style.display == 'none') {
+            o.style.display = 'block';
+            $('#addSubConcedidos').html("<img id='addSubConcedidos' src='include/img/icon/remove.png' />");
+        }  else {
+            o.style.display = 'none';
+            $('#addSubConcedidos').html("<img id='addSubConcedidos' src='include/img/icon/add.png' />");
+        }
+    } else {
+        var o = document.getElementById("gridLicMaternidade");
+
+        if(o.style.display == 'none') {
+            o.style.display = 'block';
+            $('#addSubLicMaternidade').html("<img id='addSubLicMaternidade' src='include/img/icon/remove.png' />");
+        }  else {
+            o.style.display = 'none';
+            $('#addSubLicMaternidade').html("<img id='addSubLicMaternidade' src='include/img/icon/add.png' />");
+        }
+    }
+}
+/**************************************** EMPREGADO *******************************************************************/
+
+function buscarEmpregado() {
+    var campos = "txtNomePes=" + $("#txtNomePes").val();
+    campos += "&op=buscar";
+
+    $.ajax({
+        type: "POST",
+        url: 'empregadoCAD.php',
+        data: campos,
+        success: function (data) {
+            document.getElementById('gridEmpregado').innerHTML = data;
+        }
+    });
+
+}
+
+function addEmpregado() {
+
+    var campos = "txtMatricula=" + $("#txtMatricula").val();
+    campos += "&txtNome=" + $("#txtNome").val();
+    campos += "&txtLotacao=" + $("#txtLotacao").val();
+    campos += "&selLocalidade=" + document.getElementById("selLocalidade").value;
+    campos += "&cadastraOuAlterar=" + $("#cadastraOuAlterar").val();
+    campos += "&op=gravar";
+
+
+    $.ajax({
+        type: "POST",
+        url: 'empregadoCAD.php',
+        data: campos,
+        success: function (data) {
+            alert(data);
+        }
+    });
+}
+function limparCamposEmpregado() {
+
+    $("#txtMatricula").val('');
+    $("#txtNome").val('');
+    $("#txtLotacao").val('');
+    document.getElementById("selLocalidade").selectedIndex = 0;
+}
+function existeFuncionario() {
+
+    if($('#txtMatricula').val() == '') {
+        return false;
+    }
+
+    var campos = 'op=existe&matricula=' + $('#txtMatricula').val();
+
+    $.ajax({
+        type: "POST",
+        url: 'empregadoCAD.php',
+        data: campos,
+        success: function (data) {
+            var funcionario = jQuery.parseJSON ( data );
+
+            if(funcionario.nome == '' || funcionario.nome == null) {
+                $('#cadastraOuAlterar').val('cad');
+                $('#txtNome').val('');
+                $('#txtLotacao').val('');
+                document.getElementById("selLocalidade").selectedIndex = 0;
+            } else {
+                $('#cadastraOuAlterar').val('alt');
+                $('#txtNome').val(funcionario.nome);
+                $('#txtLotacao').val(funcionario.lotacao);
+                if(funcionario.localidade != '') {
+                    var meuSelect = document.getElementById("selLocalidade");
+                    var i = 0;
+                    while (true) {
+                        if (meuSelect.options[i].value == funcionario.localidade) {
+                            meuSelect.selectedIndex = i;
+                            break;
+                        } else {
+                            i++;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}

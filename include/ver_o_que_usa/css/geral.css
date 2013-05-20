@@ -1,0 +1,39 @@
+body {
+    font-size: small;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+/* tag html para funcionar no IE5 devido a um bug */
+* html body {
+    font-size: x-small;
+    font-size: small;
+}
+
+table {
+    font-size: 95%;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.fundo_verde {
+    background-color: #99CC33;
+    color: #FFFFFF;
+}
+
+.fundo_azul {
+    background-color: #6699FF;
+    color: #FFFFFF;
+}
+
+.fundo_branco {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.fundo_menu {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+a:hover {
+    color: #000000;
+}
