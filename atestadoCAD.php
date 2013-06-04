@@ -23,10 +23,10 @@ try {
     $camposValores['grau_parentesco'] = valorCheck('selgrauParentesco');
     $camposValores['concedido'] = valorCheck('chkConcedidosInternos');
     $camposValores['homologados'] = valorCheck('chkHomologados');
-    $camposValores['cid'] = valorCheck('txtCID');
+    $camposValores['cid'] = strtr(strtoupper(valorCheck('txtCID')),"àáâãäåæçèéêëìíîïðñòóôõö÷øùüúþÿ","ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÜÚÞß");
     $camposValores['licenca_maternidade'] = valorCheck('chklicencaMaternidade');
     $camposValores['homologado_medico'] = valorCheck('chkHomologadoMedico');
-    $camposValores['erlandia'] = 1;
+    $camposValores['erlandia'] = 0;
 
     $codigo = valorCheck('codigo');
 

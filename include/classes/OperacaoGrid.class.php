@@ -33,9 +33,10 @@ class OperacaoGrid {
         }
 
         $htmlRetorno .= "       <th>Matrícula</th>";
+        $htmlRetorno .= "       <th>Dias Afastado</th>";
         $htmlRetorno .= "       <th>Data Inicial</th>";
         $htmlRetorno .= "       <th>Data Final</th>";
-        $htmlRetorno .= "       <th>Dias Afastado</th>";
+
         if($comDataRecebimento) {
             $htmlRetorno .= "       <th>Data Recebimento</th>";
         }
@@ -56,9 +57,9 @@ class OperacaoGrid {
                 }
 
                 $htmlRetorno .= "   <td>" . $atestados->empregado->matricula . "</td>";
+                $htmlRetorno .= "   <td>" . $atestados->diasAfastado . "</td>";
                 $htmlRetorno .= "   <td>" . self::formataData($atestados->dataInicialAfastamento) . "</td>";
                 $htmlRetorno .= "   <td>" . self::formataData($atestados->dataFinalAfastamento) . "</td>";
-                $htmlRetorno .= "   <td>" . $atestados->diasAfastado . "</td>";
                 if($comDataRecebimento) {
                     $htmlRetorno .= "   <td>" . self::formataData($atestados->dataRecebimento) . "</td>";
                 }

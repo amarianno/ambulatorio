@@ -145,6 +145,25 @@ function syncAcompanhamentoFamiliar() {
     }
 }
 
+function validaCID() {
+
+    if($("#txtCID").val() == '') {return false;}
+
+    var campos = 'cid=' + $("#txtCID").val();
+    $.ajax({
+        type: "POST",
+        url: 'validaCID.php',
+        data: campos,
+        success: function (data) {
+            if(data == 'FALSE') {
+                alert('CID inválido');
+                $("#txtCID").focus();
+            }
+        }
+    });
+
+}
+
 function addAtestado() {
 
     if(document.getElementById('chkAcompanhamentoFamiliar').checked && document.getElementById("selgrauParentesco").value == '0') {

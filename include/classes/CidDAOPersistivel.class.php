@@ -48,7 +48,7 @@ class CidDAOPersistivel extends DAOPersistivel {
     public function consultarCidPorMes(DAOBanco $banco, $dataInicial, $dataFinal ) {
         $sql = "SELECT COUNT( cid.nome ) AS quantidade , cid.nome AS nome, cid.descricao AS descricao
                 FROM cid, atestado
-                WHERE cid.nome = atestado.cid AND atestado.acompanhamento_familiar = 0
+                WHERE UPPER(cid.nome) = UPPER(atestado.cid) AND atestado.acompanhamento_familiar = 0
                 AND atestado.data_recebimento
                 BETWEEN  '".$dataInicial."'
                 AND  '".$dataFinal."'

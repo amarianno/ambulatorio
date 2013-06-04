@@ -108,7 +108,8 @@
                     </label>
                     <input id="txtCID" name="txtCID"
                            type="text" value="{$txtMatricula}" maxlength="5"
-                           tabindex="10" width="30" style="width: 120px;"/>
+                           tabindex="10" width="30" style="width: 120px;"
+                            onblur="validaCID()"/>
                 </td>
                 <td>
                     <label for="chklicencaMaternidade">

@@ -44,7 +44,7 @@ function toGridHtml($listaCID, $diasAfastado) {
             $htmlRetorno .= "<tr class='" . $classe . "'>";
             $htmlRetorno .= "   <td>" . $relatorio->quantidade . "</td>";
             $htmlRetorno .= "   <td>" . $relatorio->cid->nome . "</td>";
-            $htmlRetorno .= "   <td>" . $relatorio->cid->descricao . "</td>";
+            $htmlRetorno .= "   <td>" . utf8_encode($relatorio->cid->descricao) . "</td>";
             $htmlRetorno .= '</tr>';
 
 

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-05-08 14:09:26
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-04 14:40:30
          compiled from "templates/atestados.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:141140939351800ae2133004-64070952%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f9601848405e2bf8a5356c47571c481efe490c4e' => 
     array (
       0 => 'templates/atestados.tpl',
-      1 => 1368032914,
+      1 => 1370367619,
       2 => 'file',
     ),
   ),
@@ -145,7 +145,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <input id="txtCID" name="txtCID"
                            type="text" value="<?php echo $_smarty_tpl->tpl_vars['txtMatricula']->value;?>
 " maxlength="5"
-                           tabindex="10" width="30" style="width: 120px;"/>
+                           tabindex="10" width="30" style="width: 120px;"
+                            onblur="validaCID()"/>
                 </td>
                 <td>
                     <label for="chklicencaMaternidade">
