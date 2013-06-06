@@ -7,6 +7,7 @@ class Empregado extends Persistivel {
     public $nome;
     public $lotacao;
     public $localidade;
+    public $numCarteira;
 
     public function getChavePrimaria() {
         return $this->codigo;

@@ -40,6 +40,8 @@ class EmpregadoDAOPersistivel extends DAOPersistivel {
                     $empregado->lotacao = $valor;
                 } elseif (strcasecmp($campo, "empresa") == 0) {
                     $empregado->localidade = $valor;
+                } elseif (strcasecmp($campo, "num_carteira") == 0) {
+                    $empregado->numCarteira = $valor;
                 }
             }
             $resultsets[] = $empregado;

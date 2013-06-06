@@ -484,6 +484,7 @@ function addEmpregado() {
     var campos = "txtMatricula=" + $("#txtMatricula").val();
     campos += "&txtNome=" + $("#txtNome").val();
     campos += "&txtLotacao=" + $("#txtLotacao").val();
+    campos += "&txtNumCarteira=" + $("#txtNumCarteira").val();
     campos += "&selLocalidade=" + document.getElementById("selLocalidade").value;
     campos += "&cadastraOuAlterar=" + $("#cadastraOuAlterar").val();
     campos += "&op=gravar";
@@ -503,6 +504,7 @@ function limparCamposEmpregado() {
 
     $("#txtMatricula").val('');
     $("#txtNome").val('');
+    $("#txtNumCarteira").val('');
     $("#txtLotacao").val('');
     document.getElementById("selLocalidade").selectedIndex = 0;
 }
@@ -530,6 +532,7 @@ function existeFuncionario() {
                 $('#cadastraOuAlterar').val('alt');
                 $('#txtNome').val(funcionario.nome);
                 $('#txtLotacao').val(funcionario.lotacao);
+                $('#txtNumCarteira').val(funcionario.numCarteira);
                 if(funcionario.localidade != '') {
                     var meuSelect = document.getElementById("selLocalidade");
                     var i = 0;

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-05-08 11:14:25
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-06 14:34:36
          compiled from "templates/empregado.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:9700737195183a1a9427cd6-25686659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b99bf37d05fe078bac539a938154cac55653e754' => 
     array (
       0 => 'templates/empregado.tpl',
-      1 => 1368018257,
+      1 => 1370539808,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'tela' => 0,
     'txtNome' => 0,
     'txtLotacao' => 0,
+    'txtNumCarteira' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -68,8 +69,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </tr>
         <tr>
             <td>
+                <label for="txtNumCarteira">
+                    Número da Carteira
+                </label>
+                <input id="txtNumCarteira" name="txtNumCarteira"
+                       type="text" value="<?php echo $_smarty_tpl->tpl_vars['txtNumCarteira']->value;?>
+" maxlength="20"
+                       tabindex="4" style="width: 320px;" />
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Empresa <br>
-                <select id="selLocalidade" name="selLocalidade" tabindex="4" style="width: 320px;" >
+                <select id="selLocalidade" name="selLocalidade" tabindex="5" style="width: 320px;" >
                     <option value="1" selected="selected">
                         SOCORRO
                     </option>
@@ -85,12 +97,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
         <tr>
             <td style="text-align: left" colspan="2">
-                <input type="submit" tabindex="5" class="button black" value="Gravar Registro"/>
-                <input type="button" tabindex="6" class="button black" value="Limpar Campos" onclick="limparCamposEmpregado()"/>
+                <input type="submit" tabindex="6" class="button black" value="Gravar Registro"/>
+                <input type="button" tabindex="7" class="button black" value="Limpar Campos" onclick="limparCamposEmpregado()"/>
                 <a href="empregadoCAD.php?op=listar">
-                    <input type="button" tabindex="6" class="button black" value="Procurar Empregado" />
+                    <input type="button" tabindex="8" class="button black" value="Procurar Empregado" />
                 </a>
-                <input type="button" tabindex="7" class="button black" value="Deletar" onclick="querMesmoApagarEmpregado()"/>
+                <input type="button" tabindex="9" class="button black" value="Deletar" onclick="querMesmoApagarEmpregado()"/>
             </td>
         </tr>
 

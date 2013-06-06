@@ -81,6 +81,7 @@ if($operacao == 'existe') {
     $campos['nome'] = strtr(strtoupper($_POST['txtNome']),"àáâãäåæçèéêëìíîïðñòóôõö÷øùüúþÿ","ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÜÚÞß");
     $campos['lotacao'] = $_POST['txtLotacao'];
     $campos['empresa'] = $_POST['selLocalidade'];
+    $campos['num_carteira'] = $_POST['txtNumCarteira'];
 
     $cadastraOuAlterar = $_POST['cadastraOuAlterar'];
     if($cadastraOuAlterar == 'cad') {
