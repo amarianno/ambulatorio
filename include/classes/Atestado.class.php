@@ -16,6 +16,7 @@ class Atestado extends Persistivel {
     public $isLicencaMaternidade;
     public $isHomologadoMedico;
     public $dataFinalAfastamento;
+    public $inss;
 
     public function getChavePrimaria() {
         return $this->codigo;

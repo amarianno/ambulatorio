@@ -28,4 +28,12 @@ class CidBC extends BC {
     public function consultarCidPorMes(DAOBanco $banco, $dataInicial, $dataFinal ) {
         return $this->DAO->consultarCidPorMes($banco,$dataInicial,$dataFinal);
     }
+
+    public function consultarQuantitativoTipoCIDPorPeriodo(DAOBanco $banco, $dataInicial, $dataFinal ) {
+        return $this->DAO->consultarQuantitativoTipoCIDPorPeriodo($banco,$dataInicial,$dataFinal);
+    }
+
+    public function consultarCidPorPeriodo(DAOBanco $banco, $dataInicial, $dataFinal, $patologia, $especialidade) {
+        return $this->DAO->consultarCidPorPeriodo($banco,$dataInicial,$dataFinal, $patologia, $especialidade);
+    }
 }

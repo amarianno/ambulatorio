@@ -35,13 +35,33 @@ class AtestadoDAOPersistivel extends DAOPersistivel {
         }
     }
 
-    public function consultarAtestadosHomologadosPorPeriodo(DAOBanco $banco, $dataInicial, $dataFinal) {
+    public function consultarAtestadosINSS(DAOBanco $banco, $dataInicial, $dataFinal) {
         $sql = "SELECT at.matricula as matricula, emp.lotacao as lotacao, emp.nome as nome, at.dias_afastado as dias_afastado,
-                at.data_inicial as data_inicial, at.data_final as data_final
+                at.data_inicial as data_inicial, at.data_final as data_final,at.acompanhamento_familiar as acompanhamento_familiar,
+                at.concedido as concedido, at.homologados as homologados, at.homologado_medico as homologado_medico, at.cid
                 FROM atestado at
                 INNER JOIN empregado emp ON ( at.matricula = emp.matricula )
-                WHERE data_inicial >=  '".$dataInicial."'
-                AND data_final <=  '".$dataFinal."'
+                WHERE data_recebimento BETWEEN  '".$dataInicial."'
+                AND '".$dataFinal."'
+                AND homologado_medico = 1
+                AND inss = 1
+                ORDER BY emp.lotacao, at.data_inicial";
+
+        if ($banco->abreConexao() == true) {
+            $res = $banco->consultar($sql);
+            $banco->fechaConexao();
+            return $this->criaObjetos($res);
+        }
+    }
+
+    public function consultarAtestadosHomologadosPorPeriodo(DAOBanco $banco, $dataInicial, $dataFinal) {
+        $sql = "SELECT at.matricula as matricula, emp.lotacao as lotacao, emp.nome as nome, at.dias_afastado as dias_afastado,
+                at.data_inicial as data_inicial, at.data_final as data_final,at.acompanhamento_familiar as acompanhamento_familiar,
+                at.concedido as concedido, at.homologados as homologados, at.homologado_medico as homologado_medico, at.cid
+                FROM atestado at
+                INNER JOIN empregado emp ON ( at.matricula = emp.matricula )
+                WHERE data_recebimento BETWEEN  '".$dataInicial."'
+                AND '".$dataFinal."'
                 AND homologado_medico = 1
                 ORDER BY emp.lotacao, at.data_inicial";
 
@@ -55,9 +75,31 @@ class AtestadoDAOPersistivel extends DAOPersistivel {
     public function consultarDiasAfastadoPorMes(DAOBanco $banco, $dataInicial, $dataFinal ) {
         $sql = "SELECT SUM( atestado.dias_afastado ) AS dias_afastado
                 FROM atestado
-                WHERE atestado.acompanhamento_familiar = 0 AND atestado.data_recebimento
+                WHERE atestado.acompanhamento_familiar = 0 AND atestado.homologado_medico = 1 AND atestado.data_recebimento
                 BETWEEN  '".$dataInicial."'
                 AND  '".$dataFinal."'";
+
+        if ($banco->abreConexao() == true) {
+            $res = $banco->consultar($sql);
+            $banco->fechaConexao();
+            return $this->criaObjetos($res);
+        }
+    }
+
+    public function consultarDiasAfastadoPorPeriodo(DAOBanco $banco, $dataInicial, $dataFinal, $patologia, $especialidade) {
+        $sql = "SELECT SUM( atestado.dias_afastado ) AS dias_afastado
+                FROM cid, atestado
+                WHERE UPPER(cid.nome) = UPPER(atestado.cid) AND atestado.acompanhamento_familiar = 0 AND atestado.data_recebimento
+                BETWEEN  '".$dataInicial."'
+                AND  '".$dataFinal."'";
+
+        if(isset($patologia)) {
+            $sql .= " AND UPPER(cid.descricao) LIKE UPPER('%".$patologia."%')";
+        }
+
+        if(isset($especialidade)) {
+            $sql .= " AND cid.categoria  = ".$especialidade."";
+        }
 
         if ($banco->abreConexao() == true) {
             $res = $banco->consultar($sql);
@@ -108,6 +150,8 @@ class AtestadoDAOPersistivel extends DAOPersistivel {
                     $atestado->isLicencaMaternidade = $valor;
                 } else if (strcasecmp($campo, "homologado_medico") == 0) {
                     $atestado->isHomologadoMedico = $valor;
+                } else if (strcasecmp($campo, "inss") == 0) {
+                    $atestado->inss = $valor;
                 }
             }
             $atestado->empregado = $empregado;

@@ -19,6 +19,44 @@ function somaQtdeAtestados($listaCID) {
 
 }
 
+function quantitativoCIDPorPeriodoToHtml($listaQuantidades) {
+
+    $total = 0;
+    $htmlRetorno = "";
+    $cor = false;
+
+    if(count($listaQuantidades) > 0) {
+        foreach ($listaQuantidades as $relatorio) {
+            $total += $relatorio->quantidade;
+        }
+
+        $htmlRetorno .= "<div class='datagrid'>";
+        $htmlRetorno .= "<table id='mainDeck'>";
+        $htmlRetorno .= "<thead>";
+        $htmlRetorno .= "   <tr>";
+        $htmlRetorno .= "       <th>Quantidade(%)</th>";
+        $htmlRetorno .= "       <th>Descrição</th>";
+        $htmlRetorno .= "   </tr>";
+        $htmlRetorno .= "</thead>";
+        $htmlRetorno .= "<tbody>";
+
+        foreach ($listaQuantidades as $relatorio) {
+
+            //$relatorio = new RelatorioCIDPorMes();
+            $classe = ($cor = !$cor) ? 'normal' : 'alt';
+            $htmlRetorno .= "<tr class='" . $classe . "'>";
+            $htmlRetorno .= "   <td>" . number_format(($relatorio->quantidade * 100)  / $total, 2, '.', ''). "%</td>";
+            $htmlRetorno .= "   <td>" . utf8_encode($relatorio->cid->descricao) . "</td>";
+            $htmlRetorno .= '</tr>';
+        }
+
+        $htmlRetorno .= "</tbody>";
+        $htmlRetorno .= "</table>";
+    }
+
+    return $htmlRetorno;
+
+}
 
 function toGridHtml($listaCID, $diasAfastado) {
 
@@ -30,7 +68,7 @@ function toGridHtml($listaCID, $diasAfastado) {
     $htmlRetorno .= "<thead>";
     $htmlRetorno .= "   <tr>";
     $htmlRetorno .= "       <th>Quantidade</th>";
-    $htmlRetorno .= "       <th>Cid</th>";
+    $htmlRetorno .= "       <th>CID</th>";
     $htmlRetorno .= "       <th>Descrição</th>";
     $htmlRetorno .= "   </tr>";
     $htmlRetorno .= "</thead>";
@@ -46,8 +84,6 @@ function toGridHtml($listaCID, $diasAfastado) {
             $htmlRetorno .= "   <td>" . $relatorio->cid->nome . "</td>";
             $htmlRetorno .= "   <td>" . utf8_encode($relatorio->cid->descricao) . "</td>";
             $htmlRetorno .= '</tr>';
-
-
         }
     } else {
         $htmlRetorno .= "   <tr class='conteudo'>";
@@ -57,6 +93,7 @@ function toGridHtml($listaCID, $diasAfastado) {
 
     $htmlRetorno .= "</tbody>";
     $htmlRetorno .= "</table>";
+
     if(count($listaCID) > 0) {
         $htmlRetorno .= "<hr>";
         $htmlRetorno .= "<table id='mainDeck'>";
@@ -87,17 +124,24 @@ if($op == 'consultar') {
     $cidBC = new CidBC();
     $atestBC = new AtestadoBC();
 
-    $mesAno = $_POST['dtRelatorio'];
-    $mesAnoSplit = preg_split('"/"', $mesAno, -1);
+    $dataIni = implode('-',array_reverse(explode('/',$_POST['dtRelatorioIni'])));
+    $dataFim = implode('-',array_reverse(explode('/',$_POST['dtRelatorioFIM'])));
+    $patologia = $_POST['txtPatologia'];
+    $especialidade = $_POST['selEspecialidade'];
 
-    $dataIni = $mesAnoSplit[1]."-".$mesAnoSplit[0]."-01";
-    $dataFim = $mesAnoSplit[1]."-".$mesAnoSplit[0]."-31";
+    if($patologia == '' || $patologia == null) {
+        $patologia = null;
+    }
 
-    $listaCID = $cidBC->consultarCidPorMes($_SESSION[BANCO_SESSAO], $dataIni, $dataFim);
+    if($especialidade == 1) {
+        $especialidade = null;
+    }
 
-    $diasAfastado = $atestBC->consultarDiasAfastadoPorMes($_SESSION[BANCO_SESSAO], $dataIni, $dataFim);
+    $listaCID = $cidBC->consultarCidPorPeriodo($_SESSION[BANCO_SESSAO], $dataIni, $dataFim, $patologia, $especialidade);
 
+    $diasAfastado = $atestBC->consultarDiasAfastadoPorPeriodo($_SESSION[BANCO_SESSAO], $dataIni, $dataFim, $patologia, $especialidade);
     $html = toGridHtml($listaCID, $diasAfastado[0]->diasAfastado);
+    $html .= quantitativoCIDPorPeriodoToHtml($cidBC->consultarQuantitativoTipoCIDPorPeriodo($_SESSION[BANCO_SESSAO], $dataIni, $dataFim));
 
     echo($html);
 
@@ -116,6 +160,7 @@ if($op == 'consultar') {
     $diasAfastado = $atestBC->consultarDiasAfastadoPorMes($_SESSION[BANCO_SESSAO], $dataIni, $dataFim);
 
     $html = toGridHtml($listaCID, $diasAfastado[0]->diasAfastado);
+    $html .= quantitativoCIDPorPeriodoToHtml($cidBC->consultarQuantitativoTipoCIDPorPeriodo($_SESSION[BANCO_SESSAO], $dataIni, $dataFim));
 
     GeradorPDF::pdf($html, "relatorio_cid_mensal_pdf");
 

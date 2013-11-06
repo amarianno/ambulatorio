@@ -59,7 +59,7 @@ if($op == 'pdf') {
         $htmlRetorno = "";
         $htmlRetorno .= "Encontrados <b>". count($listaAtestadosHomologadosPeriodo). "</b> atestados para o período <b>". $_POST['dataInicial'] . " a ".$_POST['dataFinal']."</b><br>";
         $htmlRetorno .= RelatorioAtestadosHomologadosPeriodoHelper::toHtmlGrid($listaAtestadosHomologadosPeriodo);
-
+        $htmlRetorno .= RelatorioAtestadosHomologadosPeriodoHelper::infoAdicional($listaAtestadosHomologadosPeriodo);
 
     } else {
         $htmlRetorno .= RelatorioAtestadosHomologadosPeriodoHelper::toHtmlSemRegistros();

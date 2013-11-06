@@ -49,10 +49,55 @@ class CidDAOPersistivel extends DAOPersistivel {
         $sql = "SELECT COUNT( cid.nome ) AS quantidade , cid.nome AS nome, cid.descricao AS descricao
                 FROM cid, atestado
                 WHERE UPPER(cid.nome) = UPPER(atestado.cid) AND atestado.acompanhamento_familiar = 0
+                AND atestado.homologado_medico = 1
                 AND atestado.data_recebimento
                 BETWEEN  '".$dataInicial."'
                 AND  '".$dataFinal."'
                 GROUP BY cid.nome";
+
+        if ($banco->abreConexao() == true) {
+            $res = $banco->consultar($sql);
+            $banco->fechaConexao();
+            return $this->criaObjetosRelatorioCIDPorMes($res);
+        }
+    }
+
+    public function consultarQuantitativoTipoCIDPorPeriodo(DAOBanco $banco, $dataInicial, $dataFinal ) {
+        $sql = "SELECT COUNT( c.categoria ) as quantidade , tc.descricao as descricao
+                FROM atestado at
+                INNER JOIN cid c ON ( UPPER( at.cid ) = UPPER( c.nome ) )
+                INNER JOIN tipo_cid tc ON ( c.categoria = tc.codigo )
+                WHERE at.homologado_medico = 1
+                AND at.data_recebimento
+                BETWEEN  '".$dataInicial."'
+                AND  '".$dataFinal."'
+                GROUP BY c.categoria";
+
+        if ($banco->abreConexao() == true) {
+            $res = $banco->consultar($sql);
+            $banco->fechaConexao();
+            return $this->criaObjetosRelatorioCIDPorMes($res);
+        }
+    }
+
+    public function consultarCidPorPeriodo(DAOBanco $banco, $dataInicial, $dataFinal, $patologia, $especialidade ) {
+        $sql = "SELECT COUNT( cid.nome ) AS quantidade , cid.nome AS nome, cid.descricao AS descricao
+                FROM cid, atestado
+                WHERE UPPER(cid.nome) = UPPER(atestado.cid) AND atestado.acompanhamento_familiar = 0
+                AND atestado.homologado_medico = 1
+                AND atestado.data_recebimento
+                BETWEEN  '".$dataInicial."'
+                AND  '".$dataFinal."'";
+
+        if(isset($patologia)) {
+            $sql .= " AND UPPER(cid.descricao) LIKE UPPER('%".$patologia."%')";
+        }
+
+        if(isset($especialidade)) {
+            $sql .= " AND cid.categoria  = ".$especialidade."";
+        }
+
+        $sql .= " GROUP BY cid.nome";
 
         if ($banco->abreConexao() == true) {
             $res = $banco->consultar($sql);

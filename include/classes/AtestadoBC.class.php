@@ -29,11 +29,19 @@ class AtestadoBC extends BC {
         return $this->DAO->consultarDiasAfastadoPorMes($banco, $dataInicial, $dataFinal);
     }
 
+    public function consultarDiasAfastadoPorPeriodo(DAOBanco $banco, $dataInicial, $dataFinal, $patologia, $especialidade ) {
+        return $this->DAO->consultarDiasAfastadoPorPeriodo($banco, $dataInicial, $dataFinal, $patologia, $especialidade);
+    }
+
     public function consultarAtestadoPorDataDeRecebimento(DAOBanco $banco, $dataRecebimento) {
         return $this->DAO->consultarAtestadoPorDataDeRecebimento($banco, $dataRecebimento);
     }
 
     public function consultarAtestadosHomologadosPorPeriodo(DAOBanco $banco, $dataInicial, $dataFinal) {
         return $this->DAO->consultarAtestadosHomologadosPorPeriodo($banco, $dataInicial, $dataFinal);
+    }
+
+    public function consultarAtestadosINSS(DAOBanco $banco, $dataInicial, $dataFinal) {
+        return $this->DAO->consultarAtestadosINSS($banco, $dataInicial, $dataFinal);
     }
 }

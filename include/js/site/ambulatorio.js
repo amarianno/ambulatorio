@@ -13,6 +13,12 @@ jQuery(function($){
     if($("#dataFinal").size() > 0) {
         $("#dataFinal").mask("99/99/99");
     }
+    if($("#dtRelatorioIni").size() > 0) {
+        $("#dtRelatorioIni").mask("99/99/99");
+    }
+    if($("#dtRelatorioFIM").size() > 0) {
+        $("#dtRelatorioFIM").mask("99/99/99");
+    }
 
 });
 
@@ -27,8 +33,8 @@ function somadias(data, dias) {
 
     data=data.split('/');
     diafuturo =  Number(data[0]) + Number((dias)-1);
-    mes=parseInt(data[1]);
-    ano=parseInt(data[2]);
+    mes=Number(data[1]);
+    ano=Number(data[2]);
     while(diafuturo>numdias(mes,ano)) {
         diafuturo-=numdias(mes,ano);
         mes++;
@@ -123,6 +129,7 @@ function limparCamposAtestado() {
     $("#txtCID").val('');
     document.getElementById('chklicencaMaternidade').checked = false;
     document.getElementById('chkHomologadoMedico').checked = false;
+    document.getElementById('chkINSS').checked = false;
     //document.getElementById('conteudoGrid').innerHTML = "";
 }
 
@@ -182,6 +189,7 @@ function addAtestado() {
     campos += "&txtCID=" + $("#txtCID").val();
     campos += "&chklicencaMaternidade=" + (document.getElementById('chklicencaMaternidade').checked ? '1' : '0');
     campos += "&chkHomologadoMedico=" + (document.getElementById('chkHomologadoMedico').checked ? '1' : '0');
+    campos += "&chkINSS=" + (document.getElementById('chkINSS').checked ? '1' : '0');
     if($("#codigo").val() != '') {
         campos += "&codigo=" + $("#codigo").val();
     }
@@ -299,6 +307,7 @@ function editarAtestado(value) {
             $("#txtCID").val(atestado.cid);
             document.getElementById('chklicencaMaternidade').checked = (atestado.isLicencaMaternidade == '1' ? true : false);
             document.getElementById('chkHomologadoMedico').checked = (atestado.isHomologadoMedico == '1' ? true : false);
+            document.getElementById('chkINSS').checked = (atestado.inss == '1' ? true : false);
 
         }
     });
@@ -860,10 +869,25 @@ $(function() {
 /**************************************** RELATORIOS *******************************************************************/
 function consultaCIDPorMes() {
 
-    if($("#dtRelatorio").val() == '') {return false;}
+    if($("#dtRelatorioIni").val() == '') {return false;}
+    if($("#dtRelatorioFIM").val() == '') {return false;}
 
-    var campos =  "dtRelatorio=" + $("#dtRelatorio").val();
+    var dataINIformatada = $("#dtRelatorioIni").val().split("/");
+
+    var campos =  "dtRelatorioIni=" + dataINIformatada[0] + "/" + dataINIformatada[1] + "/" + "20"+dataINIformatada[2];
+
+    dataINIformatada = $("#dtRelatorioFIM").val().split("/");
+
+    campos +=  "&dtRelatorioFIM=" + dataINIformatada[0] + "/" + dataINIformatada[1] + "/" + "20"+dataINIformatada[2];
+    campos +=  "&txtPatologia=" + $("#txtPatologia").val();
+    campos +=  "&selEspecialidade=" + document.getElementById("selEspecialidade").value;
     campos += "&op=consultar"
+    consulta('relatorio_cid_mensal.php', campos, 'conteudoGrid');
+}
+
+function consultaCIDPorAnual() {
+
+    var campos = "op=consultar_anual"
     consulta('relatorio_cid_mensal.php', campos, 'conteudoGrid');
 }
 
@@ -894,4 +918,14 @@ function consultaAtestadosHomologadosPorPeriodo() {
     campos +=  "&dataFinal=" + $("#dataFinal").val();
     campos += "&op=consultar";
     consulta('relatorio_atest_homol_periodo.php', campos, 'conteudoGrid');
+}
+
+function consultaAtestadosLicencaINSS() {
+
+    if($("#dataInicial").val() == '' || $("#dataFinal").val() == '') {return false;}
+
+    var campos =  "dataInicial=" + $("#dataInicial").val();
+    campos +=  "&dataFinal=" + $("#dataFinal").val();
+    campos += "&op=consultar";
+    consulta('consulta_inss.php', campos, 'conteudoGrid');
 }
