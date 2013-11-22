@@ -35,13 +35,16 @@
                         <li>
                             <a href="empregadoCAD.php?op=listar"><span>Matrícula Por Nome</span></a>
                         </li>
+                        <li>
+                            <a href="consulta_inss.php"><span>Licença INSS</span></a>
+                        </li>
                     </ul>
                 </li>
                 <li>
                     <a href="#">RELATÓRIOS <img src="include/img/icon/arrowdown-icon.png"/></a>
                     <ul>
                         <li>
-                            <a href="relatorio_cid_mensal.php"><span>CID Mensal</span></a>
+                            <a href="relatorio_cid_mensal.php"><span>CID Por Período</span></a>
                         </li>
                         <li>
                             <a href="relatorio_dia_atestados.php"><span>Atestados cadastrados por data</span></a>

@@ -47,9 +47,9 @@
             <tr>
                 <td>
                     <label for="txtCID">
-                        CID <span class="req">*</span>
+                        CID
                     </label>
-                    <input id="txtCID" name="txtCID" required
+                    <input id="txtCID" name="txtCID"
                            type="text" value="{$txtMatricula}" maxlength="5"
                            tabindex="4" width="30" style="width: 120px;"/>
                 </td>
@@ -73,70 +73,95 @@
         <table style="width: 100%; margin: 0 auto;" border="0">
             <tr>
                 <td>
-                    Código
+                    Grupo de Exames:
                 </td>
                 <td>
-                    Descrição
+                    <select id="selGrupoExames" name="selGrupoExames" tabindex="6" style="width: 120px;" onchange="marcarExames()">
+                        <option value="0" selected="selected">
+                            ---
+                        </option>
+                        <option value="1">
+                            Grupo 1
+                        </option>
+                        <option value="2">
+                            Grupo 2
+                        </option>
+                        <option value="3">
+                            Grupo 3
+                        </option>
+                        <option value="4">
+                            Grupo 4
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td> <br> </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="chkHemogramaCompleto" name="Hemograma Completo" type="checkbox" value="0.096.03.0186" tabindex="7">
+                    Hemograma Completo
+                </td>
+                <td>
+                    <input id="chkGlicoseJejum" name="Glicose Jejum" type="checkbox" value="0.096.03.0046" tabindex="8">
+                    Glicose Jejum
+                </td>
+                <td>
+                    <input id="chkRotinaUrina" name="Rotina de Urina" type="checkbox" value="0.096.03.0267" tabindex="9">
+                    Rotina de Urina
+                </td>
+                <td>
+                    <input id="chkCreatinina" name="Creatinina" type="checkbox" value="0.096.03.0194" tabindex="10">
+                    Creatinina
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input id="txtCod1" name="txtCod1"
-                           type="text" value="" maxlength="10"
-                           tabindex="6" width="20" required style="width: 120px;" />
+                    <input id="chkTrigliceris" name="Triglicerides" type="checkbox" value="0.096.03.0216" tabindex="11">
+                    Triglicérides
                 </td>
                 <td>
-                    <input id="txtDesc1" name="txtDesc1"
-                           type="text" value="" maxlength="40" readonly="true"
-                           tabindex="7" style="width: 400px;" required  />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input id="txtCod2" name="txtCod2"
-                           type="text" value="" maxlength="10"
-                           tabindex="8" width="20" style="width: 120px;" />
+                    <input id="chkAcidoUrico" name="Acido Urico" type="checkbox" value="0.096.03.0208" tabindex="12">
+                    Ácido Úrico
                 </td>
                 <td>
-                    <input id="txtDesc2" name="txtDesc2"
-                           type="text" value="" maxlength="40" readonly="true"
-                           tabindex="9" style="width: 400px;"  />
+                    <input id="chkTsh" name="TSH" type="checkbox" value="0.096.03.0510" tabindex="13">
+                    TSH
+                </td>
+                <td>
+                    <input id="chkT4livre" name="T4 Livre" type="checkbox" value="0.096.03.0530" tabindex="14">
+                    T4 Livre
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input id="txtCod3" name="txtCod3"
-                           type="text" value="" maxlength="10"
-                           tabindex="10" width="20" required style="width: 120px;" />
+                    <input id="chkColesterolTotal" name="Colesterol Total" type="checkbox" value="0.096.03.0062" tabindex="15">
+                    Colesterol Total
                 </td>
                 <td>
-                    <input id="txtDesc3" name="txtDesc3"
-                           type="text" value="" maxlength="40" readonly="true"
-                           tabindex="11" style="width: 400px;"   />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input id="txtCod4" name="txtCod4"
-                           type="text" value="" maxlength="10"
-                           tabindex="2" width="20" style="width: 120px;" />
+                    <input id="chkColesterolHDL" name="Colesterol – HDL" type="checkbox" value="0.096.03.0038" tabindex="16">
+                    Colesterol – HDL
                 </td>
                 <td>
-                    <input id="txtDesc4" name="txtDesc4"
-                           type="text" value="" maxlength="40" readonly="true"
-                           tabindex="12" style="width: 400px;"  />
+                    <input id="chkPSA" name="PSA" type="checkbox" value="0.096.03.00054" tabindex="17">
+                    PSA
+                </td>
+                <td>
+                    <input id="chkOftalmologista" name="Consulta com o oftalmologista" type="checkbox" value="0.096.03.0160" tabindex="18">
+                    Consulta com o oftalmologista
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input id="txtCod5" name="txtCod5"
-                           type="text" value="" maxlength="10"
-                           tabindex="13" width="20" style="width: 120px;" />
+                    <input id="chkTonometriaBinocular" name="Tonometria - binocular" type="checkbox" value="0.096.03.0240" tabindex="19">
+                    Tonometria -binocular
                 </td>
                 <td>
-                    <input id="txtDesc5" name="txtDesc5"
-                           type="text" value="" maxlength="40" readonly="true"
-                           tabindex="14" style="width: 400px;"  />
+                </td>
+                <td>
+                </td>
+                <td>
                 </td>
             </tr>
         </table>

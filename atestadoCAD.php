@@ -27,8 +27,14 @@ try {
     $camposValores['licenca_maternidade'] = valorCheck('chklicencaMaternidade');
     $camposValores['homologado_medico'] = valorCheck('chkHomologadoMedico');
     $camposValores['erlandia'] = 0;
+    $camposValores['inss'] = valorCheck('chkINSS');
 
     $codigo = valorCheck('codigo');
+
+    //caso o CID venha vazio, deve colocar SEM CID por padrão
+    if($camposValores['cid'] == "") {
+        $camposValores['cid'] = "SEM CID";
+    }
 
     if(isset($codigo) && $codigo !== null) {
 

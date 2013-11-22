@@ -37,6 +37,7 @@
                            tabindex="3" required style="width: 120px;"
                            onblur="calculaDataFinalDeAfastamento()" />
                 </td>
+                <td></td>
             </tr>
 
 
@@ -64,6 +65,7 @@
                     </label>
                     <input id="chkAcompanhamentoFamiliar" name="chkAcompanhamentoFamiliar" type="checkbox" value="1" tabindex="6">
                 </td>
+                <td></td>
             </tr>
 
             <tr>
@@ -95,10 +97,11 @@
                 </td>
                 <td>
                     <label for="chkHomologados">
-                        Homologados (Concedidos Externos)
+                        Concedidos (Externos)
                     </label>
                     <input id="chkHomologados" name="chkHomologados" type="checkbox" value="1" tabindex="9">
                 </td>
+                <td></td>
             </tr>
 
             <tr>
@@ -123,6 +126,20 @@
                     </label>
                     <input id="chkHomologadoMedico" name="chkHomologadoMedico" type="checkbox" value="1"  tabindex="12">
                 </td>
+                <td>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="chkINSS">
+                        Licença INSS
+                    </label>
+                    <input id="chkINSS" name="chkINSS" type="checkbox" value="1"  tabindex="13">
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
 
             <tr>
@@ -131,14 +148,15 @@
                 </td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
 
             <tr>
                 <td style="text-align: left" colspan="2">
-                    <input type="submit" tabindex="13" class="button black" value="Gravar Registro"/>
-                    <input type="button" tabindex="14" class="button black" value="Limpar Campos" onclick="limparCamposAtestado()"/>
+                    <input type="submit" tabindex="14" class="button black" value="Gravar Registro"/>
+                    <input type="button" tabindex="15" class="button black" value="Limpar Campos" onclick="limparCamposAtestado()"/>
                     <a href="empregadoCAD.php?op=listar">
-                        <input type="button" tabindex="6" class="button black" value="Procurar Empregado" />
+                        <input type="button" tabindex="16" class="button black" value="Procurar Empregado" />
                     </a>
                     <div id="mensagemCadastro"></div>
                 </td>
