@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-05-16 16:11:08
+<?php /* Smarty version Smarty-3.1.13, created on 2014-01-09 14:36:43
          compiled from "templates/menu_top.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:247225102513e393fbc0d59-06006437%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fe7c85233d620599bb99040f9b6fe166056bb67b' => 
     array (
       0 => 'templates/menu_top.tpl',
-      1 => 1368731462,
+      1 => 1389285400,
       2 => 'file',
     ),
   ),
@@ -56,13 +56,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <li>
                             <a href="empregadoCAD.php?op=listar"><span>Matrícula Por Nome</span></a>
                         </li>
+                        <li>
+                            <a href="consulta_inss.php"><span>Licença INSS</span></a>
+                        </li>
                     </ul>
                 </li>
                 <li>
                     <a href="#">RELATÓRIOS <img src="include/img/icon/arrowdown-icon.png"/></a>
                     <ul>
                         <li>
-                            <a href="relatorio_cid_mensal.php"><span>CID Mensal</span></a>
+                            <a href="relatorio_cid_mensal.php"><span>CID Por Período</span></a>
                         </li>
                         <li>
                             <a href="relatorio_dia_atestados.php"><span>Atestados cadastrados por data</span></a>
@@ -77,6 +80,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <ul>
                         <li>
                             <a href="guias_cassi.php"><span>Cassi</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">PERIÓDICOS <img src="include/img/icon/arrowdown-icon.png"/></a>
+                    <ul>
+                        <li>
+                            <a href="periodico_por_mes.php"><span>Por Mês</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Em atraso</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Relatório Anual</span></a>
                         </li>
                     </ul>
                 </li>

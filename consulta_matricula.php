@@ -39,6 +39,7 @@ function somaAcompanhamentoFamiliarPorAno($listaAcompanhamentoFamiliar) {
         $smarty->display("consulta_matricula.tpl");
     } else {
         $atestadoBC = new AtestadoBC();
+        $periodicoBC = new PeriodicoBC();
         $matricula = $_POST['txtMatricula'];
         $resultadoConsulta = '';
 
@@ -84,6 +85,17 @@ function somaAcompanhamentoFamiliarPorAno($listaAcompanhamentoFamiliar) {
 
         $resultadoConsulta .= "<div id='gridLicMaternidade' style='display: block;'>";
         $resultadoConsulta .= OperacaoGrid::montaGridAtestado($listaAtestados, false);
+        $resultadoConsulta .= "</div>";
+        $resultadoConsulta .= "</fieldset>";
+
+        //PERIÓDICOS
+        $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("matricula" => $matricula));
+        $listaPeriodico = $periodicoBC->consultar($_SESSION[BANCO_SESSAO], null, $filtro);
+        $resultadoConsulta .= "<fieldset>";
+        $resultadoConsulta .= "<legend><b>PERIÓDICOS REALIZADOS</b></legend><br>";
+
+        $resultadoConsulta .= "<div id='gridPeriodico' style='display: block;'>";
+        $resultadoConsulta .= OperacaoGrid::montaGridPeriodico($listaPeriodico);
         $resultadoConsulta .= "</div>";
         $resultadoConsulta .= "</fieldset>";
 

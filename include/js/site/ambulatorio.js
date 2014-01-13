@@ -20,6 +20,7 @@ jQuery(function($){
         $("#dtRelatorioFIM").mask("99/99/99");
     }
 
+
 });
 
 function numdias(mes,ano) {
@@ -699,15 +700,12 @@ function gerarGuia() {
         return false;
     }
 
-    if($("#txtCID").val() == '') {
-        $("#txtCID").focus()
-        return false;
-    }
-
     if($("#txtCod1").val() == '') {
         $("#txtCod1").focus()
         return false;
     }
+
+
 
 
     var campos =  "txtMatricula=" + $("#txtMatricula").val();
@@ -715,16 +713,85 @@ function gerarGuia() {
     campos +=  "&selCaraterSol=" + document.getElementById("selCaraterSol").value;
     campos +=  "&txtCID=" + $("#txtCID").val();
     campos +=  "&txtIndClicina=" + $("#txtIndClicina").val();
-    campos +=  "&txtCod1=" + $("#txtCod1").val();
-    campos +=  "&txtDesc1=" + $("#txtDesc1").val();
-    campos +=  "&txtCod2=" + $("#txtCod2").val();
-    campos +=  "&txtDesc2=" + $("#txtDesc2").val();
-    campos +=  "&txtCod3=" + $("#txtCod3").val();
-    campos +=  "&txtDesc3=" + $("#txtDesc3").val();
-    campos +=  "&txtCod4=" + $("#txtCod4").val();
-    campos +=  "&txtDesc4=" + $("#txtDesc4").val();
-    campos +=  "&txtCod5=" + $("#txtCod5").val();
-    campos +=  "&txtDesc5=" + $("#txtDesc5").val();
+
+    var cont = 1;
+    if(document.getElementById("chkHemogramaCompleto").checked) {
+        campos +=  "&txtCod" + cont +"=" + document.getElementById("chkHemogramaCompleto").value;
+        campos +=  "&txtDesc" + cont +"=" + document.getElementById("chkHemogramaCompleto").name;
+        cont++;
+    }
+
+    if(document.getElementById("chkGlicoseJejum").checked) {
+        campos +=  "&txtCod" + cont +"=" + document.getElementById("chkGlicoseJejum").value;
+        campos +=  "&txtDesc" + cont +"=" + document.getElementById("chkGlicoseJejum").name;
+        cont++;
+    }
+
+    if(document.getElementById("chkRotinaUrina").checked) {
+        campos +=  "&txtCod" + cont +"=" + document.getElementById("chkRotinaUrina").value;
+        campos +=  "&txtDesc" + cont +"=" + document.getElementById("chkRotinaUrina").name;
+        cont++;
+    }
+
+    if(document.getElementById("chkCreatinina").checked) {
+        campos +=  "&txtCod" + cont +"=" + document.getElementById("chkCreatinina").value;
+        campos +=  "&txtDesc" + cont +"=" + document.getElementById("chkCreatinina").name;
+        cont++;
+    }
+
+    if(document.getElementById("chkTrigliceris").checked) {
+        campos +=  "&txtCod" + cont +"=" + document.getElementById("chkTrigliceris").value;
+        campos +=  "&txtDesc" + cont +"=" + document.getElementById("chkTrigliceris").name;
+        cont++;
+    }
+
+    if(document.getElementById("chkAcidoUrico").checked) {
+        campos +=  "&txtCod" + cont +"=" + document.getElementById("chkAcidoUrico").value;
+        campos +=  "&txtDesc" + cont +"=" + document.getElementById("chkAcidoUrico").name;
+        cont++;
+    }
+
+    if(document.getElementById("chkTsh").checked) {
+        campos +=  "&txtCod" + cont +"=" + document.getElementById("chkTsh").value;
+        campos +=  "&txtDesc" + cont +"=" + document.getElementById("chkTsh").name;
+        cont++;
+    }
+
+    if(document.getElementById("chkT4livre").checked) {
+        campos +=  "&txtCod" + cont +"=" + document.getElementById("chkT4livre").value;
+        campos +=  "&txtDesc" + cont +"=" + document.getElementById("chkT4livre").name;
+        cont++;
+    }
+
+    if(document.getElementById("chkColesterolTotal").checked) {
+        campos +=  "&txtCod" + cont +"=" + document.getElementById("chkColesterolTotal").value;
+        campos +=  "&txtDesc" + cont +"=" + document.getElementById("chkColesterolTotal").name;
+        cont++;
+    }
+
+    if(document.getElementById("chkColesterolHDL").checked) {
+        campos +=  "&txtCod" + cont +"=" + document.getElementById("chkColesterolHDL").value;
+        campos +=  "&txtDesc" + cont +"=" + document.getElementById("chkColesterolHDL").name;
+        cont++;
+    }
+
+    if(document.getElementById("chkOftalmologista").checked) {
+        campos +=  "&txtCod" + cont +"=" + document.getElementById("chkOftalmologista").value;
+        campos +=  "&txtDesc" + cont +"=" + document.getElementById("chkOftalmologista").name;
+        cont++;
+    }
+
+    if(document.getElementById("chkTonometriaBinocular").checked) {
+        campos +=  "&txtCod" + cont +"=" + document.getElementById("chkTonometriaBinocular").value;
+        campos +=  "&txtDesc" + cont +"=" + document.getElementById("chkTonometriaBinocular").name;
+        cont++;
+    }
+
+    if(document.getElementById("chkPSA").checked) {
+        campos +=  "&txtCod" + cont +"=" + document.getElementById("chkPSA").value;
+        campos +=  "&txtDesc" + cont +"=" + document.getElementById("chkPSA").name;
+        cont++;
+    }
 
     $.ajax({
         type: "POST",
@@ -885,6 +952,27 @@ function consultaCIDPorMes() {
     consulta('relatorio_cid_mensal.php', campos, 'conteudoGrid');
 }
 
+function consultaCIDPorMesPDF() {
+
+    if($("#dtRelatorioIni").val() == '') {return false;}
+    if($("#dtRelatorioFIM").val() == '') {return false;}
+
+    var dataINIformatada = $("#dtRelatorioIni").val().split("/");
+
+    var campos =  "dtRelatorioIni=" + dataINIformatada[0] + "/" + dataINIformatada[1] + "/" + "20"+dataINIformatada[2];
+
+    dataINIformatada = $("#dtRelatorioFIM").val().split("/");
+
+    campos +=  "&dtRelatorioFIM=" + dataINIformatada[0] + "/" + dataINIformatada[1] + "/" + "20"+dataINIformatada[2];
+    campos +=  "&txtPatologia=" + $("#txtPatologia").val();
+    campos +=  "&selEspecialidade=" + document.getElementById("selEspecialidade").value;
+    campos += "&op=pdf"
+    //consulta('relatorio_cid_mensal.php', campos, 'conteudoGrid');
+
+    window.open('relatorio_cid_mensal.php?' + campos);
+
+}
+
 function consultaCIDPorAnual() {
 
     var campos = "op=consultar_anual"
@@ -903,6 +991,17 @@ function consultaAtestadoPorDia() {
     var campos =  "diaRelatorio=" + $("#diaRelatorio").val();
     campos += "&op=consultar"
     consulta('relatorio_dia_atestados.php', campos, 'conteudoGrid');
+}
+
+function consultaPeriodicoPendentesPorMes() {
+
+    if($("#dtRelatorio").val() == '') {return false;}
+
+    var campos =  "selMes=" +document.getElementById("selMes").value;
+    campos +=  "&selEmpresa=" + document.getElementById("selEmpresa").value;
+    campos +=  "&txtMatricula=" + $("#txtMatricula").val();
+    campos += "&op=consultar"
+    consulta('periodico_por_mes.php', campos, 'conteudoGrid');
 }
 
 function consultaAtestadosHomologadosPorPeriodoPDF() {
@@ -928,4 +1027,89 @@ function consultaAtestadosLicencaINSS() {
     campos +=  "&dataFinal=" + $("#dataFinal").val();
     campos += "&op=consultar";
     consulta('consulta_inss.php', campos, 'conteudoGrid');
+}
+
+function desmarcarTodosExames() {
+
+    document.getElementById("chkHemogramaCompleto").checked = false;
+    document.getElementById("chkGlicoseJejum").checked = false;
+    document.getElementById("chkRotinaUrina").checked = false;
+    document.getElementById("chkCreatinina").checked = false;
+    document.getElementById("chkTrigliceris").checked = false;
+    document.getElementById("chkAcidoUrico").checked = false;
+    document.getElementById("chkTsh").checked = false;
+    document.getElementById("chkT4livre").checked = false;
+    document.getElementById("chkColesterolTotal").checked = false;
+    document.getElementById("chkColesterolHDL").checked = false;
+    document.getElementById("chkOftalmologista").checked = false;
+    document.getElementById("chkTonometriaBinocular").checked = false;
+    document.getElementById("chkPSA").checked = false;
+
+}
+
+function marcarExames() {
+
+    if(document.getElementById("selGrupoExames").value == '1') {
+
+        desmarcarTodosExames();
+        document.getElementById("chkHemogramaCompleto").checked = true;
+        document.getElementById("chkGlicoseJejum").checked = true;
+        document.getElementById("chkRotinaUrina").checked = true;
+        document.getElementById("chkCreatinina").checked = true;
+        document.getElementById("chkTrigliceris").checked = true;
+
+    } else if(document.getElementById("selGrupoExames").value == '2') {
+
+        desmarcarTodosExames();
+        document.getElementById("chkAcidoUrico").checked = true;
+        document.getElementById("chkTsh").checked = true;
+        document.getElementById("chkT4livre").checked = true;
+
+    } else if(document.getElementById("selGrupoExames").value == '3') {
+
+        desmarcarTodosExames();
+        document.getElementById("chkColesterolTotal").checked = true;
+        document.getElementById("chkColesterolHDL").checked = true;
+
+    } else if(document.getElementById("selGrupoExames").value == '4') {
+
+        desmarcarTodosExames();
+        document.getElementById("chkOftalmologista").checked = true;
+        document.getElementById("chkTonometriaBinocular").checked = true;
+
+    } else {
+        desmarcarTodosExames();
+    }
+
+}
+
+//****************** PERIODICOS **********************************************
+function marcarPeriodico(inicioOuFim) {
+    alert(0);
+    var checados =  $("input.chkPeriodico:checked");
+    var retorno = "";
+    var cont = 1;
+
+    alert(1);
+
+    for(var i = 0; i < checados.length; i++) {
+        retorno += checados[i].value;
+        if(cont != checados.length) {
+            retorno += "-";
+            cont++;
+        }
+    }
+
+    alert(2);
+    $.ajax({
+        type: "POST",
+        url: 'periodico_por_mes.php',
+        data: 'op=datas&codigosAlterarData=' + retorno + "&inicioOuFim=" + inicioOuFim,
+        success: function (data) {
+            consultaPeriodicoPendentesPorMes();
+        }
+    });
+
+    alert(3);
+
 }

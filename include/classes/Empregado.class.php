@@ -8,6 +8,8 @@ class Empregado extends Persistivel {
     public $lotacao;
     public $localidade;
     public $numCarteira;
+    public $dataNascimento;
+    public $dataAdmissao;
 
     public function getChavePrimaria() {
         return $this->codigo;

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-05-08 10:08:08
+<?php /* Smarty version Smarty-3.1.13, created on 2014-01-09 14:13:15
          compiled from "templates/principal.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:183143587251800215cdbeb6-97691475%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9498380aff9ec2291ebe746945e4167a401df325' => 
     array (
       0 => 'templates/principal.tpl',
-      1 => 1368018205,
+      1 => 1389283990,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <table style="width: 100%" border="0">
         <tr>
             <td>
-                <h2>SCA - Sistema de controle de Atestados - SUPGP/GPSPO</h2>
+                <h2>SCA - Sistema de Controle de Atestados - SUPGP/GPSPO</h2>
             </td>
         </tr>
         <tr>

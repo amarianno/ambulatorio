@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-06-04 14:40:30
+<?php /* Smarty version Smarty-3.1.13, created on 2014-01-07 13:49:46
          compiled from "templates/atestados.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:141140939351800ae2133004-64070952%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f9601848405e2bf8a5356c47571c481efe490c4e' => 
     array (
       0 => 'templates/atestados.tpl',
-      1 => 1370367619,
+      1 => 1389109780,
       2 => 'file',
     ),
   ),
@@ -31,6 +31,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <?php echo $_smarty_tpl->getSubTemplate ("menu_top.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
+
+
+    <script>
+        $(document).ready(function(){
+            $('input').keydown(function(e) {
+                if (e.keyCode == '13') {
+                    return false;
+                }
+            });
+        });
+    </script>
 
     <form id="cadAtestadoForm" autocomplete="off" method="POST" action="../atestadosCAD.php" onsubmit="addAtestado();return false;">
         <table style="width: auto; margin: 0 auto;" border="0">
@@ -71,6 +82,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                            tabindex="3" required style="width: 120px;"
                            onblur="calculaDataFinalDeAfastamento()" />
                 </td>
+                <td></td>
             </tr>
 
 
@@ -100,6 +112,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     </label>
                     <input id="chkAcompanhamentoFamiliar" name="chkAcompanhamentoFamiliar" type="checkbox" value="1" tabindex="6">
                 </td>
+                <td></td>
             </tr>
 
             <tr>
@@ -131,10 +144,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </td>
                 <td>
                     <label for="chkHomologados">
-                        Homologados (Concedidos Externos)
+                        Concedidos (Externos)
                     </label>
                     <input id="chkHomologados" name="chkHomologados" type="checkbox" value="1" tabindex="9">
                 </td>
+                <td></td>
             </tr>
 
             <tr>
@@ -160,6 +174,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     </label>
                     <input id="chkHomologadoMedico" name="chkHomologadoMedico" type="checkbox" value="1"  tabindex="12">
                 </td>
+                <td>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="chkINSS">
+                        Licença INSS
+                    </label>
+                    <input id="chkINSS" name="chkINSS" type="checkbox" value="1"  tabindex="13">
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
 
             <tr>
@@ -168,14 +196,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
 
             <tr>
                 <td style="text-align: left" colspan="2">
-                    <input type="submit" tabindex="13" class="button black" value="Gravar Registro"/>
-                    <input type="button" tabindex="14" class="button black" value="Limpar Campos" onclick="limparCamposAtestado()"/>
+                    <input type="submit" tabindex="14" class="button black" value="Gravar Registro"/>
+                    <input type="button" tabindex="15" class="button black" value="Limpar Campos" onclick="limparCamposAtestado()"/>
                     <a href="empregadoCAD.php?op=listar">
-                        <input type="button" tabindex="6" class="button black" value="Procurar Empregado" />
+                        <input type="button" tabindex="16" class="button black" value="Procurar Empregado" />
                     </a>
                     <div id="mensagemCadastro"></div>
                 </td>

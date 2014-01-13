@@ -1,6 +1,17 @@
 {include file="header.tpl" title="Controle de Atestados -SUPGP/GPSPO"}
 {include file="menu_top.tpl"}
 
+
+    <script>
+        $(document).ready(function(){
+            $('input').keydown(function(e) {
+                if (e.keyCode == '13') {
+                    return false;
+                }
+            });
+        });
+    </script>
+
     <form id="cadAtestadoForm" autocomplete="off" method="POST" action="../atestadosCAD.php" onsubmit="addAtestado();return false;">
         <table style="width: auto; margin: 0 auto;" border="0">
             <tr>

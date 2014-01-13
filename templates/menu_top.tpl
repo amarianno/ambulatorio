@@ -62,6 +62,20 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#">PERIÓDICOS <img src="include/img/icon/arrowdown-icon.png"/></a>
+                    <ul>
+                        <li>
+                            <a href="periodico_por_mes.php"><span>Por Mês</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Em atraso</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Relatório Anual</span></a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

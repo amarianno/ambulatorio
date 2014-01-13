@@ -151,24 +151,41 @@ if($op == 'consultar') {
     $cidBC = new CidBC();
     $atestBC = new AtestadoBC();
 
-    $mesAno = $_GET['dtRelatorio'];
-    $mesAnoSplit = preg_split('"/"', $mesAno, -1);
+    $dataIni = implode('-',array_reverse(explode('/',$_GET['dtRelatorioIni'])));
+    $dataFim = implode('-',array_reverse(explode('/',$_GET['dtRelatorioFIM'])));
+    $html = "Período: de <b>" . $_GET['dtRelatorioIni'] . "</b> a <b>" . $_GET['dtRelatorioFIM'] . "</b><br>";
+    $patologia = $_GET['txtPatologia'];
+    $especialidade = $_GET['selEspecialidade'];
 
-    $dataIni = $mesAnoSplit[1]."-".$mesAnoSplit[0]."-01";
-    $dataFim = $mesAnoSplit[1]."-".$mesAnoSplit[0]."-31";
+    if($patologia == '' || $patologia == null) {
+        $patologia = null;
+    } else {
+        $html .= "Patologia: <b>". $patologia . "</b><br>";
+    }
 
-    $listaCID = $cidBC->consultarCidPorMes($_SESSION[BANCO_SESSAO], $dataIni, $dataFim);
+    if($especialidade == 1) {
+        $especialidade = null;
+    } else {
+        $html .= "Especialidade: <b>". $especialidade . "</b><br>";
+    }
 
-    $diasAfastado = $atestBC->consultarDiasAfastadoPorMes($_SESSION[BANCO_SESSAO], $dataIni, $dataFim);
+    $listaCID = $cidBC->consultarCidPorPeriodo($_SESSION[BANCO_SESSAO], $dataIni, $dataFim, $patologia, $especialidade);
 
-    $html = toGridHtml($listaCID, $diasAfastado[0]->diasAfastado);
-    $html .= quantitativoCIDPorPeriodoToHtml($cidBC->consultarQuantitativoTipoCIDPorPeriodo($_SESSION[BANCO_SESSAO], $dataIni, $dataFim));
+    $diasAfastado = $atestBC->consultarDiasAfastadoPorPeriodo($_SESSION[BANCO_SESSAO], $dataIni, $dataFim, $patologia, $especialidade);
+    $html .= toGridHtml($listaCID, $diasAfastado[0]->diasAfastado);
+    if($patologia == null && $especialidade == null) {
+        $html .= quantitativoCIDPorPeriodoToHtml($cidBC->consultarQuantitativoTipoCIDPorPeriodo($_SESSION[BANCO_SESSAO], $dataIni, $dataFim));
+    }
 
-    GeradorPDF::pdf($html, "relatorio_cid_mensal_pdf");
+    require_once('MPDF56/mpdf.php');
 
-    $smarty = retornaSmarty();
-    $smarty->assign("html", $html);
-    $smarty->display("relatorio_cid_mensal_pdf.tpl");
+    $mpdf = new mPDF();
+    $stylesheet = file_get_contents('../include/css/template.css');
+    $mpdf->WriteHTML($stylesheet,1);
+    $mpdf->WriteHTML($html, 2);
+    $mpdf->Output();
+    exit;
+
 } else {
     $smarty = retornaSmarty();
     $smarty->display("relatorio_cid_mensal.tpl");

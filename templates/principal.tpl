@@ -3,7 +3,7 @@
     <table style="width: 100%" border="0">
         <tr>
             <td>
-                <h2>SCA - Sistema de controle de Atestados - SUPGP/GPSPO</h2>
+                <h2>SCA - Sistema de Controle de Atestados - SUPGP/GPSPO</h2>
             </td>
         </tr>
         <tr>

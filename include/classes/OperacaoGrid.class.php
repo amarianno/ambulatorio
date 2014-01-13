@@ -5,6 +5,11 @@ class OperacaoGrid {
 
 
     public static function formataData($data) {
+
+        if($data == '') {
+            return "";
+        }
+
         $returnValue = preg_split('"-"', $data, -1);
         return $returnValue[2] . "/" . $returnValue[1] . "/" . $returnValue[0];
     }
@@ -71,6 +76,56 @@ class OperacaoGrid {
         } else {
             $htmlRetorno .= "   <tr class='conteudo'>";
             $htmlRetorno .= "       <td class='semCartas' colspan='5'>Nenhum Atestado Cadastrado</td>";
+            $htmlRetorno .= "   </tr>";
+        }
+
+        $htmlRetorno .= "</tbody>";
+        $htmlRetorno .= "</table>";
+        $htmlRetorno .= "</div>";
+
+        return $htmlRetorno;
+
+    }
+
+    /**
+     * Monta a GRID de periódicos de todas as telas
+     * @param $listaAtestados
+     * @return string
+     */
+    public static function montaGridPeriodico($listaPeriodicos) {
+
+        $cor = false;
+        $htmlRetorno = "";
+
+        if(count($listaPeriodicos) > 0) {
+            $htmlRetorno .= count($listaPeriodicos)." Periódico(s) Realizado(s)";
+        }
+        $htmlRetorno .= "<div class='datagrid'>";
+        $htmlRetorno .= "<table id='mainDeck'>";
+        $htmlRetorno .= "<thead>";
+        $htmlRetorno .= "   <tr>";
+        $htmlRetorno .= "       <th>Previsto para:</th>";
+        $htmlRetorno .= "       <th>Iniciado em:</th>";
+        $htmlRetorno .= "       <th>Finalizado em:</th>";
+        $htmlRetorno .= "   </tr>";
+        $htmlRetorno .= "</thead>";
+        $htmlRetorno .= "<tbody>";
+
+        if(count($listaPeriodicos) > 0) {
+            foreach ($listaPeriodicos as $periodico) {
+
+                $classe = ($cor = !$cor) ? 'normal' : 'alt';
+                $htmlRetorno .= "<tr class='" . $classe . "'>";
+                $htmlRetorno .= "   <td>" . self::formataData($periodico->dataPrevisao) . "</td>";
+                $htmlRetorno .= "   <td>" . self::formataData($periodico->dataInicio) . "</td>";
+                $htmlRetorno .= "   <td>" . self::formataData($periodico->dataFim) . "</td>";
+                $htmlRetorno .= '</tr>';
+
+
+            }
+        } else {
+            $htmlRetorno .= "   <tr class='conteudo'>";
+            $htmlRetorno .= "       <td class='semCartas' colspan='5'>Nenhum Periódico Cadastrado</td>";
             $htmlRetorno .= "   </tr>";
         }
 

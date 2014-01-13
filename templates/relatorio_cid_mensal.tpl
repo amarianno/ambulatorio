@@ -105,6 +105,7 @@
         </table>
     </fieldset>
     <input type="button" tabindex="4" class="button black" value="Consultar" onclick="consultaCIDPorMes();"/>
+    <input type="button" tabindex="5" class="button black" value="Gerar PDF para Impressão" onclick="consultaCIDPorMesPDF()"/>
 </form>
 <span id="conteudoGrid"></span>
 
