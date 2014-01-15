@@ -11,7 +11,7 @@ require_once ('include/retornaconexao.inc.php');
 
 function formataData($data) {
 
-    if(!isset($data)) {
+    if(!isset($data) || $data == '') {
         return "";
     }
 
@@ -78,7 +78,7 @@ function grid($listaPeriodicos, $mes) {
 
             $classe = ($cor = !$cor) ? 'normal' : 'alt';
             $htmlRetorno .= "<tr class='" . $classe . "'>";
-            $htmlRetorno .= "   <td>" . "<input type='checkbox' class='chkPeriodico' value='".$periodico->codigo."'>" . "</td>";
+            $htmlRetorno .= "   <td>" . "<input type='checkbox' class='chkPeriodico' value='".$periodico->empregado->matricula."'>" . "</td>";
             $htmlRetorno .= "   <td>" . $periodico->empregado->nome . "</td>";
             $htmlRetorno .= "   <td>" . $periodico->empregado->matricula . "</td>";
             $htmlRetorno .= "   <td>" . (date('Y') - $anoNascimento[0]) . " anos</td>";
@@ -108,6 +108,21 @@ function grid($listaPeriodicos, $mes) {
     return $htmlRetorno;
 }
 
+function existeDataPrevista($matricula) {
+    $bc = new PeriodicoBC();
+    $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("matricula" => $matricula));
+    $lista = $bc->consultar($_SESSION[BANCO_SESSAO], null, $filtro);
+
+    for($i = 0; $i < count($lista);  $i++) {
+        $ano = preg_split('"-"', $lista[$i]->dataPrevisao, -1);
+        if($ano[0] == date('Y')) {
+            return $lista[$i]->codigo;
+        }
+    }
+
+    return 0;
+}
+
 $op = $_POST['op'];
 $smart = retornaSmarty();
 
@@ -123,7 +138,7 @@ if($op == 'consultar') {
     $periodico->dataInicio = $mes;
 
     $listaPeriodicosPorPeriodo = $bc->consultarEmpregadosPendentePeriodicoPorMes($_SESSION[BANCO_SESSAO], $periodico);
-    $listaRetornoTela = array();
+    /*$listaRetornoTela = array();
     $listaDatas = array();
 
     foreach ($listaPeriodicosPorPeriodo as $periodicoIterator) {
@@ -136,30 +151,32 @@ if($op == 'consultar') {
         if(($anoUltimaDataInicio[0]) == date('Y')) {
             $periodicoIterator->dataInicio = $listaDatas[0]->dataInicio;
             $periodicoIterator->dataFim = $listaDatas[0]->dataFim;
-            $periodicoIterator->dataUltimo = $listaDatas[count($listaDatas) - 1]->dataFim;
+            //$periodicoIterator->dataUltimo = $listaDatas[count($listaDatas) - (count($listaDatas) - 1)]->dataFim;
         } else {
             $periodicoIterator->dataInicio = null;
             $periodicoIterator->dataFim = null;
-            $periodicoIterator->dataUltimo = $listaDatas[count($listaDatas) - 1]->dataFim;
+            //$periodicoIterator->dataUltimo = $listaDatas[count($listaDatas) - (count($listaDatas) - 1)]->dataFim;
         }
 
         if($periodicoIterator->isMaisQuarentaAnos == '1') {
             $listaRetornoTela[] = $periodicoIterator;
         } else {
-            $anoUltimoPeriodico = preg_split('"-"', $periodicoIterator->dataUltimo, -1);
-            if(($anoUltimoPeriodico[0] + 2) == date('Y')) {
+            $anoUltimoPeriodico = preg_split('"-"', $periodicoIterator->dataPrevisao, -1);
+            //SE Ultimo periódico for igual ao ano corrente
+            //SE data do ultimo periódico + 2 for igual ao ano corrente
+            if(($anoUltimoPeriodico[0] == date('Y')) || ($anoUltimoPeriodico[0] + 2) == date('Y')) {
                 $listaRetornoTela[] = $periodicoIterator;
             }
         }
-    }
+    }*/
 
     //*************** GRID *************************
-    echo(grid($listaRetornoTela, $mes));
+    echo(grid($listaPeriodicosPorPeriodo, $mes));
 
 } else if($op == 'datas') {
 
     $bc = new PeriodicoBC();
-    $codigos = preg_split('"-"', $_POST['codigosAlterarData'], -1);
+    $matriculas = preg_split('"-"', $_POST['matriculas'], -1);
 
     $camposValores = array();
 
@@ -169,11 +186,17 @@ if($op == 'consultar') {
         $camposValores['data_fim'] = date('Y-m-d');
     }
 
-    for($cont = 0; $cont < count($codigos); $cont++) {
-        $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("codigo" => $codigos[$cont]));
-        $bc->alterar($_SESSION[BANCO_SESSAO], $camposValores, $filtro);
+    for($cont = 0; $cont < count($matriculas); $cont++) {
+        $codigo = existeDataPrevista($matriculas[$cont]);
+        if($codigo != 0) {
+            $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("codigo" => $codigo));
+            $bc->alterar($_SESSION[BANCO_SESSAO], $camposValores, $filtro);
+        } else {
+            $camposValores['data_previsao'] = date('Y')."-".date('m')."-01";
+            $camposValores['matricula'] = $matriculas[$cont];
+            $bc->incluir($_SESSION[BANCO_SESSAO], $camposValores);
+        }
     }
-
 
 } else {
     $smart->display('periodico_por_mes.tpl');

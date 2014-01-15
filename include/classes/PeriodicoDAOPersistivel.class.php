@@ -28,9 +28,46 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
     }
 
     public function consultarEmpregadosPendentePeriodicoPorMes(DAOBanco $banco, Periodico $periodico) {
-        $sql = " SELECT per.codigo as codigo, emp.nome as nome, emp.matricula as matricula, emp.empresa as empresa, emp.data_nascimento as data_nascimento,
+
+        $camposSQL = " per.codigo as codigo, emp.nome as nome, emp.matricula as matricula,
+                    emp.empresa as empresa, per.data_previsao as data_previsao, emp.data_nascimento as data_nascimento,
+                    (
+                        CASE WHEN (YEAR(NOW( )) = YEAR(per.data_inicio))
+                        THEN  per.data_inicio
+                        ELSE  ''
+                        END
+                    ) as data_inicio ,
+                    (
+                        CASE WHEN (YEAR(NOW( )) = YEAR(per.data_fim))
+                        THEN  per.data_fim
+                        ELSE  ''
+                        END
+                    ) as data_fim,
+                    (SELECT MAX( data_fim ) FROM periodico WHERE matricula = per.matricula AND data_fim IS NOT NULL) as data_ultimo ";
+
+
+        $sql = "SELECT ".$camposSQL."
+                FROM periodico per
+                JOIN empregado emp ON ( emp.matricula = per.matricula )
+                WHERE per.data_previsao = ( SELECT MAX( data_previsao ) FROM periodico WHERE matricula = per.matricula )
+                AND ((YEAR(NOW( )) - YEAR(emp.data_nascimento)) >= 40)
+                AND MONTH(per.data_previsao) = ". $periodico->dataInicio ."
+                AND emp.empresa =". $periodico->empregado->localidade."
+                UNION
+                SELECT ".$camposSQL."
+                FROM periodico per
+                JOIN empregado emp ON ( emp.matricula = per.matricula )
+                WHERE per.data_previsao = ( SELECT MAX( data_previsao ) FROM periodico WHERE matricula = per.matricula )
+                AND (YEAR(per.data_previsao) = YEAR(NOW()) OR (YEAR(per.data_previsao) + 2) = YEAR(NOW()) OR (YEAR(NOW()) = (YEAR(emp.data_admissao) + 2)))
+                AND ((YEAR(NOW( )) - YEAR(emp.data_nascimento)) < 40)
+                AND MONTH(per.data_previsao) = ". $periodico->dataInicio ."
+                AND emp.empresa =". $periodico->empregado->localidade." order by nome";
+
+
+        /*$sql = " SELECT per.codigo as codigo, emp.nome as nome, emp.matricula as matricula,
+                emp.empresa as empresa, per.data_previsao as data_previsao, emp.data_nascimento as data_nascimento,
                 per.data_inicio as data_inicio , per.data_fim as data_fim, per.data_fim as data_ultimo, (
-                CASE WHEN (YEAR(NOW( )) - YEAR(emp.data_nascimento)) > 40
+                CASE WHEN (YEAR(NOW( )) - YEAR(emp.data_nascimento)) >= 40
                 THEN  '1'
                 ELSE  '0'
                 END
@@ -44,7 +81,7 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
                     $sql .= " AND emp.matricula =" . $periodico->empregado->matricula;
                 }
 
-                $sql .= " order by nome";
+                $sql .= " order by nome";*/
 
         if ($banco->abreConexao() == true) {
             $res = $banco->consultar($sql);

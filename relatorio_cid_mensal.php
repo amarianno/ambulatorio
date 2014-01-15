@@ -35,6 +35,7 @@ function quantitativoCIDPorPeriodoToHtml($listaQuantidades) {
         $htmlRetorno .= "<thead>";
         $htmlRetorno .= "   <tr>";
         $htmlRetorno .= "       <th>Quantidade (%)</th>";
+        $htmlRetorno .= "       <th>Dias</th>";
         $htmlRetorno .= "       <th>Descrição</th>";
         $htmlRetorno .= "   </tr>";
         $htmlRetorno .= "</thead>";
@@ -46,6 +47,7 @@ function quantitativoCIDPorPeriodoToHtml($listaQuantidades) {
             $classe = ($cor = !$cor) ? 'normal' : 'alt';
             $htmlRetorno .= "<tr class='" . $classe . "'>";
             $htmlRetorno .= "   <td>" . number_format(($relatorio->quantidade * 100)  / $total, 2, '.', ''). "%</td>";
+            $htmlRetorno .= "   <td>" . $relatorio->dias . "</td>";
             $htmlRetorno .= "   <td>" . utf8_encode($relatorio->cid->descricao) . "</td>";
             $htmlRetorno .= '</tr>';
         }
@@ -143,6 +145,7 @@ if($op == 'consultar') {
     $html = toGridHtml($listaCID, $diasAfastado[0]->diasAfastado);
     if($patologia == null && $especialidade == null) {
         $html .= quantitativoCIDPorPeriodoToHtml($cidBC->consultarQuantitativoTipoCIDPorPeriodo($_SESSION[BANCO_SESSAO], $dataIni, $dataFim));
+       // $html .= quantitativoCIDPorPeriodoToHtml($cidBC->consultarQuantitativoTipoCIDPorPeriodoApenasAtestadosMais15Dias($_SESSION[BANCO_SESSAO], $dataIni, $dataFim));
     }
 
     echo($html);

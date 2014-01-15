@@ -1085,12 +1085,9 @@ function marcarExames() {
 
 //****************** PERIODICOS **********************************************
 function marcarPeriodico(inicioOuFim) {
-    alert(0);
     var checados =  $("input.chkPeriodico:checked");
     var retorno = "";
     var cont = 1;
-
-    alert(1);
 
     for(var i = 0; i < checados.length; i++) {
         retorno += checados[i].value;
@@ -1100,16 +1097,50 @@ function marcarPeriodico(inicioOuFim) {
         }
     }
 
-    alert(2);
+    alert(retorno);
+
     $.ajax({
         type: "POST",
         url: 'periodico_por_mes.php',
-        data: 'op=datas&codigosAlterarData=' + retorno + "&inicioOuFim=" + inicioOuFim,
+        data: 'op=datas&matriculas=' + retorno + "&inicioOuFim=" + inicioOuFim,
         success: function (data) {
             consultaPeriodicoPendentesPorMes();
         }
     });
+}
 
-    alert(3);
+function consultaEmpregadosPlanejamentoPorMes() {
 
+    if(document.getElementById("selMes").value == '' && $("#txtMatricula").val() == '') {
+        return false;
+    }
+
+    var campos =  "selMes=" +document.getElementById("selMes").value;
+    campos +=  "&selEmpresa=" + document.getElementById("selEmpresa").value;
+    campos +=  "&txtMatricula=" + $("#txtMatricula").val();
+    campos += "&op=consultar"
+    consulta('planejamento_periodicos.php', campos, 'conteudoGrid');
+}
+
+function planejarPeriodico() {
+    var matriculas =  $("input.chkEmpregado:checked");
+    var retorno = "";
+    var cont = 1;
+
+    for(var i = 0; i < matriculas.length; i++) {
+        retorno += matriculas[i].value;
+        if(cont != matriculas.length) {
+            retorno += "-";
+            cont++;
+        }
+    }
+
+    $.ajax({
+        type: "POST",
+        url: 'planejamento_periodicos.php',
+        data: 'op=mudarplanejamento&matriculas=' + retorno + "&selMesPlanejamento" + document.getElementById("selMesPlanejamento").value,
+        success: function (data) {
+            consultaEmpregadosPlanejamentoPorMes();
+        }
+    });
 }

@@ -89,7 +89,10 @@ class AtestadoDAOPersistivel extends DAOPersistivel {
     public function consultarDiasAfastadoPorPeriodo(DAOBanco $banco, $dataInicial, $dataFinal, $patologia, $especialidade) {
         $sql = "SELECT SUM( atestado.dias_afastado ) AS dias_afastado
                 FROM cid, atestado
-                WHERE UPPER(cid.nome) = UPPER(atestado.cid) AND atestado.acompanhamento_familiar = 0 AND atestado.data_recebimento
+                WHERE UPPER(cid.nome) = UPPER(atestado.cid)
+                AND atestado.acompanhamento_familiar = 0
+                AND atestado.homologado_medico = 1
+                AND atestado.data_recebimento
                 BETWEEN  '".$dataInicial."'
                 AND  '".$dataFinal."'";
 

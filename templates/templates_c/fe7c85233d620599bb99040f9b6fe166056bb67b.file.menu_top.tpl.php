@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-01-09 14:36:43
+<?php /* Smarty version Smarty-3.1.13, created on 2014-01-14 06:37:20
          compiled from "templates/menu_top.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:247225102513e393fbc0d59-06006437%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fe7c85233d620599bb99040f9b6fe166056bb67b' => 
     array (
       0 => 'templates/menu_top.tpl',
-      1 => 1389285400,
+      1 => 1389688493,
       2 => 'file',
     ),
   ),
@@ -86,6 +86,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <li>
                     <a href="#">PERIÓDICOS <img src="include/img/icon/arrowdown-icon.png"/></a>
                     <ul>
+                        <li>
+                            <a href="planejamento_periodicos.php"><span>Planejamento</span></a>
+                        </li>
                         <li>
                             <a href="periodico_por_mes.php"><span>Por Mês</span></a>
                         </li>

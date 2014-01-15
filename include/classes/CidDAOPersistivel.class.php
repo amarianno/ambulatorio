@@ -63,11 +63,31 @@ class CidDAOPersistivel extends DAOPersistivel {
     }
 
     public function consultarQuantitativoTipoCIDPorPeriodo(DAOBanco $banco, $dataInicial, $dataFinal ) {
-        $sql = "SELECT COUNT( c.categoria ) as quantidade , tc.descricao as descricao
+        $sql = "SELECT COUNT( c.categoria ) as quantidade , SUM(at.dias_afastado) as dias, tc.descricao as descricao
                 FROM atestado at
                 INNER JOIN cid c ON ( UPPER( at.cid ) = UPPER( c.nome ) )
                 INNER JOIN tipo_cid tc ON ( c.categoria = tc.codigo )
                 WHERE at.homologado_medico = 1
+                AND at.acompanhamento_familiar = 0
+                AND at.data_recebimento
+                BETWEEN  '".$dataInicial."'
+                AND  '".$dataFinal."'
+                GROUP BY c.categoria";
+
+        if ($banco->abreConexao() == true) {
+            $res = $banco->consultar($sql);
+            $banco->fechaConexao();
+            return $this->criaObjetosRelatorioCIDPorMes($res);
+        }
+    }
+
+    public function consultarQuantitativoTipoCIDPorPeriodoApenasAtestadosMais15Dias(DAOBanco $banco, $dataInicial, $dataFinal) {
+        $sql = "SELECT COUNT( c.categoria ) as quantidade , SUM(at.dias_afastado) as dias, tc.descricao as descricao
+                FROM atestado at
+                INNER JOIN cid c ON ( UPPER( at.cid ) = UPPER( c.nome ) )
+                INNER JOIN tipo_cid tc ON ( c.categoria = tc.codigo )
+                WHERE at.homologado_medico = 1
+                AND at.dias_afastado > 14
                 AND at.data_recebimento
                 BETWEEN  '".$dataInicial."'
                 AND  '".$dataFinal."'
@@ -83,7 +103,8 @@ class CidDAOPersistivel extends DAOPersistivel {
     public function consultarCidPorPeriodo(DAOBanco $banco, $dataInicial, $dataFinal, $patologia, $especialidade ) {
         $sql = "SELECT COUNT( cid.nome ) AS quantidade , cid.nome AS nome, cid.descricao AS descricao
                 FROM cid, atestado
-                WHERE UPPER(cid.nome) = UPPER(atestado.cid) AND atestado.acompanhamento_familiar = 0
+                WHERE UPPER(cid.nome) = UPPER(atestado.cid)
+                AND atestado.acompanhamento_familiar = 0
                 AND atestado.homologado_medico = 1
                 AND atestado.data_recebimento
                 BETWEEN  '".$dataInicial."'
@@ -116,6 +137,8 @@ class CidDAOPersistivel extends DAOPersistivel {
                     $relatorio->quantidade = $valor;
                 } elseif (strcasecmp($campo, "nome") == 0) {
                     $relatorio->cid->nome = $valor;
+                } elseif (strcasecmp($campo, "dias") == 0) {
+                    $relatorio->dias = $valor;
                 } elseif (strcasecmp($campo, "descricao") == 0) {
                     $relatorio->cid->descricao = $valor;
                 }

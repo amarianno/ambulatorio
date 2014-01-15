@@ -98,7 +98,7 @@ class OperacaoGrid {
         $htmlRetorno = "";
 
         if(count($listaPeriodicos) > 0) {
-            $htmlRetorno .= count($listaPeriodicos)." Periódico(s) Realizado(s)";
+            $htmlRetorno .= count($listaPeriodicos)." Periódico(s) Previsto/Realizado(s)";
         }
         $htmlRetorno .= "<div class='datagrid'>";
         $htmlRetorno .= "<table id='mainDeck'>";
