@@ -19,6 +19,12 @@ jQuery(function($){
     if($("#dtRelatorioFIM").size() > 0) {
         $("#dtRelatorioFIM").mask("99/99/99");
     }
+    if($("#txtAdmissao").size() > 0) {
+        $("#txtAdmissao").mask("99/99/9999");
+    }
+    if($("#txtDataNascimento").size() > 0) {
+        $("#txtDataNascimento").mask("99/99/9999");
+    }
 
 
 });
@@ -495,6 +501,8 @@ function addEmpregado() {
     campos += "&txtNome=" + $("#txtNome").val();
     campos += "&txtLotacao=" + $("#txtLotacao").val();
     campos += "&txtNumCarteira=" + $("#txtNumCarteira").val();
+    campos += "&txtAdmissao=" + $("#txtAdmissao").val();
+    campos += "&txtDataNascimento=" + $("#txtDataNascimento").val();
     campos += "&selLocalidade=" + document.getElementById("selLocalidade").value;
     campos += "&cadastraOuAlterar=" + $("#cadastraOuAlterar").val();
     campos += "&op=gravar";
@@ -516,6 +524,8 @@ function limparCamposEmpregado() {
     $("#txtNome").val('');
     $("#txtNumCarteira").val('');
     $("#txtLotacao").val('');
+    $("#txtAdmissao").val('');
+    $("#txtDataNascimento").val('');
     document.getElementById("selLocalidade").selectedIndex = 0;
 }
 function existeFuncionario() {
@@ -533,6 +543,7 @@ function existeFuncionario() {
         success: function (data) {
             var funcionario = jQuery.parseJSON ( data );
 
+
             if(funcionario.nome == '' || funcionario.nome == null) {
                 $('#cadastraOuAlterar').val('cad');
                 $('#txtNome').val('');
@@ -543,6 +554,8 @@ function existeFuncionario() {
                 $('#txtNome').val(funcionario.nome);
                 $('#txtLotacao').val(funcionario.lotacao);
                 $('#txtNumCarteira').val(funcionario.numCarteira);
+                $('#txtAdmissao').val(funcionario.dataAdmissao);
+                $('#txtDataNascimento').val(funcionario.dataNascimento);
                 if(funcionario.localidade != '') {
                     var meuSelect = document.getElementById("selLocalidade");
                     var i = 0;
@@ -1138,8 +1151,9 @@ function planejarPeriodico() {
     $.ajax({
         type: "POST",
         url: 'planejamento_periodicos.php',
-        data: 'op=mudarplanejamento&matriculas=' + retorno + "&selMesPlanejamento" + document.getElementById("selMesPlanejamento").value,
+        data: 'op=mudarplanejamento&matriculas=' + retorno + "&selMesPlanejamento=" + document.getElementById("selMesPlanejamento").value,
         success: function (data) {
+            alert('Alterado com sucesso')
             consultaEmpregadosPlanejamentoPorMes();
         }
     });
