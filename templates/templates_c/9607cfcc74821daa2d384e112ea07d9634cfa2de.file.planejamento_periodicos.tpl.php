@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-01-14 06:38:34
+<?php /* Smarty version Smarty-3.1.13, created on 2014-01-16 16:48:23
          compiled from "templates/planejamento_periodicos.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:52540185352d4f742913431-89111560%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9607cfcc74821daa2d384e112ea07d9634cfa2de' => 
     array (
       0 => 'templates/planejamento_periodicos.tpl',
-      1 => 1389688711,
+      1 => 1389897806,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php echo $_smarty_tpl->getSubTemplate ("menu_top.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 
-<form action="#" onsubmit="consultaEmpregadosPlanejamentoPorMes(); return false;">
+<form action="#" onsubmit="return false;">
     <table style="width: 70%; margin: 0 auto;" border="0">
         <tr>
             <td colspan="3">
@@ -99,5 +99,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             </td>
         </tr>
     </table>
+    <span id="conteudoGrid"></span>
 </form>
-<span id="conteudoGrid"></span><?php }} ?>
+<?php }} ?>

@@ -47,8 +47,28 @@
         </tr>
         <tr>
             <td>
+                <label for="txtAdmissao">
+                    Admissão
+                </label>
+                <input id="txtAdmissao" name="txtAdmissao"
+                       type="text" value="{$txtAdmissao}" maxlength="60"
+                       tabindex="5" style="width: 320px;" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="txtDataNascimento">
+                    Data de Nascimento
+                </label>
+                <input id="txtDataNascimento" name="txtDataNascimento"
+                       type="text" value="{$txtDataNascimento}" maxlength="20"
+                       tabindex="6" style="width: 320px;" />
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Empresa <br>
-                <select id="selLocalidade" name="selLocalidade" tabindex="5" style="width: 320px;" >
+                <select id="selLocalidade" name="selLocalidade" tabindex="7" style="width: 320px;" >
                     <option value="1" selected="selected">
                         SOCORRO
                     </option>
@@ -64,12 +84,12 @@
 
         <tr>
             <td style="text-align: left" colspan="2">
-                <input type="submit" tabindex="6" class="button black" value="Gravar Registro"/>
-                <input type="button" tabindex="7" class="button black" value="Limpar Campos" onclick="limparCamposEmpregado()"/>
+                <input type="submit" tabindex="8" class="button black" value="Gravar Registro"/>
+                <input type="button" tabindex="9" class="button black" value="Limpar Campos" onclick="limparCamposEmpregado()"/>
                 <a href="empregadoCAD.php?op=listar">
-                    <input type="button" tabindex="8" class="button black" value="Procurar Empregado" />
+                    <input type="button" tabindex="10" class="button black" value="Procurar Empregado" />
                 </a>
-                <input type="button" tabindex="9" class="button black" value="Deletar" onclick="querMesmoApagarEmpregado()"/>
+                <input type="button" tabindex="11" class="button black" value="Deletar" onclick="querMesmoApagarEmpregado()"/>
             </td>
         </tr>
 

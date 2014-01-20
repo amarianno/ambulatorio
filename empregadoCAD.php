@@ -18,6 +18,16 @@ function retornaEmpresa($cod) {
     }
 }
 
+function getMes($data) {
+    $split = preg_split('"/"', $data, -1);
+    return $split[1];
+}
+
+function getAno($data) {
+    $split = preg_split('"/"', $data, -1);
+    return $split[2];
+}
+
 function grid($listaEmpregados) {
     $cor = false;
     $htmlRetorno = "";
@@ -66,6 +76,9 @@ if($operacao == 'existe') {
     $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("matricula" => $_POST['matricula']));
     $empregadoDTO = $empregadoBC->consultar($_SESSION[BANCO_SESSAO], null, $filtro);
 
+    $empregadoDTO[0]->dataNascimento = Util::dataMysqlToTela($empregadoDTO[0]->dataNascimento);
+    $empregadoDTO[0]->dataAdmissao = Util::dataMysqlToTela($empregadoDTO[0]->dataAdmissao);
+
     if(count($empregadoDTO) > 0) {
         echo(json_encode($empregadoDTO[0]));
     } else {
@@ -75,22 +88,49 @@ if($operacao == 'existe') {
 } else if($operacao == 'gravar') {
 
     $empregadoBC = new EmpregadoBC();
+    $periodicoBC = new PeriodicoBC();
 
     $campos = array();
     $campos['matricula'] = $_POST['txtMatricula'];
     $campos['nome'] = strtr(strtoupper($_POST['txtNome']),"àáâãäåæçèéêëìíîïðñòóôõö÷øùüúþÿ","ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÜÚÞß");
-    $campos['lotacao'] = $_POST['txtLotacao'];
+    $campos['lotacao'] = strtr(strtoupper($_POST['txtLotacao']),"àáâãäåæçèéêëìíîïðñòóôõö÷øùüúþÿ","ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÜÚÞß");
     $campos['empresa'] = $_POST['selLocalidade'];
     $campos['num_carteira'] = $_POST['txtNumCarteira'];
+    $campos['data_admissao'] = Util::dataTelaToMysql($_POST['txtAdmissao']);
+    $campos['data_nascimento'] = Util::dataTelaToMysql($_POST['txtDataNascimento']);
 
     $cadastraOuAlterar = $_POST['cadastraOuAlterar'];
     if($cadastraOuAlterar == 'cad') {
         $empregadoBC->incluir($_SESSION[BANCO_SESSAO], $campos);
 
+        $mes = getMes($_POST['txtAdmissao']);
+        $campos = array();
+        $campos['matricula'] = $_POST['txtMatricula'];
+        if($mes == '12') {
+            $mes = '10';
+        }
+        if($mes == '1' || $mes == '2') {
+            $mes = '4';
+        }
+        $campos['data_previsao'] = (getAno($_POST['txtAdmissao']) + 2).'-'.$mes.'-01';
+        $periodicoBC->incluir($_SESSION[BANCO_SESSAO], $campos);
+
         echo "Incluido";
     } else {
         $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("matricula" => $_POST['txtMatricula']));
         $empregadoBC->alterar($_SESSION[BANCO_SESSAO], $campos, $filtro);
+
+        /*$mes = getMes($_POST['txtAdmissao']);
+        $campos = array();
+        $campos['matricula'] = $_POST['txtMatricula'];
+        if($mes == '12') {
+            $mes = '10';
+        }
+        if($mes == '1' || $mes == '2') {
+            $mes = '4';
+        }
+        $campos['data_previsao'] = (getAno($_POST['txtAdmissao']) + 2).'-'.$mes.'-01';
+        $periodicoBC->incluir($_SESSION[BANCO_SESSAO], $campos);*/
 
         echo "Alterado";
     }

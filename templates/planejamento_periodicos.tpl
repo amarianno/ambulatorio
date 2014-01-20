@@ -1,7 +1,7 @@
 {include file="header.tpl" title="Controle de Atestados - SUPGP/GPSPO"}
 {include file="menu_top.tpl"}
 
-<form action="#" onsubmit="consultaEmpregadosPlanejamentoPorMes(); return false;">
+<form action="#" onsubmit="return false;">
     <table style="width: 70%; margin: 0 auto;" border="0">
         <tr>
             <td colspan="3">
@@ -76,5 +76,5 @@
             </td>
         </tr>
     </table>
+    <span id="conteudoGrid"></span>
 </form>
-<span id="conteudoGrid"></span>

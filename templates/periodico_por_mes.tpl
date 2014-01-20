@@ -9,13 +9,13 @@
                     Mês
                 </label>
                 <select id="selMes" name="selMes" tabindex="1">
-                    <option value="1" selected="selected">
+                    <option value="1">
                         JANEIRO
                     </option>
                     <option value="2">
                         FEVEREIRO
                     </option>
-                    <option value="3">
+                    <option value="3" selected="selected">
                         MARÇO
                     </option>
                     <option value="4">

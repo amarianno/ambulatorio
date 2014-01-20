@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-01-13 09:47:56
+<?php /* Smarty version Smarty-3.1.13, created on 2014-01-16 16:11:55
          compiled from "templates/periodico_por_mes.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3127305352ced01d197e58-52680682%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '672cc97668b7a1560940719666c22453baf1924d' => 
     array (
       0 => 'templates/periodico_por_mes.tpl',
-      1 => 1389613664,
+      1 => 1389895837,
       2 => 'file',
     ),
   ),
@@ -32,13 +32,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     Mês
                 </label>
                 <select id="selMes" name="selMes" tabindex="1">
-                    <option value="1" selected="selected">
+                    <option value="1">
                         JANEIRO
                     </option>
                     <option value="2">
                         FEVEREIRO
                     </option>
-                    <option value="3">
+                    <option value="3" selected="selected">
                         MARÇO
                     </option>
                     <option value="4">
