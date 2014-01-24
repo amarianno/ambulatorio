@@ -66,6 +66,9 @@
                     <option value="2">
                         LUZ
                     </option>
+                    <option value="3">
+                        EXTERNO
+                    </option>
                 </select>
             </td>
             <td>

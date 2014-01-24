@@ -1110,8 +1110,6 @@ function marcarPeriodico(inicioOuFim) {
         }
     }
 
-    alert(retorno);
-
     $.ajax({
         type: "POST",
         url: 'periodico_por_mes.php',

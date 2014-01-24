@@ -63,7 +63,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">PERIÓDICOS <img src="include/img/icon/arrowdown-icon.png"/></a>
+                    <a href="#">EMP <img src="include/img/icon/arrowdown-icon.png"/></a>
                     <ul>
                         <li>
                             <a href="planejamento_periodicos.php"><span>Planejamento</span></a>

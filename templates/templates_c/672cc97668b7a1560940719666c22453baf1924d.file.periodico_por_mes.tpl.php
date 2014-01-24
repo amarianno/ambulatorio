@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-01-16 16:11:55
+<?php /* Smarty version Smarty-3.1.13, created on 2014-01-23 13:22:37
          compiled from "templates/periodico_por_mes.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3127305352ced01d197e58-52680682%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '672cc97668b7a1560940719666c22453baf1924d' => 
     array (
       0 => 'templates/periodico_por_mes.tpl',
-      1 => 1389895837,
+      1 => 1390490534,
       2 => 'file',
     ),
   ),
@@ -88,6 +88,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     </option>
                     <option value="2">
                         LUZ
+                    </option>
+                    <option value="3">
+                        EXTERNO
                     </option>
                 </select>
             </td>

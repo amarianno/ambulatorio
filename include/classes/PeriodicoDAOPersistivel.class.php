@@ -45,6 +45,14 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
                     ) as data_fim,
                     (SELECT MAX( data_fim ) FROM periodico WHERE matricula = per.matricula AND data_fim IS NOT NULL) as data_ultimo ";
 
+        $matriculaSQL = "";
+
+        if($periodico->empregado->matricula != '') {
+            $matriculaSQL .= " AND emp.matricula =" . $periodico->empregado->matricula;
+        } else {
+            $matriculaSQL = "";
+        }
+
 
         $sql = "SELECT ".$camposSQL."
                 FROM periodico per
@@ -52,7 +60,7 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
                 WHERE per.data_previsao = ( SELECT MAX( data_previsao ) FROM periodico WHERE matricula = per.matricula )
                 AND ((YEAR(NOW( )) - YEAR(emp.data_nascimento)) >= 40)
                 AND MONTH(per.data_previsao) = ". $periodico->dataInicio ."
-                AND emp.empresa =". $periodico->empregado->localidade."
+                AND emp.empresa =". $periodico->empregado->localidade."".$matriculaSQL."
                 UNION
                 SELECT ".$camposSQL."
                 FROM periodico per
@@ -61,7 +69,7 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
                 AND (YEAR(per.data_previsao) = YEAR(NOW()) OR (YEAR(per.data_previsao) + 2) = YEAR(NOW()) OR (YEAR(NOW()) = (YEAR(emp.data_admissao) + 2)))
                 AND ((YEAR(NOW( )) - YEAR(emp.data_nascimento)) < 40)
                 AND MONTH(per.data_previsao) = ". $periodico->dataInicio ."
-                AND emp.empresa =". $periodico->empregado->localidade." order by nome";
+                AND emp.empresa =". $periodico->empregado->localidade."".$matriculaSQL." order by nome";
 
 
         /*$sql = " SELECT per.codigo as codigo, emp.nome as nome, emp.matricula as matricula,

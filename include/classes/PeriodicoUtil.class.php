@@ -15,7 +15,7 @@ class PeriodicoUtil {
         $htmlRetorno = "";
 
         if(count($listaPeriodicos) > 0) {
-            $htmlRetorno .= count($listaPeriodicos)." Periódicos para o Mês de <b>". Util::mesPorExtenso($mes) ."</b><br>";
+            $htmlRetorno .= count($listaPeriodicos)." EMPs para o Mês de <b>". Util::mesPorExtenso($mes) ."</b><br>";
         }
         $htmlRetorno .= "<div class='datagrid'>";
         $htmlRetorno .= "<table id='mainDeck'>";
@@ -50,7 +50,7 @@ class PeriodicoUtil {
             }
         } else {
             $htmlRetorno .= "   <tr class='conteudo'>";
-            $htmlRetorno .= "       <td class='semCartas' colspan='5'>Nenhum Periódico Cadastrado</td>";
+            $htmlRetorno .= "       <td class='semCartas' colspan='5'>Nenhum EMP Cadastrado</td>";
             $htmlRetorno .= "   </tr>";
         }
 

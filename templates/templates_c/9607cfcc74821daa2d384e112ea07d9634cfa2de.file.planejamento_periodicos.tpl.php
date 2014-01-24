@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-01-16 16:48:23
+<?php /* Smarty version Smarty-3.1.13, created on 2014-01-23 13:22:50
          compiled from "templates/planejamento_periodicos.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:52540185352d4f742913431-89111560%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9607cfcc74821daa2d384e112ea07d9634cfa2de' => 
     array (
       0 => 'templates/planejamento_periodicos.tpl',
-      1 => 1389897806,
+      1 => 1390490537,
       2 => 'file',
     ),
   ),
@@ -91,6 +91,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     </option>
                     <option value="2">
                         LUZ
+                    </option>
+                    <option value="3">
+                        EXTERNO
                     </option>
                 </select>
             </td>
