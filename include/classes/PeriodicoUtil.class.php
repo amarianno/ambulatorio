@@ -164,6 +164,55 @@ class PeriodicoUtil {
         return $htmlRetorno;
     }
 
+    /**
+     * @param $listaPeriodicos
+     * @param $mes
+     * @return string
+     */
+    public static function GRID_Atrasos($listaPeriodicos, $mes) {
+
+        $cor = false;
+        $htmlRetorno = "";
+
+        if(count($listaPeriodicos) > 0) {
+            $htmlRetorno .= count($listaPeriodicos)." empregados em atraso para o mês de <b>". Util::mesPorExtenso($mes) ."</b><br>";
+        }
+        $htmlRetorno .= "<div class='datagrid'>";
+        $htmlRetorno .= "<table id='mainDeck'>";
+        $htmlRetorno .= "<thead>";
+        $htmlRetorno .= "   <tr>";
+        $htmlRetorno .= "       <th></th>";
+        $htmlRetorno .= "       <th>Matrícula</th>";
+        $htmlRetorno .= "       <th>Nome</th>";
+        $htmlRetorno .= "       <th>Data Início</th>";
+        $htmlRetorno .= "   </tr>";
+        $htmlRetorno .= "</thead>";
+        $htmlRetorno .= "<tbody>";
+
+        if(count($listaPeriodicos) > 0) {
+            foreach ($listaPeriodicos as $periodico) {
+
+                $classe = ($cor = !$cor) ? 'normal' : 'alt';
+                $htmlRetorno .= "<tr class='" . $classe . "'>";
+                $htmlRetorno .= "   <td>" . "<input type='checkbox' class='chkEmpregado' value='".$periodico->empregado->matricula."'>" . "</td>";
+                $htmlRetorno .= "   <td>" . $periodico->empregado->matricula . "</td>";
+                $htmlRetorno .= "   <td>" . $periodico->empregado->nome . "</td>";
+                $htmlRetorno .= "   <td>" . Util::dataMysqlToTela($periodico->dataInicio) . "</td>";
+                $htmlRetorno .= '</tr>';
+            }
+        } else {
+            $htmlRetorno .= "   <tr class='conteudo'>";
+            $htmlRetorno .= "       <td class='semCartas' colspan='5'>Nenhum Empregado em atraso para ".Util::mesPorExtenso($mes)."</td>";
+            $htmlRetorno .= "   </tr>";
+        }
+
+        $htmlRetorno .= "</tbody>";
+        $htmlRetorno .= "</table>";
+        $htmlRetorno .= "</div>";
+
+        return $htmlRetorno;
+    }
+
 
 }
 

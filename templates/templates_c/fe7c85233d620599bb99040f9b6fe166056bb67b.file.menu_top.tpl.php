@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-01-23 13:22:34
+<?php /* Smarty version Smarty-3.1.13, created on 2014-01-28 16:46:02
          compiled from "templates/menu_top.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:247225102513e393fbc0d59-06006437%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fe7c85233d620599bb99040f9b6fe166056bb67b' => 
     array (
       0 => 'templates/menu_top.tpl',
-      1 => 1390490550,
+      1 => 1390934756,
       2 => 'file',
     ),
   ),
@@ -93,7 +93,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                             <a href="periodico_por_mes.php"><span>Por Mês</span></a>
                         </li>
                         <li>
-                            <a href="#"><span>Em atraso</span></a>
+                            <a href="periodico_atraso.php"><span>Em atraso</span></a>
                         </li>
                         <li>
                             <a href="#"><span>Relatório Anual</span></a>

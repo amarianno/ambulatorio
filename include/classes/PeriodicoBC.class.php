@@ -28,4 +28,8 @@ class PeriodicoBC extends BC {
     public function consultarEmpregadosPendentePeriodicoPorMes(DAOBanco $banco, Periodico $periodico) {
         return $this->DAO->consultarEmpregadosPendentePeriodicoPorMes($banco, $periodico);
     }
+
+    public function consultarEmpregadosComPeriodicoEmAtraso(DAOBanco $banco, $mes, $empresa) {
+        return $this->DAO->consultarEmpregadosComPeriodicoEmAtraso($banco, $mes, $empresa);
+    }
 }

@@ -1017,6 +1017,13 @@ function consultaPeriodicoPendentesPorMes() {
     consulta('periodico_por_mes.php', campos, 'conteudoGrid');
 }
 
+function consultaEmpregadosAtrasados() {
+
+    var campos =  "selEmpresa=" + document.getElementById("selEmpresa").value;
+    campos += "&op=consultar"
+    consulta('periodico_atraso.php', campos, 'conteudoGrid');
+}
+
 function consultaAtestadosHomologadosPorPeriodoPDF() {
     if($("#dataInicial").val() == '' || $("#dataFinal").val() == '') {return false;}
     window.open('relatorio_atest_homol_periodo.php?op=pdf&dataFinal='+ $('#dataFinal').val() +'&dataInicial=' + $('#dataInicial').val());

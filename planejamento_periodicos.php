@@ -42,7 +42,7 @@ if($op == 'consultar') {
 
     $camposValores = array();
     $camposValores['data_previsao'] = date('Y') ."-".$_POST['selMesPlanejamento']."-01";
-    print_r($camposValores);
+    //print_r($camposValores);
 
     for($cont = 0; $cont < count($matriculas); $cont++) {
        /* $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("matricula" => $matriculas[$cont]));

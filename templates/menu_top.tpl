@@ -72,7 +72,7 @@
                             <a href="periodico_por_mes.php"><span>Por Mês</span></a>
                         </li>
                         <li>
-                            <a href="#"><span>Em atraso</span></a>
+                            <a href="periodico_atraso.php"><span>Em atraso</span></a>
                         </li>
                         <li>
                             <a href="#"><span>Relatório Anual</span></a>

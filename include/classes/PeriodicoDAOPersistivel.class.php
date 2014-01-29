@@ -27,6 +27,24 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
         return $this->criaObjetos($resultados);
     }
 
+    public function consultarEmpregadosComPeriodicoEmAtraso(DAOBanco $banco, $mes, $empresa) {
+
+        $sql = " SELECT per.codigo as codigo, emp.nome as nome, emp.matricula as matricula,
+                    emp.empresa as empresa, per.data_previsao as data_previsao, emp.data_nascimento as data_nascimento,
+                    per.data_inicio as data_inicio
+                 FROM periodico per
+                 JOIN empregado emp ON ( emp.matricula = per.matricula )
+                 WHERE
+                 (NOW() > DATE_ADD(per.data_inicio, INTERVAL 30 DAY) )
+                  AND MONTH(per.data_previsao) = ". $mes ." AND emp.empresa = ".$empresa." AND YEAR(NOW()) = YEAR(per.data_previsao)";
+
+        if ($banco->abreConexao() == true) {
+            $res = $banco->consultar($sql);
+            $banco->fechaConexao();
+            return $this->criaObjetos($res);
+        }
+    }
+
     public function consultarEmpregadosPendentePeriodicoPorMes(DAOBanco $banco, Periodico $periodico) {
 
         $camposSQL = " per.codigo as codigo, emp.nome as nome, emp.matricula as matricula,
