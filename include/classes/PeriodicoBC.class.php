@@ -22,7 +22,30 @@ class PeriodicoBC extends BC {
     }
 
     public function consultar(DAOBanco $banco, $campos, FiltroSQL $filtro = null) {
-        return $this->DAO->consultar($banco, $campos, $filtro);
+        $lista = $this->DAO->consultar($banco, $campos, $filtro);
+
+        foreach ($lista as $periodico) {
+            //$periodico = new Periodico();
+
+            if($periodico->doenca->codigo != '' && $periodico->doenca->codigo != null) {
+                $periodico->doenca = $this->DAO->consultarDoencaPorChave($banco, $periodico->doenca->codigo);
+            }
+
+            if($periodico->encaminhamento->codigo != '' && $periodico->encaminhamento->codigo != null) {
+                $periodico->encaminhamento = $this->DAO->consultarEncaminhamentoPorChave($banco, $periodico->encaminhamento->codigo);
+            }
+        }
+
+        return $lista;
+
+    }
+
+    public function consultarDoencas(DAOBanco $banco) {
+        return $this->DAO->consultarDoencas($banco);
+    }
+
+    public function consultarEncaminhamentos(DAOBanco $banco) {
+        return $this->DAO->consultarEncaminhamentos($banco);
     }
 
     public function consultarEmpregadosPendentePeriodicoPorMes(DAOBanco $banco, Periodico $periodico) {

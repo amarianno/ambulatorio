@@ -3,6 +3,15 @@
 
 class OperacaoGrid {
 
+    public static function simNao($data) {
+        if($data == '1') {
+            return 'SIM';
+        } else if($data == '0') {
+            return 'NÃO';
+        } else {
+            return '';
+        }
+    }
 
     public static function formataData($data) {
 
@@ -104,9 +113,19 @@ class OperacaoGrid {
         $htmlRetorno .= "<table id='mainDeck'>";
         $htmlRetorno .= "<thead>";
         $htmlRetorno .= "   <tr>";
-        $htmlRetorno .= "       <th>Previsto para:</th>";
-        $htmlRetorno .= "       <th>Iniciado em:</th>";
-        $htmlRetorno .= "       <th>Finalizado em:</th>";
+        $htmlRetorno .= "       <th>Previsto para</th>";
+        $htmlRetorno .= "       <th>Iniciado em</th>";
+        $htmlRetorno .= "       <th>Finalizado em</th>";
+        $htmlRetorno .= "       <th>Doença</th>";
+        $htmlRetorno .= "       <th>Encaminhado</th>";
+        $htmlRetorno .= "       <th>Atividade Desenvolvida</th>";
+        $htmlRetorno .= "       <th>Volume de Trabalho</th>";
+        $htmlRetorno .= "       <th>Relação com a chefia</th>";
+        $htmlRetorno .= "       <th>Relação com os Colegas</th>";
+        $htmlRetorno .= "       <th>Dores</th>";
+        $htmlRetorno .= "       <th>Fadiga Visual</th>";
+        $htmlRetorno .= "       <th>Tensão Emocional</th>";
+        $htmlRetorno .= "       <th>Outros</th>";
         $htmlRetorno .= "   </tr>";
         $htmlRetorno .= "</thead>";
         $htmlRetorno .= "<tbody>";
@@ -119,9 +138,17 @@ class OperacaoGrid {
                 $htmlRetorno .= "   <td>" . self::formataData($periodico->dataPrevisao) . "</td>";
                 $htmlRetorno .= "   <td>" . self::formataData($periodico->dataInicio) . "</td>";
                 $htmlRetorno .= "   <td>" . self::formataData($periodico->dataFim) . "</td>";
+                $htmlRetorno .= "   <td>" . $periodico->doenca->descricao . "</td>";
+                $htmlRetorno .= "   <td>" . $periodico->encaminhamento->descricao . "</td>";
+                $htmlRetorno .= "   <td>" . self::simNao($periodico->atividadeDesenvolvida) . "</td>";
+                $htmlRetorno .= "   <td>" . self::simNao($periodico->volumeTrabalho) . "</td>";
+                $htmlRetorno .= "   <td>" . self::simNao($periodico->relacaoChefia) . "</td>";
+                $htmlRetorno .= "   <td>" . self::simNao($periodico->relacaoColegas) . "</td>";
+                $htmlRetorno .= "   <td>" . self::simNao($periodico->dores) . "</td>";
+                $htmlRetorno .= "   <td>" . self::simNao( $periodico->fadigaVisual) . "</td>";
+                $htmlRetorno .= "   <td>" . self::simNao($periodico->tensaoEmocional) . "</td>";
+                $htmlRetorno .= "   <td>" . self::simNao($periodico->outros) . "</td>";
                 $htmlRetorno .= '</tr>';
-
-
             }
         } else {
             $htmlRetorno .= "   <tr class='conteudo'>";

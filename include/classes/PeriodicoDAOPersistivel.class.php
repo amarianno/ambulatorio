@@ -47,7 +47,7 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
 
     public function consultarEmpregadosPendentePeriodicoPorMes(DAOBanco $banco, Periodico $periodico) {
 
-        $camposSQL = " per.codigo as codigo, emp.nome as nome, emp.matricula as matricula,
+        $camposSQL = " per.codigo as codigo, emp.nome as nome, emp.matricula as matricula, emp.lotacao as lotacao,
                     emp.empresa as empresa, per.data_previsao as data_previsao, emp.data_nascimento as data_nascimento,
                     (
                         CASE WHEN (YEAR(NOW( )) = YEAR(per.data_inicio))
@@ -116,11 +116,93 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
         }
     }
 
+    public function consultarDoencas(DAOBanco $banco) {
+
+        $sql = " SELECT codigo, descricao FROM doenca ORDER BY descricao";
+
+        if ($banco->abreConexao() == true) {
+            $res = $banco->consultar($sql);
+            $banco->fechaConexao();
+            return $this->criaObjetosDoenca($res);
+        }
+    }
+
+    public function consultarEncaminhamentos(DAOBanco $banco) {
+
+        $sql = " SELECT codigo, descricao FROM encaminhamento ORDER BY descricao";
+
+        if ($banco->abreConexao() == true) {
+            $res = $banco->consultar($sql);
+            $banco->fechaConexao();
+            return $this->criaObjetosEncaminhamentos($res);
+        }
+    }
+
+    public function consultarDoencaPorChave(DAOBanco $banco, $chave) {
+
+        $sql = " SELECT codigo, descricao FROM doenca WHERE codigo = ".$chave;
+
+        if ($banco->abreConexao() == true) {
+            $res = $banco->consultar($sql);
+            $banco->fechaConexao();
+            $lista =  $this->criaObjetosDoenca($res);
+            return $lista[0];
+        }
+    }
+
+    public function consultarEncaminhamentoPorChave(DAOBanco $banco, $chave) {
+
+        $sql = " SELECT codigo, descricao FROM encaminhamento WHERE codigo = ".$chave;
+
+        if ($banco->abreConexao() == true) {
+            $res = $banco->consultar($sql);
+            $banco->fechaConexao();
+            $lista = $this->criaObjetosEncaminhamentos($res);
+            return $lista[0];
+        }
+    }
+
+    public function criaObjetosEncaminhamentos($resultados) {
+        $resultsets = array();
+        foreach ($resultados as $linha) {
+            $encaminhamento = new Encaminhamento();
+            foreach ($linha as $campo => $valor) {
+                if (strcasecmp($campo, "codigo") == 0) {
+                    $encaminhamento->codigo = $valor;
+                } elseif (strcasecmp($campo, "descricao") == 0) {
+                    $encaminhamento->descricao = $valor;
+                }
+            }
+            $resultsets[] = $encaminhamento;
+        }
+
+        return $resultsets;
+    }
+
+    public function criaObjetosDoenca($resultados) {
+        $resultsets = array();
+        foreach ($resultados as $linha) {
+            $doenca = new Doenca();
+            foreach ($linha as $campo => $valor) {
+                if (strcasecmp($campo, "codigo") == 0) {
+                    $doenca->codigo = $valor;
+                } elseif (strcasecmp($campo, "descricao") == 0) {
+                    $doenca->descricao = $valor;
+                }
+            }
+            $resultsets[] = $doenca;
+        }
+
+        return $resultsets;
+    }
+
     public function criaObjetos($resultados) {
         $resultsets = array();
         foreach ($resultados as $linha) {
             $periodico = new Periodico();
             $periodico->empregado = new Empregado();
+            $periodico->doenca = new Doenca();
+            $periodico->encaminhamento->codigo = new Encaminhamento();
             foreach ($linha as $campo => $valor) {
                 if (strcasecmp($campo, "codigo") == 0) {
                     $periodico->codigo = $valor;
@@ -142,6 +224,28 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
                     $periodico->dataPrevisao = $valor;
                 } elseif (strcasecmp($campo, "tempo") == 0) {
                     $periodico->isMaisQuarentaAnos = $valor;
+                } elseif (strcasecmp($campo, "lotacao") == 0) {
+                    $periodico->empregado->lotacao = $valor;
+                } elseif (strcasecmp($campo, "doenca") == 0) {
+                    $periodico->doenca->codigo = $valor;
+                } elseif (strcasecmp($campo, "encaminhamento") == 0) {
+                    $periodico->encaminhamento->codigo = $valor;
+                } elseif (strcasecmp($campo, "ativ_desenvolvida") == 0) {
+                    $periodico->atividadeDesenvolvida = $valor;
+                } elseif (strcasecmp($campo, "volume_trabalho") == 0) {
+                    $periodico->volumeTrabalho = $valor;
+                } elseif (strcasecmp($campo, "relacao_chefia") == 0) {
+                    $periodico->relacaoChefia = $valor;
+                } elseif (strcasecmp($campo, "relacao_colegas") == 0) {
+                    $periodico->relacaoColegas = $valor;
+                } elseif (strcasecmp($campo, "dores") == 0) {
+                    $periodico->dores = $valor;
+                } elseif (strcasecmp($campo, "fadiga_visual") == 0) {
+                    $periodico->fadigaVisual = $valor;
+                } elseif (strcasecmp($campo, "tensao_emocional") == 0) {
+                    $periodico->tensaoEmocional = $valor;
+                } elseif (strcasecmp($campo, "outros") == 0) {
+                    $periodico->outros = $valor;
                 }
             }
             $resultsets[] = $periodico;

@@ -24,6 +24,7 @@ class PeriodicoUtil {
         $htmlRetorno .= "       <th></th>";
         $htmlRetorno .= "       <th>Nome</th>";
         $htmlRetorno .= "       <th>Matrícula</th>";
+        $htmlRetorno .= "       <th>Lotação</th>";
         $htmlRetorno .= "       <th>Idade</th>";
         $htmlRetorno .= "       <th>Último Periódico</th>";
         $htmlRetorno .= "       <th>Data Inicio</th>";
@@ -42,7 +43,8 @@ class PeriodicoUtil {
                 $htmlRetorno .= "   <td>" . "<input type='checkbox' class='chkPeriodico' value='".$periodico->empregado->matricula."'>" . "</td>";
                 $htmlRetorno .= "   <td>" . $periodico->empregado->nome . "</td>";
                 $htmlRetorno .= "   <td>" . $periodico->empregado->matricula . "</td>";
-                $htmlRetorno .= "   <td>" . (date('Y') - $anoNascimento[0]) . " anos</td>";
+                $htmlRetorno .= "   <td nowrap>" . $periodico->empregado->lotacao ."</td>";
+                $htmlRetorno .= "   <td nowrap>" . (date('Y') - $anoNascimento[0]) . " anos</td>";
                 $htmlRetorno .= "   <td>" . Util::dataMysqlToTela($periodico->dataUltimo) . "</td>";
                 $htmlRetorno .= "   <td>" . Util::dataMysqlToTela($periodico->dataInicio) . "</td>";
                 $htmlRetorno .= "   <td>" . Util::dataMysqlToTela($periodico->dataFim) . "</td>";

@@ -1163,3 +1163,125 @@ function planejarPeriodico() {
         }
     });
 }
+
+function recuperarPeriodicoAno() {
+    completaCopyPaste();
+
+    var campos =  "txtMatricula=" + $("#txtMatricula").val();
+    campos += "&op=visualizar";
+
+    $.ajax({
+        type: "POST",
+        url: 'doenca_encaminhamento.php',
+        data: campos,
+        success: function (data) {
+            var periodico = jQuery.parseJSON ( data );
+            if(periodico != null && periodico != '') {
+                $("#hidCodigo").val(periodico.codigo);
+                document.getElementById("selDoenca").value = periodico.doenca.codigo;
+                document.getElementById("selEncaminhamento").value = periodico.encaminhamento.codigo;
+            }
+        }
+    });
+}
+
+function limparCamposDoencaEncaminhamento() {
+    $("#txtMatricula").val('');
+    document.getElementById("selDoenca").value = '';
+    document.getElementById("selEncaminhamento").value = '';
+    $("#nomeEmpregado").html('');
+    $("#hidCodigo").val('');
+}
+
+function cadastrarDoencaEncaminhamento() {
+
+    if($("#txtMatricula").val() == '') {return false;}
+
+    var campos =  "txtMatricula=" + $("#txtMatricula").val();
+    campos +=  "&selDoenca=" + document.getElementById("selDoenca").value;
+    campos +=  "&selEncaminhamento=" + document.getElementById("selEncaminhamento").value;
+    campos +=  "&hidCodigo=" + $("#hidCodigo").val();
+    campos += "&op=incluir";
+
+    $.ajax({
+        type: "POST",
+        url: 'doenca_encaminhamento.php',
+        data: campos,
+        success: function (data) {
+            alert('Alterado com sucesso')
+            $("#txtMatricula").val('');
+            document.getElementById("selDoenca").value = '';
+            document.getElementById("selEncaminhamento").value = '';
+            $("#nomeEmpregado").html('');
+            $("#hidCodigo").val('');
+        }
+    });
+}
+
+function recuperarAvaliacaoOcupacional() {
+    completaCopyPaste();
+
+    var campos =  "txtMatricula=" + $("#txtMatricula").val();
+    campos += "&op=visualizar";
+
+    $.ajax({
+        type: "POST",
+        url: 'avaliacao_ocupacional.php',
+        data: campos,
+        success: function (data) {
+            var periodico = jQuery.parseJSON ( data );
+            if(periodico != null && periodico != '') {
+                $("#hidCodigo").val(periodico.codigo);
+                document.getElementById("ativ_desenvolvida").checked = (periodico.atividadeDesenvolvida != '0');
+                document.getElementById("volume_trabalho").checked = (periodico.volumeTrabalho != '0');
+                document.getElementById("relacao_chefia").checked = (periodico.relacaoChefia != '0');
+                document.getElementById("relacao_colegas").checked = (periodico.relacaoColegas != '0');
+                document.getElementById("dores").checked = (periodico.dores != '0');
+                document.getElementById("fadiga_visual").checked = (periodico.fadigaVisual != '0');
+                document.getElementById("tensao_emocional").checked = (periodico.tensaoEmocional != '0');
+                document.getElementById("outros").checked = (periodico.outros != '0');
+            }
+        }
+    });
+}
+
+function limparCamposAvaliacaoOcupacional() {
+    $("#txtMatricula").val('');
+    document.getElementById("ativ_desenvolvida").checked = false;
+    document.getElementById("volume_trabalho").checked = false;
+    document.getElementById("relacao_chefia").checked = false;
+    document.getElementById("relacao_colegas").checked = false;
+    document.getElementById("dores").checked = false;
+    document.getElementById("fadiga_visual").checked = false;
+    document.getElementById("tensao_emocional").checked = false;
+    document.getElementById("outros").checked = false;
+    $("#nomeEmpregado").html('');
+    $("#hidCodigo").val('');
+}
+
+function cadastrarAvaliacaoOcupacional() {
+
+    if($("#txtMatricula").val() == '') {return false;}
+
+    var campos =  "txtMatricula=" + $("#txtMatricula").val();
+    campos +=  "&ativ_desenvolvida=" + (document.getElementById("ativ_desenvolvida").checked ? '1' : '0');
+    campos +=  "&volume_trabalho=" + (document.getElementById("volume_trabalho").checked ? '1' : '0');
+    campos +=  "&relacao_chefia=" + (document.getElementById("relacao_chefia").checked ? '1' : '0');
+    campos +=  "&relacao_colegas=" + (document.getElementById("relacao_colegas").checked ? '1' : '0');
+    campos +=  "&dores=" + (document.getElementById("dores").checked ? '1' : '0');
+    campos +=  "&fadiga_visual=" + (document.getElementById("fadiga_visual").checked ? '1' : '0');
+    campos +=  "&tensao_emocional=" + (document.getElementById("tensao_emocional").checked ? '1' : '0');
+    campos +=  "&outros=" + (document.getElementById("outros").checked ? '1' : '0');
+    campos +=  "&hidCodigo=" + $("#hidCodigo").val();
+    campos += "&op=incluir";
+
+    $.ajax({
+        type: "POST",
+        url: 'avaliacao_ocupacional.php',
+        data: campos,
+        success: function (data) {
+            alert('Alterado com sucesso')
+            limparCamposAvaliacaoOcupacional();
+        }
+    });
+}
