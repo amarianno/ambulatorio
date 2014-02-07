@@ -75,6 +75,12 @@
                             <a href="periodico_atraso.php"><span>Em atraso</span></a>
                         </li>
                         <li>
+                            <a href="doenca_encaminhamento.php"><span>Doença/Encaminhamento</span></a>
+                        </li>
+                        <li>
+                            <a href="avaliacao_ocupacional.php"><span>Avaliação Ocupacional</span></a>
+                        </li>
+                        <li>
                             <a href="#"><span>Relatório Anual</span></a>
                         </li>
                     </ul>
