@@ -23,7 +23,6 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
 
     public function consultar(DAOBanco $banco, $campos, FiltroSQL $filtro = null) {
         $resultados = parent::consultar($banco, $campos, $filtro, "data_inicio desc");
-
         return $this->criaObjetos($resultados);
     }
 
@@ -244,10 +243,61 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
                     $periodico->fadigaVisual = $valor;
                 } elseif (strcasecmp($campo, "tensao_emocional") == 0) {
                     $periodico->tensaoEmocional = $valor;
+                } elseif (strcasecmp($campo, "infecto_contag") == 0) {
+                    $periodico->infectoContagiosa = $valor;
+                } elseif (strcasecmp($campo, "endocrinas") == 0) {
+                    $periodico->endocrinas = $valor;
+                } elseif (strcasecmp($campo, "sangue_hemat") == 0) {
+                    $periodico->sangue = $valor;
+                } elseif (strcasecmp($campo, "pele") == 0) {
+                    $periodico->pele = $valor;
+                } elseif (strcasecmp($campo, "respiratorio") == 0) {
+                    $periodico->respiratorio = $valor;
+                } elseif (strcasecmp($campo, "circulatorio") == 0) {
+                    $periodico->circulatorio = $valor;
+                } elseif (strcasecmp($campo, "digestivo") == 0) {
+                    $periodico->digestivo = $valor;
+                } elseif (strcasecmp($campo, "genito_urinario") == 0) {
+                    $periodico->genitoUrinario = $valor;
+                } elseif (strcasecmp($campo, "musculo") == 0) {
+                    $periodico->musculo = $valor;
+                } elseif (strcasecmp($campo, "sist_nervoso") == 0) {
+                    $periodico->sistemaNervoso = $valor;
+                } elseif (strcasecmp($campo, "emocionais") == 0) {
+                    $periodico->emocionais = $valor;
+                } elseif (strcasecmp($campo, "outras") == 0) {
+                    $periodico->outras = $valor;
+                } elseif (strcasecmp($campo, "afast_doenca") == 0) {
+                    $periodico->afastamentoDoenca = $valor;
+                } elseif (strcasecmp($campo, "deficiencia") == 0) {
+                    $periodico->portadorDeficiencia = $valor;
                 } elseif (strcasecmp($campo, "outros") == 0) {
                     $periodico->outros = $valor;
+                } elseif (strcasecmp($campo, "tabaco") == 0) {
+                    $periodico->tabaco = $valor;
+                } elseif (strcasecmp($campo, "alcool") == 0) {
+                    $periodico->alcool = $valor;
+                } elseif (strcasecmp($campo, "ativ_fisica") == 0) {
+                    $periodico->atividadeFisica = $valor;
+                } elseif (strcasecmp($campo, "drogas") == 0) {
+                    $periodico->drogas = $valor;
+                } elseif (strcasecmp($campo, "hipert_arterial") == 0) {
+                    $periodico->hipertensaoArterial = $valor;
+                } elseif (strcasecmp($campo, "pa") == 0) {
+                    $periodico->pa = $valor;
+                } elseif (strcasecmp($campo, "fc") == 0) {
+                    $periodico->fc = $valor;
+                } elseif (strcasecmp($campo, "peso_ideal") == 0) {
+                    $periodico->pesoIdeal = $valor;
+                } elseif (strcasecmp($campo, "peso") == 0) {
+                    $periodico->peso = $valor;
+                } elseif (strcasecmp($campo, "altura") == 0) {
+                    $periodico->altura = $valor;
+                } elseif (strcasecmp($campo, "imc") == 0) {
+                    $periodico->imc = $valor;
                 }
             }
+
             $resultsets[] = $periodico;
         }
 

@@ -134,6 +134,8 @@
                 $sql .= " ORDER BY ".$orderBy;
             }
 
+            //print_r($sql);
+
             if ($banco->abreConexao() == true) {
                 $res = $banco->consultar($sql);
                 $banco->fechaConexao();

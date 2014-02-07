@@ -76,6 +76,210 @@
             </tr>
         </table>
     </fieldset>
+    <fieldset>
+        <legend>
+            <b>
+                História Patológica Pregressa
+            </b>
+        </legend>
+        <table style="width: 100%; margin: 0 auto;" border="0">
+            <tr>
+                <td> <br> </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="infecto_contag" name="infecto_contag" type="checkbox" value="" tabindex="10">
+                    Doenças Infecto-Contagiosas
+                </td>
+                <td>
+                    <input id="endocrinas" name="endocrinas" type="checkbox" value="" tabindex="11">
+                    Doenças Endócrinas
+                </td>
+                <td>
+                    <input id="sangue_hemat" name="sangue_hemat" type="checkbox" value="" tabindex="12">
+                    Doenças do Sangue / Hematopoéticas
+                </td>
+                <td>
+                    <input id="pele" name="pele" type="checkbox" value="" tabindex="13">
+                    Doenças da Pele / Celular Subcutâneo
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="respiratorio" name="respiratorio" type="checkbox" value="" tabindex="14">
+                    Doenças do Aparelho Respiratório
+                </td>
+                <td>
+                    <input id="circulatorio" name="circulatorio" type="checkbox" value="" tabindex="15">
+                    Doenças do Aparelho Circulatório
+                </td>
+                <td>
+                    <input id="digestivo" name="digestivo" type="checkbox" value="" tabindex="16">
+                    Doenças do Aparelho Digestivo
+                </td>
+                <td>
+                    <input id="genito_urinario" name="genito_urinario" type="checkbox" value="" tabindex="17">
+                    Doenças do Aparelho Gênito-Urinário
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="musculo" name="musculo" type="checkbox" value="" tabindex="18">
+                    Doenças Músculo-esqueléticas
+                </td>
+                <td>
+                    <input id="sist_nervoso" name="sist_nervoso" type="checkbox" value="" tabindex="19">
+                    Doenças do Sistema Nervoso
+                </td>
+                <td>
+                    <input id="emocionais" name="emocionais" type="checkbox" value="" tabindex="20">
+                    Doenças Emocionais
+                </td>
+                <td>
+                    <input id="outras" name="outras" type="checkbox" value="" tabindex="21">
+                    Outras
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="afast_doenca" name="afast_doenca" type="checkbox" value="" tabindex="22">
+                    Afastamento por Doença
+                </td>
+                <td>
+                    <input id="deficiencia" name="deficiencia" type="checkbox" value="" tabindex="23">
+                    Portador de Deficiência
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend>
+            <b>
+                Fatores de Risco
+            </b>
+        </legend>
+        <table style="width: 100%; margin: 0 auto;" border="0">
+            <tr>
+                <td> <br> </td>
+            </tr>
+            <tr>
+                <td>
+                    Tabaco
+                    <select id="tabaco" name="tabaco" tabindex="24" style="width: 170px;">
+                        <option value="1" selected="selected">
+                            Não
+                        </option>
+                        <option value="2">
+                            Até 10 por dia
+                        </option>
+                        <option value="3">
+                            De 11 a 20 por dia
+                        </option>
+                        <option value="4">
+                            Mais de 20 por dia
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    Consumo de Álcool
+                    <select id="alcool" name="alcool" tabindex="24" style="width: 200px;">
+                        <option value="1" selected="selected">
+                            Não
+                        </option>
+                        <option value="2">
+                            Até 1x por semana
+                        </option>
+                        <option value="3">
+                            De 1 a 2x por semana
+                        </option>
+                        <option value="4">
+                            Mais de 2x por semana
+                        </option>
+                    </select>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="ativ_fisica" name="ativ_fisica" type="checkbox" value="" tabindex="25">
+                    Atividade Física (Pelo menos 3x na semana)
+                </td>
+                <td>
+                    <input id="drogas" name="drogas" type="checkbox" value="" tabindex="26">
+                    Uso de outras drogas (exceto álcool)
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="hipert_arterial" name="hipert_arterial" type="checkbox" value="" tabindex="27">
+                    Hipertensão Arterial
+                </td>
+                <td>
+                    PA:
+                    <input id="pa" name="pa" type="text" value="" tabindex="28" size="10"> mm HG
+                </td>
+                <td>
+
+                    FC
+                    <input id="fc" name="fc" type="text" value="" tabindex="29" size="10">
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Peso
+                    <input id="peso" name="peso" type="text" value="" tabindex="30" size="10" onblur="calculaImc()">
+                </td>
+                <td>
+                    Altura
+                    <input id="altura" name="altura" type="text" value="" tabindex="31" size="10" onblur="calculaImc()">
+                </td>
+                <td>
+                    IMC
+                    <input id="imc" name="imc" type="text" value="" tabindex="32" size="10">
+                </td>
+                <td>
+                    Peso
+                    <select id="peso_ideal" name="peso_ideal" tabindex="33" style="width: 200px;">
+                        <option value="1">
+                            Muito abaixo do peso
+                        </option>
+                        <option value="2">
+                            Abaixo do peso
+                        </option>
+                        <option value="3">
+                            Peso normal
+                        </option>
+                        <option value="4">
+                            Sobrepeso
+                        </option>
+                        <option value="5">
+                            Obesidade I
+                        </option>
+                        <option value="6">
+                            Obesidade II (severa)
+                        </option>
+                        <option value="7">
+                            Obesidade III (mórbida)
+                        </option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
     <table>
         <tr>
             <td style="text-align: left" colspan="2">

@@ -13,6 +13,7 @@ $bc = new PeriodicoBC();
 if($operacao == 'incluir') {
 
     $campos = array();
+    //avaliacao ocupacional
     $campos['ativ_desenvolvida'] = $_POST['ativ_desenvolvida'];
     $campos['volume_trabalho'] = $_POST['volume_trabalho'];
     $campos['relacao_chefia'] = $_POST['relacao_chefia'];
@@ -21,6 +22,36 @@ if($operacao == 'incluir') {
     $campos['fadiga_visual'] = $_POST['fadiga_visual'];
     $campos['tensao_emocional'] = $_POST['tensao_emocional'];
     $campos['outros'] = $_POST['outros'];
+
+    //historia patologica pregressa
+    $campos['infecto_contag'] = $_POST['infecto_contag'];
+    $campos['endocrinas'] = $_POST['endocrinas'];
+    $campos['sangue_hemat'] = $_POST['sangue_hemat'];
+    $campos['pele'] = $_POST['pele'];
+    $campos['respiratorio'] = $_POST['respiratorio'];
+    $campos['circulatorio'] = $_POST['circulatorio'];
+    $campos['digestivo'] = $_POST['digestivo'];
+    $campos['genito_urinario'] = $_POST['genito_urinario'];
+    $campos['musculo'] = $_POST['musculo'];
+    $campos['sist_nervoso'] = $_POST['sist_nervoso'];
+    $campos['emocionais'] = $_POST['emocionais'];
+    $campos['outras'] = $_POST['outras'];
+    $campos['afast_doenca'] = $_POST['afast_doenca'];
+    $campos['deficiencia'] = $_POST['deficiencia'];
+
+    //fatores de risco
+    $campos['tabaco'] = $_POST['tabaco'];
+    $campos['alcool'] = $_POST['alcool'];
+    $campos['ativ_fisica'] = $_POST['ativ_fisica'];
+    $campos['drogas'] = $_POST['drogas'];
+    $campos['hipert_arterial'] = $_POST['hipert_arterial'];
+    $campos['pa'] = $_POST['pa'];
+    $campos['fc'] = $_POST['fc'];
+    $campos['peso_ideal'] = $_POST['peso_ideal'];
+    $campos['peso'] = $_POST['peso'];
+    $campos['altura'] = $_POST['altura'];
+    $campos['imc'] = $_POST['imc'];
+
 
     $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("codigo" => $_POST['hidCodigo']));
     $bc->alterar($_SESSION[BANCO_SESSAO], $campos, $filtro);

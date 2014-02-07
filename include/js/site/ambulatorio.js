@@ -1170,6 +1170,9 @@ function recuperarPeriodicoAno() {
     var campos =  "txtMatricula=" + $("#txtMatricula").val();
     campos += "&op=visualizar";
 
+    document.getElementById("selDoenca").value = '';
+    document.getElementById("selEncaminhamento").value = '';
+
     $.ajax({
         type: "POST",
         url: 'doenca_encaminhamento.php',
@@ -1218,11 +1221,51 @@ function cadastrarDoencaEncaminhamento() {
     });
 }
 
+
+//********AVALIACAO OCUPACIONAL**************************************
+
 function recuperarAvaliacaoOcupacional() {
     completaCopyPaste();
 
     var campos =  "txtMatricula=" + $("#txtMatricula").val();
     campos += "&op=visualizar";
+
+    document.getElementById("ativ_desenvolvida").checked = false;
+    document.getElementById("volume_trabalho").checked = false;
+    document.getElementById("relacao_chefia").checked = false;
+    document.getElementById("relacao_colegas").checked = false;
+    document.getElementById("dores").checked = false;
+    document.getElementById("fadiga_visual").checked = false;
+    document.getElementById("tensao_emocional").checked = false;
+    document.getElementById("outros").checked = false;
+    //historia pregressa
+    document.getElementById("infecto_contag").checked = false;
+    document.getElementById("endocrinas").checked = false;
+    document.getElementById("sangue_hemat").checked = false;
+    document.getElementById("pele").checked = false;
+    document.getElementById("respiratorio").checked = false;
+    document.getElementById("circulatorio").checked = false;
+    document.getElementById("digestivo").checked = false;
+    document.getElementById("genito_urinario").checked = false;
+    document.getElementById("musculo").checked = false;
+    document.getElementById("sist_nervoso").checked = false;
+    document.getElementById("emocionais").checked = false;
+    document.getElementById("outras").checked = false;
+    document.getElementById("afast_doenca").checked = false;
+    document.getElementById("deficiencia").checked = false;
+
+    //Fatores de risco
+    document.getElementById("tabaco").value = '1';
+    document.getElementById("alcool").value = '1';
+    document.getElementById("ativ_fisica").checked = false;
+    document.getElementById("drogas").checked = false;
+    document.getElementById("hipert_arterial").checked = false;
+    $("#pa").val('');
+    $("#fc").val('');
+    document.getElementById("peso_ideal").value = '1';
+    $("#peso").val('');
+    $("#altura").val('');
+    $("#imc").val('');
 
     $.ajax({
         type: "POST",
@@ -1240,13 +1283,47 @@ function recuperarAvaliacaoOcupacional() {
                 document.getElementById("fadiga_visual").checked = (periodico.fadigaVisual != '0');
                 document.getElementById("tensao_emocional").checked = (periodico.tensaoEmocional != '0');
                 document.getElementById("outros").checked = (periodico.outros != '0');
+
+                //historia patologica
+                document.getElementById("infecto_contag").checked = (periodico.infectoContagiosa != '0');
+                document.getElementById("endocrinas").checked = (periodico.endocrinas != '0');
+                document.getElementById("sangue_hemat").checked = (periodico.sangue != '0');
+                document.getElementById("pele").checked = (periodico.pele != '0');
+                document.getElementById("respiratorio").checked = (periodico.respiratorio != '0');
+                document.getElementById("circulatorio").checked = (periodico.circulatorio != '0');
+                document.getElementById("digestivo").checked = (periodico.digestivo != '0');
+                document.getElementById("genito_urinario").checked = (periodico.genitoUrinario != '0');
+                document.getElementById("musculo").checked = (periodico.musculo != '0');
+                document.getElementById("sist_nervoso").checked = (periodico.sistemaNervoso != '0');
+                document.getElementById("emocionais").checked = (periodico.emocionais != '0');
+                document.getElementById("outras").checked = (periodico.outras != '0');
+                document.getElementById("afast_doenca").checked = (periodico.afastamentoDoenca != '0');
+                document.getElementById("deficiencia").checked = (periodico.portadorDeficiencia != '0');
+
+                //Fatores de risco
+                document.getElementById("tabaco").value = periodico.tabaco;
+                document.getElementById("alcool").value = periodico.alcool;
+                document.getElementById("ativ_fisica").checked = (periodico.atividadeFisica != '0');
+                document.getElementById("drogas").checked = (periodico.drogas != '0');
+                document.getElementById("hipert_arterial").checked = (periodico.hipertensaoArterial != '0');;
+                $("#pa").val(periodico.pa);
+                $("#fc").val(periodico.fc);
+                document.getElementById("peso_ideal").value = periodico.pesoIdeal;
+                $("#peso").val(periodico.peso);
+                $("#altura").val(periodico.altura);
+                $("#imc").val(periodico.imc);
             }
         }
     });
 }
 
 function limparCamposAvaliacaoOcupacional() {
+
     $("#txtMatricula").val('');
+    $("#nomeEmpregado").html('');
+    $("#hidCodigo").val('');
+
+    //Avaliacao Ocupacional
     document.getElementById("ativ_desenvolvida").checked = false;
     document.getElementById("volume_trabalho").checked = false;
     document.getElementById("relacao_chefia").checked = false;
@@ -1255,8 +1332,34 @@ function limparCamposAvaliacaoOcupacional() {
     document.getElementById("fadiga_visual").checked = false;
     document.getElementById("tensao_emocional").checked = false;
     document.getElementById("outros").checked = false;
-    $("#nomeEmpregado").html('');
-    $("#hidCodigo").val('');
+    //historia pregressa
+    document.getElementById("infecto_contag").checked = false;
+    document.getElementById("endocrinas").checked = false;
+    document.getElementById("sangue_hemat").checked = false;
+    document.getElementById("pele").checked = false;
+    document.getElementById("respiratorio").checked = false;
+    document.getElementById("circulatorio").checked = false;
+    document.getElementById("digestivo").checked = false;
+    document.getElementById("genito_urinario").checked = false;
+    document.getElementById("musculo").checked = false;
+    document.getElementById("sist_nervoso").checked = false;
+    document.getElementById("emocionais").checked = false;
+    document.getElementById("outras").checked = false;
+    document.getElementById("afast_doenca").checked = false;
+    document.getElementById("deficiencia").checked = false;
+    //Fatores de risco
+    document.getElementById("tabaco").value = '1';
+    document.getElementById("alcool").value = '1';
+    document.getElementById("ativ_fisica").checked = false;
+    document.getElementById("drogas").checked = false;
+    document.getElementById("hipert_arterial").checked = false;
+    $("#pa").val('');
+    $("#fc").val('');
+    document.getElementById("peso_ideal").value = '1';
+    $("#peso").val('');
+    $("#altura").val('');
+    $("#imc").val('');
+
 }
 
 function cadastrarAvaliacaoOcupacional() {
@@ -1264,6 +1367,7 @@ function cadastrarAvaliacaoOcupacional() {
     if($("#txtMatricula").val() == '') {return false;}
 
     var campos =  "txtMatricula=" + $("#txtMatricula").val();
+    //Avaliação Ocupacional
     campos +=  "&ativ_desenvolvida=" + (document.getElementById("ativ_desenvolvida").checked ? '1' : '0');
     campos +=  "&volume_trabalho=" + (document.getElementById("volume_trabalho").checked ? '1' : '0');
     campos +=  "&relacao_chefia=" + (document.getElementById("relacao_chefia").checked ? '1' : '0');
@@ -1272,6 +1376,34 @@ function cadastrarAvaliacaoOcupacional() {
     campos +=  "&fadiga_visual=" + (document.getElementById("fadiga_visual").checked ? '1' : '0');
     campos +=  "&tensao_emocional=" + (document.getElementById("tensao_emocional").checked ? '1' : '0');
     campos +=  "&outros=" + (document.getElementById("outros").checked ? '1' : '0');
+    //Historia Pregressa
+    campos +=  "&infecto_contag=" + (document.getElementById("infecto_contag").checked ? '1' : '0');
+    campos +=  "&endocrinas=" + (document.getElementById("endocrinas").checked ? '1' : '0');
+    campos +=  "&sangue_hemat=" + (document.getElementById("sangue_hemat").checked ? '1' : '0');
+    campos +=  "&pele=" + (document.getElementById("pele").checked ? '1' : '0');
+    campos +=  "&respiratorio=" + (document.getElementById("respiratorio").checked ? '1' : '0');
+    campos +=  "&circulatorio=" + (document.getElementById("circulatorio").checked ? '1' : '0');
+    campos +=  "&digestivo=" + (document.getElementById("digestivo").checked ? '1' : '0');
+    campos +=  "&genito_urinario=" + (document.getElementById("genito_urinario").checked ? '1' : '0');
+    campos +=  "&musculo=" + (document.getElementById("musculo").checked ? '1' : '0');
+    campos +=  "&sist_nervoso=" + (document.getElementById("sist_nervoso").checked ? '1' : '0');
+    campos +=  "&emocionais=" + (document.getElementById("emocionais").checked ? '1' : '0');
+    campos +=  "&outras=" + (document.getElementById("outras").checked ? '1' : '0');
+    campos +=  "&afast_doenca=" + (document.getElementById("afast_doenca").checked ? '1' : '0');
+    campos +=  "&deficiencia=" + (document.getElementById("deficiencia").checked ? '1' : '0');
+    //Fatores de risco
+    campos +=  "&tabaco=" + document.getElementById("tabaco").value;
+    campos +=  "&alcool=" + document.getElementById("alcool").value;
+    campos +=  "&ativ_fisica=" + (document.getElementById("ativ_fisica").checked ? '1' : '0');
+    campos +=  "&drogas=" + (document.getElementById("drogas").checked ? '1' : '0');
+    campos +=  "&hipert_arterial=" + (document.getElementById("hipert_arterial").checked ? '1' : '0');
+    campos +=  "&pa=" + $("#pa").val();
+    campos +=  "&fc=" + $("#fc").val();
+    campos +=  "&peso_ideal=" + document.getElementById("peso_ideal").value;
+    campos +=  "&peso=" + $("#peso").val();
+    campos +=  "&altura=" + $("#altura").val();
+    campos +=  "&imc=" + $("#imc").val();
+    //codigo
     campos +=  "&hidCodigo=" + $("#hidCodigo").val();
     campos += "&op=incluir";
 
@@ -1284,4 +1416,47 @@ function cadastrarAvaliacaoOcupacional() {
             limparCamposAvaliacaoOcupacional();
         }
     });
+}
+
+function calculaImc() {
+
+    if($("#peso").val() == '') { return ''}
+    if($("#altura").val() == '') { return ''}
+
+    var peso = $("#peso").val();
+    var altura = $("#altura").val();
+
+    altura = Number(altura) * Number(altura)
+    var imc = Number(peso) / altura;
+    imc = imc * 10000;
+    imc = imc.toFixed(2);
+
+    $("#imc").val(imc);
+
+    /**
+     * Abaixo de 17	Muito abaixo do peso
+     Entre 17 e 18,49	Abaixo do peso
+     Entre 18,5 e 24,99	Peso normal
+     Entre 25 e 29,99	Acima do peso
+     Entre 30 e 34,99	Obesidade I
+     Entre 35 e 39,99	Obesidade II (severa)
+     Acima de 40	Obesidade III (mórbida)
+     */
+    if(imc < 17) {
+        document.getElementById("peso_ideal").value = '1';
+    } else if(imc < 18.49) {
+        document.getElementById("peso_ideal").value = '2';
+    } else if(imc < 24.99) {
+        document.getElementById("peso_ideal").value = '3';
+    } else if(imc < 29.99) {
+        document.getElementById("peso_ideal").value = '4';
+    } else if(imc < 34.99) {
+        document.getElementById("peso_ideal").value = '5';
+    } else if(imc < 39.99) {
+        document.getElementById("peso_ideal").value = '6';
+    } else {
+        document.getElementById("peso_ideal").value = '7';
+    }
+
+
 }
