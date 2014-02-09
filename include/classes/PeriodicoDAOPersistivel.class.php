@@ -295,7 +295,70 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
                     $periodico->altura = $valor;
                 } elseif (strcasecmp($campo, "imc") == 0) {
                     $periodico->imc = $valor;
+                } elseif (strcasecmp($campo, "pele_mucosas") == 0) {
+                    $periodico->peleMucosas = $valor;
+                } elseif (strcasecmp($campo, "cabeca") == 0) {
+                    $periodico->cabeca = $valor;
+                } elseif (strcasecmp($campo, "pescoco") == 0) {
+                    $periodico->pescoco = $valor;
+                } elseif (strcasecmp($campo, "torax") == 0) {
+                    $periodico->torax = $valor;
+                } elseif (strcasecmp($campo, "abdome") == 0) {
+                    $periodico->abdome = $valor;
+                } elseif (strcasecmp($campo, "membros_sup_inf") == 0) {
+                    $periodico->membrosSupInf = $valor;
+                } elseif (strcasecmp($campo, "sist_nervoso_exam_cli") == 0) {
+                    $periodico->sistNervosoExameClinico = $valor;
+                } elseif (strcasecmp($campo, "coluna") == 0) {
+                    $periodico->coluna = $valor;
+                } elseif (strcasecmp($campo, "gunitario_cli") == 0) {
+                    $periodico->genitoUrinarioExameClinico = $valor;
+                } elseif (strcasecmp($campo, "psiquismo") == 0) {
+                    $periodico->psiquismo = $valor;
+                } elseif (strcasecmp($campo, "hemograma") == 0) {
+                    $periodico->hemograma = $valor;
+                } elseif (strcasecmp($campo, "creatinina") == 0) {
+                    $periodico->creatinina = $valor;
+                } elseif (strcasecmp($campo, "glicemia") == 0) {
+                    $periodico->glicemia = $valor;
+                } elseif (strcasecmp($campo, "colesterol_total") == 0) {
+                    $periodico->colesterolTotal = $valor;
+                } elseif (strcasecmp($campo, "hdl") == 0) {
+                    $periodico->hdl = $valor;
+                } elseif (strcasecmp($campo, "ldl") == 0) {
+                    $periodico->ldl = $valor;
+                } elseif (strcasecmp($campo, "vldl") == 0) {
+                    $periodico->vldl = $valor;
+                } elseif (strcasecmp($campo, "triglicerideos") == 0) {
+                    $periodico->triglicerideos = $valor;
+                } elseif (strcasecmp($campo, "psa") == 0) {
+                    $periodico->psa = $valor;
+                } elseif (strcasecmp($campo, "eas") == 0) {
+                    $periodico->eas = $valor;
+                } elseif (strcasecmp($campo, "oftalmico") == 0) {
+                    $periodico->exameOftalmico = $valor;
+                } elseif (strcasecmp($campo, "outro_exa_comp") == 0) {
+                    $periodico->outroExamesComplementares = $valor;
+                } elseif (strcasecmp($campo, "cid1") == 0) {
+                    $periodico->cid1 = $valor;
+                } elseif (strcasecmp($campo, "cid2") == 0) {
+                    $periodico->cid2 = $valor;
+                } elseif (strcasecmp($campo, "cid3") == 0) {
+                    $periodico->cid3 = $valor;
+                } elseif (strcasecmp($campo, "cid4") == 0) {
+                    $periodico->cid4 = $valor;
+                } elseif (strcasecmp($campo, "cid5") == 0) {
+                    $periodico->cid5 = $valor;
+                } elseif (strcasecmp($campo, "cid6") == 0) {
+                    $periodico->cid6 = $valor;
+                } elseif (strcasecmp($campo, "proximo_periodico") == 0) {
+                    $periodico->proximoPeriodico = $valor;
+                } elseif (strcasecmp($campo, "queixas") == 0) {
+                    $periodico->queixas = $valor;
+                } elseif (strcasecmp($campo, "obs") == 0) {
+                    $periodico->obs = $valor;
                 }
+
             }
 
             $resultsets[] = $periodico;

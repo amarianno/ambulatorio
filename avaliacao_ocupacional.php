@@ -52,6 +52,45 @@ if($operacao == 'incluir') {
     $campos['altura'] = $_POST['altura'];
     $campos['imc'] = $_POST['imc'];
 
+    //exame clínico
+    $campos['pele_mucosas'] = $_POST['pele_mucosas'];
+    $campos['cabeca'] = $_POST['cabeca'];
+    $campos['pescoco'] = $_POST['pescoco'];
+    $campos['torax'] = $_POST['torax'];
+    $campos['abdome'] = $_POST['abdome'];
+    $campos['membros_sup_inf'] = $_POST['membros_sup_inf'];
+    $campos['sist_nervoso_exam_cli'] = $_POST['sist_nervoso_exam_cli'];
+    $campos['coluna'] = $_POST['coluna'];
+    $campos['gunitario_cli'] = $_POST['gunitario_cli'];
+    $campos['psiquismo'] = $_POST['psiquismo'];
+
+    //exame clínico
+    $campos['hemograma'] = $_POST['hemograma'];
+    $campos['creatinina'] = $_POST['creatinina'];
+    $campos['glicemia'] = $_POST['glicemia'];
+    $campos['colesterol_total'] = $_POST['colesterol_total'];
+    $campos['hdl'] = $_POST['hdl'];
+    $campos['ldl'] = $_POST['ldl'];
+    $campos['vldl'] = $_POST['vldl'];
+    $campos['triglicerideos'] = $_POST['triglicerideos'];
+    $campos['psa'] = $_POST['psa'];
+    $campos['eas'] = $_POST['eas'];
+    $campos['oftalmico'] = $_POST['oftalmico'];
+    $campos['outro_exa_comp'] = $_POST['outro_exa_comp'];
+
+    //Diagnostico
+    $campos['cid1'] = $_POST['cid1'];
+    $campos['cid2'] = $_POST['cid2'];
+    $campos['cid3'] = $_POST['cid3'];
+    $campos['cid4'] = $_POST['cid4'];
+    $campos['cid5'] = $_POST['cid5'];
+    $campos['cid6'] = $_POST['cid6'];
+    $campos['proximo_periodico'] = $_POST['proximo_periodico'];
+
+    //outros
+    $campos['queixas'] = $_POST['queixas'];
+    $campos['obs'] = $_POST['obs'];
+
 
     $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("codigo" => $_POST['hidCodigo']));
     $bc->alterar($_SESSION[BANCO_SESSAO], $campos, $filtro);

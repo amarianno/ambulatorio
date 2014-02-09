@@ -2,7 +2,7 @@
 
     $path = $_SERVER['DOCUMENT_ROOT']; //Caminho absoluto
 
-    require_once($path . '/ambulatorio/include/confconexao.inc.php');
+    require_once($path . '/include/confconexao.inc.php');
     session_start();
 
     if (!isset($_SESSION[BANCO_SESSAO])) {

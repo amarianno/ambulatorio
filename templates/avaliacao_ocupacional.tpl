@@ -24,6 +24,8 @@
                            type="text" value="{$txtMatricula}" maxlength="8"
                            tabindex="1" width="20" required style="width: 120px;"
                            onblur="recuperarAvaliacaoOcupacional()"/>
+                    <input type="button" tabindex="4" class="button black" value="Instruções" onclick="abrirInstrucoes()"/>
+
                 </td>
             </tr>
         </table>
@@ -280,12 +282,408 @@
         </table>
     </fieldset>
 
+    <fieldset>
+        <legend>
+            <b>
+                Exame Clínico
+            </b>
+        </legend>
+        <table style="width: 100%; margin: 0 auto;" border="0">
+            <tr>
+                <td> <br> </td>
+            </tr>
+            <tr>
+                <td>
+                    Pele, Fâner., Mucosas, Tec. Cel. SubCut., Gânglios <br>
+                    <select id="pele_mucosas" name="pele_mucosas" tabindex="34" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    Cabeça <br>
+                    <select id="cabeca" name="cabeca" tabindex="35" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    Pescoço (Tireóide)<br>
+                    <select id="pescoco" name="pescoco" tabindex="36" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    Tórax<br>
+                    <select id="torax" name="torax" tabindex="37" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Abdome<br>
+                    <select id="abdome" name="abdome" tabindex="38" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    Membros superiores e inferiores<br>
+                    <select id="membros_sup_inf" name="membros_sup_inf" tabindex="39" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    Sistema Nervoso<br>
+                    <select id="sist_nervoso_exam_cli" name="sist_nervoso_exam_cli" tabindex="40" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    Coluna Vertebral<br>
+                    <select id="coluna" name="coluna" tabindex="41" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gênito-Urinário<br>
+                    <select id="gunitario_cli" name="gunitario_cli" tabindex="42" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    Psiquismo <br>
+                    <select id="psiquismo" name="psiquismo" tabindex="43" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend>
+            <b>
+                Exames Complementares
+            </b>
+        </legend>
+        <table style="width: 100%; margin: 0 auto;" border="0">
+            <tr>
+                <td> <br> </td>
+            </tr>
+            <tr>
+                <td>
+                    Hemograma <br>
+                    <select id="hemograma" name="hemograma" tabindex="44" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    Creatinina <br>
+                    <select id="creatinina" name="creatinina" tabindex="45" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    Glicemia<br>
+                    <select id="glicemia" name="glicemia" tabindex="46" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    Colesterol Total<br>
+                    <select id="colesterol_total" name="colesterol_total" tabindex="47" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    HDL<br>
+                    <select id="hdl" name="hdl" tabindex="48" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    LDL<br>
+                    <select id="ldl" name="ldl" tabindex="49" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    VLDL<br>
+                    <select id="vldl" name="vldl" tabindex="50" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    Triglicerídeos<br>
+                    <select id="triglicerideos" name="triglicerideos" tabindex="51" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    PSA<br>
+                    <select id="psa" name="psa" tabindex="52" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    EAS <br>
+                    <select id="eas" name="eas" tabindex="53" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    Exame Oftálmico <br>
+                    <select id="oftalmico" name="oftalmico" tabindex="54" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    Outros <br>
+                    <select id="outro_exa_comp" name="outro_exa_comp" tabindex="55" style="width: 120px;">
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="2">
+                            Alterado
+                        </option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend>
+            <b>
+                Diagnóstico (CID - 10 / SERPRO)
+            </b>
+        </legend>
+        <table style="width: 100%; margin: 0 auto;" border="0">
+            <tr>
+                <td>
+                    <input id="cid1" name="cid1"
+                           type="text" value=""
+                           tabindex="1" />
+                </td>
+                <td>
+                    <input id="cid2" name="cid2"
+                           type="text" value=""
+                           tabindex="1"/>
+                </td>
+                <td>
+                    <input id="cid3" name="cid3"
+                           type="text" value=""
+                           tabindex="1" />
+                </td>
+                <td>
+                    <input id="cid4" name="cid4"
+                           type="text" value=""
+                           tabindex="1" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="cid5" name="cid5"
+                           type="text" value=""
+                           tabindex="1" />
+                </td>
+                <td>
+                    <input id="cid6" name="cid6"
+                           type="text" value=""
+                           tabindex="1" />
+                </td>
+                <td>
+                    Próximo Periódico
+                    <select id="proximo_periodico" name="proximo_periodico" tabindex="54" style="width: 120px;">
+                        <option value="">
+                        </option>
+                        <option value="1">
+                            6 meses
+                        </option>
+                        <option value="2">
+                            1 ano
+                        </option>
+                        <option value="2">
+                            2 anos
+                        </option>
+                    </select>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend>
+            <b>
+                Queixas atuais
+            </b>
+        </legend>
+        <textarea rows="4" cols="100" id="queixas" name="queixas" ></textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>
+            <b>
+                Observações Gerais
+            </b>
+        </legend>
+        <textarea rows="4" cols="100" id="obs" name="obs"></textarea>
+    </fieldset>
+
     <table>
         <tr>
             <td style="text-align: left" colspan="2">
                 <input type="button" tabindex="4" class="button black" value="Gravar Registro" onclick="cadastrarAvaliacaoOcupacional()"/>
-                <input type="button" tabindex="5" class="button black" value="Limpar Campos" onclick="limparCamposAvaliacaoOcupacional()"/>
+                <input type="button" tabindex="5" class="button black" value="Limpar Campos" onclick="limparCamposAvaliacaoOcupacional(true)"/>
             </td>
         </tr>
     </table>
+
+    <div id="dialog" title="Instruções" style="display: none">
+        <p>
+            <strong>1- Na planilha "doenças" do PCMSO:</strong>  <br>
+            anotar  todas as patologias que o funcionário tiver.    <br>
+            Na coluna E: compensada PA<= 13x 9 com ou sem medicação.    <br>
+            Na coluna F: não compensada PA>13x9                 <br>
+            Considerar como diabetes diagnóstica glicemia de jejum >=126   <br>
+            Na coluna H: compensada glicemia de jejum entre 100 a 140     <br>
+            Na coluna I: não compensada glicemia de jejum >140.        <br>
+            Na coluna AO : considerar as neoplasias benignas:adenoma de prostata, mioma uterino, etc.          <br>
+            Na coluna AP: considerar todos os casos de cancer  <br><br>
+
+            <strong>2- Na planilha "fatores de risco" do PCMSO:</strong>      <br>
+            Considerar como hipertensão arterial sómente a mensurada pela enfermagem para efeito de fatores de risco.   <br>
+            Considerar apenas o uso das drogas ditas ilicitas na coluna "outras drogas".     <br><br>
+
+            <strong>3- Na planilha "exames complementares" do PCMSO:</strong>       <br>
+            Considerar apenas como encaminhamento para outros medicos se na avaliação houver necessidade de esclarecimento <br>
+            ou tratamento por parte desse profissional. As orientações de medicina preventiva como gineco e uro não devem ser  <br>
+            consideradas como encaminhamentos pois já fazem parte da rotina do atendimento.<br>
+            Os vicios de refração não devem ser considerados como alterações no exame oftalmológico; apenas as patologias não <br>
+            refrativas devem ser consideradas: ceratocone, catarata, descolamento de retina, uveite, etc.   <br>
+            Considerar  apenas como elevados:        <br>
+            colesterol total acima de 239 <br>
+            triglicérides acima de 200    <br>
+            glicemia acima de 100         <br>
+            PSA acima de 4 ou quando for o dobro do exame realizado no ano anterior;  <br>
+
+        </p>
+    </div>
+
+
 </form>

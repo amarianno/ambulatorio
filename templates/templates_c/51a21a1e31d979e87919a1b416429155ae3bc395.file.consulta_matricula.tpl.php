@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-05-08 14:11:35
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-09 15:47:37
          compiled from "templates/consulta_matricula.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3849154955182ac12c28716-64454495%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '51a21a1e31d979e87919a1b416429155ae3bc395' => 
     array (
       0 => 'templates/consulta_matricula.tpl',
-      1 => 1368033093,
+      1 => 1390691019,
       2 => 'file',
     ),
   ),

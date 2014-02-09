@@ -1230,48 +1230,14 @@ function recuperarAvaliacaoOcupacional() {
     var campos =  "txtMatricula=" + $("#txtMatricula").val();
     campos += "&op=visualizar";
 
-    document.getElementById("ativ_desenvolvida").checked = false;
-    document.getElementById("volume_trabalho").checked = false;
-    document.getElementById("relacao_chefia").checked = false;
-    document.getElementById("relacao_colegas").checked = false;
-    document.getElementById("dores").checked = false;
-    document.getElementById("fadiga_visual").checked = false;
-    document.getElementById("tensao_emocional").checked = false;
-    document.getElementById("outros").checked = false;
-    //historia pregressa
-    document.getElementById("infecto_contag").checked = false;
-    document.getElementById("endocrinas").checked = false;
-    document.getElementById("sangue_hemat").checked = false;
-    document.getElementById("pele").checked = false;
-    document.getElementById("respiratorio").checked = false;
-    document.getElementById("circulatorio").checked = false;
-    document.getElementById("digestivo").checked = false;
-    document.getElementById("genito_urinario").checked = false;
-    document.getElementById("musculo").checked = false;
-    document.getElementById("sist_nervoso").checked = false;
-    document.getElementById("emocionais").checked = false;
-    document.getElementById("outras").checked = false;
-    document.getElementById("afast_doenca").checked = false;
-    document.getElementById("deficiencia").checked = false;
-
-    //Fatores de risco
-    document.getElementById("tabaco").value = '1';
-    document.getElementById("alcool").value = '1';
-    document.getElementById("ativ_fisica").checked = false;
-    document.getElementById("drogas").checked = false;
-    document.getElementById("hipert_arterial").checked = false;
-    $("#pa").val('');
-    $("#fc").val('');
-    document.getElementById("peso_ideal").value = '1';
-    $("#peso").val('');
-    $("#altura").val('');
-    $("#imc").val('');
+    limparCamposAvaliacaoOcupacional(false);
 
     $.ajax({
         type: "POST",
         url: 'avaliacao_ocupacional.php',
         data: campos,
         success: function (data) {
+            alert(data);
             var periodico = jQuery.parseJSON ( data );
             if(periodico != null && periodico != '') {
                 $("#hidCodigo").val(periodico.codigo);
@@ -1305,23 +1271,64 @@ function recuperarAvaliacaoOcupacional() {
                 document.getElementById("alcool").value = periodico.alcool;
                 document.getElementById("ativ_fisica").checked = (periodico.atividadeFisica != '0');
                 document.getElementById("drogas").checked = (periodico.drogas != '0');
-                document.getElementById("hipert_arterial").checked = (periodico.hipertensaoArterial != '0');;
+                document.getElementById("hipert_arterial").checked = (periodico.hipertensaoArterial != '0');
                 $("#pa").val(periodico.pa);
                 $("#fc").val(periodico.fc);
                 document.getElementById("peso_ideal").value = periodico.pesoIdeal;
                 $("#peso").val(periodico.peso);
                 $("#altura").val(periodico.altura);
                 $("#imc").val(periodico.imc);
+
+                //Exame Clínico
+                document.getElementById("pele_mucosas").value = periodico.peleMucosas;
+                document.getElementById("cabeca").value = periodico.cabeca;
+                document.getElementById("pescoco").value = periodico.pescoco;
+                document.getElementById("torax").value = periodico.torax;
+                document.getElementById("abdome").value = periodico.abdome;
+                document.getElementById("membros_sup_inf").value = periodico.membrosSupInf;
+                document.getElementById("sist_nervoso_exam_cli").value = periodico.sistNervosoExameClinico;
+                document.getElementById("coluna").value = periodico.coluna;
+                document.getElementById("gunitario_cli").value = periodico.genitoUrinarioExameClinico;
+                document.getElementById("psiquismo").value = periodico.psiquismo;
+
+                //Exames complementares
+                document.getElementById("hemograma").value = periodico.hemograma;
+                document.getElementById("creatinina").value = periodico.creatinina;
+                document.getElementById("glicemia").value = periodico.glicemia;
+                document.getElementById("colesterol_total").value = periodico.colesterolTotal;
+                document.getElementById("hdl").value = periodico.hdl;
+                document.getElementById("ldl").value = periodico.ldl;
+                document.getElementById("vldl").value = periodico.vldl;
+                document.getElementById("triglicerideos").value = periodico.triglicerideos;
+                document.getElementById("psa").value = periodico.psa;
+                document.getElementById("eas").value = periodico.eas;
+                document.getElementById("oftalmico").value = periodico.exameOftalmico;
+                document.getElementById("outro_exa_comp").value = periodico.outroExamesComplementares;
+
+                //Diagnostico
+                $("#cid1").val(periodico.cid1);
+                $("#cid2").val(periodico.cid2);
+                $("#cid3").val(periodico.cid3);
+                $("#cid4").val(periodico.cid4);
+                $("#cid5").val(periodico.cid5);
+                $("#cid6").val(periodico.cid6);
+                document.getElementById("proximo_periodico").value = periodico.proximoPeriodico;
+
+                //outros
+                $("#queixas").val(periodico.queixas);
+                $("#obs").val(periodico.obs);
             }
         }
     });
 }
 
-function limparCamposAvaliacaoOcupacional() {
+function limparCamposAvaliacaoOcupacional(limpaMatricula) {
 
-    $("#txtMatricula").val('');
-    $("#nomeEmpregado").html('');
-    $("#hidCodigo").val('');
+    if(limpaMatricula) {
+        $("#txtMatricula").val('');
+        $("#nomeEmpregado").html('');
+        $("#hidCodigo").val('');
+    }
 
     //Avaliacao Ocupacional
     document.getElementById("ativ_desenvolvida").checked = false;
@@ -1359,6 +1366,45 @@ function limparCamposAvaliacaoOcupacional() {
     $("#peso").val('');
     $("#altura").val('');
     $("#imc").val('');
+
+    //Exame Clínico
+    document.getElementById("pele_mucosas").value = '1';
+    document.getElementById("cabeca").value = '1';
+    document.getElementById("pescoco").value = '1';
+    document.getElementById("torax").value = '1';
+    document.getElementById("abdome").value = '1';
+    document.getElementById("membros_sup_inf").value = '1';
+    document.getElementById("sist_nervoso_exam_cli").value = '1';
+    document.getElementById("coluna").value = '1';
+    document.getElementById("gunitario_cli").value = '1';
+    document.getElementById("psiquismo").value = '1';
+
+    //Exames complementares
+    document.getElementById("hemograma").value = '1';
+    document.getElementById("creatinina").value = '1';
+    document.getElementById("glicemia").value = '1';
+    document.getElementById("colesterol_total").value = '1';
+    document.getElementById("hdl").value = '1';
+    document.getElementById("ldl").value = '1';
+    document.getElementById("vldl").value = '1';
+    document.getElementById("triglicerideos").value = '1';
+    document.getElementById("psa").value = '1';
+    document.getElementById("eas").value = '1';
+    document.getElementById("oftalmico").value = '1';
+    document.getElementById("outro_exa_comp").value = '1';
+
+    //Diagnostico
+    $("#cid1").val('');
+    $("#cid2").val('');
+    $("#cid3").val('');
+    $("#cid4").val('');
+    $("#cid5").val('');
+    $("#cid6").val('');
+    document.getElementById("proximo_periodico").value = '';
+
+    //outros
+    $("#queixas").val('');
+    $("#obs").val('');
 
 }
 
@@ -1403,6 +1449,41 @@ function cadastrarAvaliacaoOcupacional() {
     campos +=  "&peso=" + $("#peso").val();
     campos +=  "&altura=" + $("#altura").val();
     campos +=  "&imc=" + $("#imc").val();
+    //Exame clinico
+    campos +=  "&pele_mucosas=" + document.getElementById("pele_mucosas").value;
+    campos +=  "&cabeca=" + document.getElementById("cabeca").value;
+    campos +=  "&pescoco=" + document.getElementById("pescoco").value;
+    campos +=  "&torax=" + document.getElementById("torax").value;
+    campos +=  "&abdome=" + document.getElementById("abdome").value;
+    campos +=  "&membros_sup_inf=" + document.getElementById("membros_sup_inf").value;
+    campos +=  "&sist_nervoso_exam_cli=" + document.getElementById("sist_nervoso_exam_cli").value;
+    campos +=  "&coluna=" + document.getElementById("coluna").value;
+    campos +=  "&gunitario_cli=" + document.getElementById("gunitario_cli").value;
+    campos +=  "&psiquismo=" + document.getElementById("psiquismo").value;
+    //Exames complementares
+    campos +=  "&hemograma=" + document.getElementById("hemograma").value;
+    campos +=  "&creatinina=" + document.getElementById("creatinina").value;
+    campos +=  "&glicemia=" + document.getElementById("glicemia").value;
+    campos +=  "&colesterol_total=" + document.getElementById("colesterol_total").value;
+    campos +=  "&hdl=" + document.getElementById("hdl").value;
+    campos +=  "&ldl=" + document.getElementById("ldl").value;
+    campos +=  "&vldl=" + document.getElementById("vldl").value;
+    campos +=  "&triglicerideos=" + document.getElementById("triglicerideos").value;
+    campos +=  "&psa=" + document.getElementById("psa").value;
+    campos +=  "&eas=" + document.getElementById("eas").value;
+    campos +=  "&oftalmico=" + document.getElementById("oftalmico").value;
+    campos +=  "&outro_exa_comp=" + document.getElementById("outro_exa_comp").value;
+    //Diagnostico
+    campos +=  "&cid1=" + $("#cid1").val();
+    campos +=  "&cid2=" + $("#cid2").val();
+    campos +=  "&cid3=" + $("#cid3").val();
+    campos +=  "&cid4=" + $("#cid4").val();
+    campos +=  "&cid5=" + $("#cid5").val();
+    campos +=  "&cid6=" + $("#cid6").val();
+    campos +=  "&proximo_periodico=" + document.getElementById("proximo_periodico").value;
+    //outros
+    campos +=  "&queixas=" + $("#queixas").val();
+    campos +=  "&obs=" + $("#obs").val();
     //codigo
     campos +=  "&hidCodigo=" + $("#hidCodigo").val();
     campos += "&op=incluir";
@@ -1413,7 +1494,7 @@ function cadastrarAvaliacaoOcupacional() {
         data: campos,
         success: function (data) {
             alert('Alterado com sucesso')
-            limparCamposAvaliacaoOcupacional();
+            limparCamposAvaliacaoOcupacional(true);
         }
     });
 }
@@ -1457,6 +1538,158 @@ function calculaImc() {
     } else {
         document.getElementById("peso_ideal").value = '7';
     }
+}
 
+$(function() {
 
+    if ($("#cid1").size() > 0) {
+        $( "#cid1" ).autocomplete({
+            source: 'include/autocompletecid.php',
+            minLength: 1,
+            highlight: true,
+            autoFocus: false,
+            focus: function (event, ui) {
+                $("#cid1").val(ui.item.nome);
+                return false;
+            },
+            select: function (event, ui) {
+                $("#cid1").val(ui.item.nome);
+                return false;
+            }
+        }).data("uiAutocomplete")._renderItem = function (ul, item) {
+            return $("<li></li>")
+                .data("item.autocomplete", item)
+                .append("<a><span class='nameEN'>" + item.nome + "</span></a>")
+                .appendTo(ul);
+        };
+    }
+});
+
+$(function() {
+
+    if ($("#cid2").size() > 0) {
+        $( "#cid2" ).autocomplete({
+            source: 'include/autocompletecid.php',
+            minLength: 1,
+            highlight: true,
+            autoFocus: false,
+            focus: function (event, ui) {
+                $("#cid2").val(ui.item.nome);
+                return false;
+            },
+            select: function (event, ui) {
+                $("#cid2").val(ui.item.nome);
+                return false;
+            }
+        }).data("uiAutocomplete")._renderItem = function (ul, item) {
+            return $("<li></li>")
+                .data("item.autocomplete", item)
+                .append("<a><span class='nameEN'>" + item.nome + "</span></a>")
+                .appendTo(ul);
+        };
+    }
+});
+
+$(function() {
+
+    if ($("#cid3").size() > 0) {
+        $( "#cid3" ).autocomplete({
+            source: 'include/autocompletecid.php',
+            minLength: 1,
+            highlight: true,
+            autoFocus: false,
+            focus: function (event, ui) {
+                $("#cid3").val(ui.item.nome);
+                return false;
+            },
+            select: function (event, ui) {
+                $("#cid3").val(ui.item.nome);
+                return false;
+            }
+        }).data("uiAutocomplete")._renderItem = function (ul, item) {
+            return $("<li></li>")
+                .data("item.autocomplete", item)
+                .append("<a><span class='nameEN'>" + item.nome + "</span></a>")
+                .appendTo(ul);
+        };
+    }
+});
+
+$(function() {
+
+    if ($("#cid4").size() > 0) {
+        $( "#cid4" ).autocomplete({
+            source: 'include/autocompletecid.php',
+            minLength: 1,
+            highlight: true,
+            autoFocus: false,
+            focus: function (event, ui) {
+                $("#cid4").val(ui.item.nome);
+                return false;
+            },
+            select: function (event, ui) {
+                $("#cid4").val(ui.item.nome);
+                return false;
+            }
+        }).data("uiAutocomplete")._renderItem = function (ul, item) {
+            return $("<li></li>")
+                .data("item.autocomplete", item)
+                .append("<a><span class='nameEN'>" + item.nome + "</span></a>")
+                .appendTo(ul);
+        };
+    }
+});
+
+$(function() {
+
+    if ($("#cid5").size() > 0) {
+        $( "#cid5" ).autocomplete({
+            source: 'include/autocompletecid.php',
+            minLength: 1,
+            highlight: true,
+            autoFocus: false,
+            focus: function (event, ui) {
+                $("#cid5").val(ui.item.nome);
+                return false;
+            },
+            select: function (event, ui) {
+                $("#cid5").val(ui.item.nome);
+                return false;
+            }
+        }).data("uiAutocomplete")._renderItem = function (ul, item) {
+            return $("<li></li>")
+                .data("item.autocomplete", item)
+                .append("<a><span class='nameEN'>" + item.nome + "</span></a>")
+                .appendTo(ul);
+        };
+    }
+});
+
+$(function() {
+
+    if ($("#cid6").size() > 0) {
+        $( "#cid6" ).autocomplete({
+            source: 'include/autocompletecid.php',
+            minLength: 1,
+            highlight: true,
+            autoFocus: false,
+            focus: function (event, ui) {
+                $("#cid6").val(ui.item.nome);
+                return false;
+            },
+            select: function (event, ui) {
+                $("#cid6").val(ui.item.nome);
+                return false;
+            }
+        }).data("uiAutocomplete")._renderItem = function (ul, item) {
+            return $("<li></li>")
+                .data("item.autocomplete", item)
+                .append("<a><span class='nameEN'>" + item.nome + "</span></a>")
+                .appendTo(ul);
+        };
+    }
+});
+
+function abrirInstrucoes() {
+    $("#dialog" ).dialog({ width: 700, modal: true  });
 }
