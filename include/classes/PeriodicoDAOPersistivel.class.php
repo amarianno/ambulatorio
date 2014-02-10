@@ -21,6 +21,19 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
         return parent::excluir($banco, $filtro);
     }
 
+    public function consultarConsolidacaoDados(DAOBanco $banco, $ano) {
+        $sql = " SELECT *
+                 FROM periodico per
+                 WHERE
+                 data_previsao BETWEEN '".$ano."-01-01' AND '".$ano."-12-31'";
+
+        if ($banco->abreConexao() == true) {
+            $res = $banco->consultar($sql);
+            $banco->fechaConexao();
+            return $this->criaObjetos($res);
+        }
+    }
+
     public function consultar(DAOBanco $banco, $campos, FiltroSQL $filtro = null) {
         $resultados = parent::consultar($banco, $campos, $filtro, "data_inicio desc");
         return $this->criaObjetos($resultados);

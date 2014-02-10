@@ -21,6 +21,10 @@ class PeriodicoBC extends BC {
         return $this->DAO->excluir($banco, $filtro);
     }
 
+    public function consultarConsolidacaoDados(DAOBanco $banco, $ano) {
+          return $this->DAO->consultarConsolidacaoDados($banco, $ano);
+    }
+
     public function consultar(DAOBanco $banco, $campos, FiltroSQL $filtro = null) {
         $lista = $this->DAO->consultar($banco, $campos, $filtro);
 

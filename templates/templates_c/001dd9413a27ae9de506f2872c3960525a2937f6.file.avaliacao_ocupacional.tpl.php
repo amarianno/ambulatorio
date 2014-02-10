@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-09 20:47:58
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-09 22:45:53
          compiled from "templates/avaliacao_ocupacional.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:176113818952f3fa37a4d953-14622249%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '001dd9413a27ae9de506f2872c3960525a2937f6' => 
     array (
       0 => 'templates/avaliacao_ocupacional.tpl',
-      1 => 1391986055,
+      1 => 1391993148,
       2 => 'file',
     ),
   ),
@@ -43,7 +43,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </td>
             </tr>
             <tr>
-                <td colspan="3">
+                <td colspan="2">
                     <label for="txtMatricula">
                         Matrícula <span class="req">*</span>
                     </label>
@@ -52,8 +52,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 " maxlength="8"
                            tabindex="1" width="20" required style="width: 120px;"
                            onblur="recuperarAvaliacaoOcupacional()"/>
-                    <input type="button" tabindex="4" class="button black" value="Instruções" onclick="abrirInstrucoes()"/>
 
+
+                </td>
+                <td>
+                    <input type="button" tabindex="4" class="button black" value="Instruções" onclick="abrirInstrucoes()"/>
                 </td>
             </tr>
         </table>
@@ -61,7 +64,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <fieldset>
         <legend>
             <b>
-                Avaliação Ocupacional
+                Avaliação Ocupacional - Satisfação com o Trabalho
             </b>
         </legend>
         <table style="width: 100%; margin: 0 auto;" border="0">
@@ -684,7 +687,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
     <div id="dialog" title="Instruções" style="display: none">
         <p>
-            1- Na planilha "doenças" do PCMSO:  <br>
+            <strong>1- Na planilha "doenças" do PCMSO:</strong>  <br>
             anotar  todas as patologias que o funcionário tiver.    <br>
             Na coluna E: compensada PA<= 13x 9 com ou sem medicação.    <br>
             Na coluna F: não compensada PA>13x9                 <br>
@@ -694,11 +697,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             Na coluna AO : considerar as neoplasias benignas:adenoma de prostata, mioma uterino, etc.          <br>
             Na coluna AP: considerar todos os casos de cancer  <br><br>
 
-            2- Na planilha "fatores de risco" do PCMSO:      <br>
+            <strong>2- Na planilha "fatores de risco" do PCMSO:</strong>      <br>
             Considerar como hipertensão arterial sómente a mensurada pela enfermagem para efeito de fatores de risco.   <br>
             Considerar apenas o uso das drogas ditas ilicitas na coluna "outras drogas".     <br><br>
 
-            3- Na planilha "exames complementares" do PCMSO:       <br>
+            <strong>3- Na planilha "exames complementares" do PCMSO:</strong>       <br>
             Considerar apenas como encaminhamento para outros medicos se na avaliação houver necessidade de esclarecimento <br>
             ou tratamento por parte desse profissional. As orientações de medicina preventiva como gineco e uro não devem ser  <br>
             consideradas como encaminhamentos pois já fazem parte da rotina do atendimento.<br>
@@ -708,7 +711,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             colesterol total acima de 239 <br>
             triglicérides acima de 200    <br>
             glicemia acima de 100         <br>
-            PSA acima de 4 ou quando for o dobro do exame realizado no ano anterior;  <br>
+            PSA acima de 4 ou quando for o dobro do exame realizado no ano anterior;  <br><br>
+
+            <strong>4- Teste do IMC:</strong>      <br>
+            Abaixo de 17	Muito abaixo do peso  <br>
+            Entre 17 e 18,49	Abaixo do peso   <br>
+            Entre 18,5 e 24,99	Peso normal      <br>
+            Entre 25 e 29,99	Acima do peso    <br>
+            Entre 30 e 34,99	Obesidade I       <br>
+            Entre 35 e 39,99	Obesidade II (severa)    <br>
+            Acima de 40	Obesidade III (mórbida)    <br>
 
         </p>
     </div>

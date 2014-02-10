@@ -81,7 +81,7 @@
                             <a href="avaliacao_ocupacional.php"><span>Avaliação Ocupacional</span></a>
                         </li>
                         <li>
-                            <a href="#"><span>Relatório Anual</span></a>
+                            <a href="dados_emp.php"><span>Consolidação dos dados</span></a>
                         </li>
                     </ul>
                 </li>

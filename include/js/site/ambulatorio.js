@@ -1237,7 +1237,6 @@ function recuperarAvaliacaoOcupacional() {
         url: 'avaliacao_ocupacional.php',
         data: campos,
         success: function (data) {
-            alert(data);
             var periodico = jQuery.parseJSON ( data );
             if(periodico != null && periodico != '') {
                 $("#hidCodigo").val(periodico.codigo);
@@ -1692,4 +1691,14 @@ $(function() {
 
 function abrirInstrucoes() {
     $("#dialog" ).dialog({ width: 700, modal: true  });
+}
+
+//*******************************CONSOLIDACAO EMPS******************************
+function consultaConsolidacaoEMP() {
+
+    if($("#ano").val() == '') {return false;}
+
+    var campos =  "ano=" + $("#ano").val();
+    campos += "&op=buscar"
+    consulta('dados_emp.php', campos, 'conteudoGrid');
 }

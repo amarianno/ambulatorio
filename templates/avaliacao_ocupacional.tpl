@@ -16,7 +16,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="3">
+                <td colspan="2">
                     <label for="txtMatricula">
                         Matrícula <span class="req">*</span>
                     </label>
@@ -24,8 +24,11 @@
                            type="text" value="{$txtMatricula}" maxlength="8"
                            tabindex="1" width="20" required style="width: 120px;"
                            onblur="recuperarAvaliacaoOcupacional()"/>
-                    <input type="button" tabindex="4" class="button black" value="Instruções" onclick="abrirInstrucoes()"/>
 
+
+                </td>
+                <td>
+                    <input type="button" tabindex="4" class="button black" value="Instruções" onclick="abrirInstrucoes()"/>
                 </td>
             </tr>
         </table>
@@ -33,7 +36,7 @@
     <fieldset>
         <legend>
             <b>
-                Avaliação Ocupacional
+                Avaliação Ocupacional - Satisfação com o Trabalho
             </b>
         </legend>
         <table style="width: 100%; margin: 0 auto;" border="0">
@@ -680,7 +683,16 @@
             colesterol total acima de 239 <br>
             triglicérides acima de 200    <br>
             glicemia acima de 100         <br>
-            PSA acima de 4 ou quando for o dobro do exame realizado no ano anterior;  <br>
+            PSA acima de 4 ou quando for o dobro do exame realizado no ano anterior;  <br><br>
+
+            <strong>4- Teste do IMC:</strong>      <br>
+            Abaixo de 17	Muito abaixo do peso  <br>
+            Entre 17 e 18,49	Abaixo do peso   <br>
+            Entre 18,5 e 24,99	Peso normal      <br>
+            Entre 25 e 29,99	Acima do peso    <br>
+            Entre 30 e 34,99	Obesidade I       <br>
+            Entre 35 e 39,99	Obesidade II (severa)    <br>
+            Acima de 40	Obesidade III (mórbida)    <br>
 
         </p>
     </div>
