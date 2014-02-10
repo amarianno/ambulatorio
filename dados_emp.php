@@ -13,19 +13,21 @@ $bc = new PeriodicoBC();
 if($operacao == 'buscar') {
 
     $avaliacaoOcupacional = new RelatorioEMPAvaliacaoOcupUtil();
-
-
+    $fatoresRisco = new RelatorioEMPFatRiscoUtil();
+    $diagnosticos = new RelatorioEMPDiagnosticos();
     $ano = $_POST['ano'];
 
-    /*$filtro = new FiltroSQL(FiltroSQL::CONECTOR_E,
-                            FiltroSQL::OPERADOR_ENTRE,
-                            array("data_previsao" => $anoSql));
-
-    $lista = $bc->consultar($_SESSION[BANCO_SESSAO], null, $filtro); */
     $lista = $bc->consultarConsolidacaoDados($_SESSION[BANCO_SESSAO], $ano);
+    $total = count($lista);
 
     $htmlRetorno = '';
     $htmlRetorno .= $avaliacaoOcupacional->grid($lista);
+    $htmlRetorno .= $fatoresRisco->grid($lista);
+
+    $lista = $bc->consultarQuantitativoDoencas($_SESSION[BANCO_SESSAO], $ano."-01-01", $ano."-12-31");
+    $htmlRetorno .= $diagnosticos->gridDoencas($lista, $total);
+    $lista = $bc->consultarQuantitativoEncaminhamento($_SESSION[BANCO_SESSAO], $ano."-01-01", $ano."-12-31");
+    $htmlRetorno .= $diagnosticos->gridEncaminhamento($lista, $total);
 
     echo($htmlRetorno);
 

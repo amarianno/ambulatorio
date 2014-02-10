@@ -91,6 +91,9 @@ class Periodico extends Persistivel {
     public $queixas;
     public $obs;
 
+    //Relatorio
+    public $quantidade;
+
 
     public function getChavePrimaria() {
         return $this->codigo;

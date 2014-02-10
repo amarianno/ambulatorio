@@ -103,7 +103,7 @@ class RelatorioEMPAvaliacaoOcupUtil {
 
         $total = $this->total($lista);
 
-        $htmlRetorno .= "<strong>Avaliação Ocupacional - Satisfação com o Trabalho</strong><br>";
+        $htmlRetorno .= "<strong>ITEM 1 - Avaliação Ocupacional - Satisfação com o Trabalho</strong><br>";
         $htmlRetorno .= "<div class='datagrid'>";
         $htmlRetorno .= "<table id='mainDeck'>";
         $htmlRetorno .= "<thead>";
@@ -147,6 +147,58 @@ class RelatorioEMPAvaliacaoOcupUtil {
         $htmlRetorno .= "   <td>" . number_format((($this->relacaoColegas($lista, '1') * 100) / $total), 2, '.', '') . "</td>";
         $htmlRetorno .= "   <td>" . $this->relacaoColegas($lista, '0') . "</td>";
         $htmlRetorno .= "   <td>" . number_format((($this->relacaoColegas($lista, '0') * 100) / $total), 2, '.', '') . "</td>";
+        $htmlRetorno .= '</tr>';
+
+        $htmlRetorno .= "</tbody>";
+        $htmlRetorno .= "</table>";
+        $htmlRetorno .= "</div>";
+
+        $htmlRetorno .= "<br>";
+
+        $htmlRetorno .= "<strong>ITEM 2 - Trabalho Provoca</strong><br>";
+        $htmlRetorno .= "<div class='datagrid'>";
+        $htmlRetorno .= "<table id='mainDeck'>";
+        $htmlRetorno .= "<thead>";
+        $htmlRetorno .= "   <tr>";
+        $htmlRetorno .= "       <th></th>";
+        $htmlRetorno .= "       <th>SIM</th>";
+        $htmlRetorno .= "       <th>%</th>";
+        $htmlRetorno .= "       <th>NÃO</th>";
+        $htmlRetorno .= "       <th>%</th>";
+        $htmlRetorno .= "   </tr>";
+        $htmlRetorno .= "</thead>";
+        $htmlRetorno .= "<tbody>";
+
+        $htmlRetorno .= "<tr class='normal'>";
+        $htmlRetorno .= "   <td>Dores</td>";
+        $htmlRetorno .= "   <td>" . $this->dores($lista, '1') . "</td>";
+        $htmlRetorno .= "   <td>" . number_format((($this->dores($lista, '1') * 100) / $total), 2, '.', '') . "</td>";
+        $htmlRetorno .= "   <td>" . $this->dores($lista, '0') . "</td>";
+        $htmlRetorno .= "   <td>" . number_format((($this->dores($lista, '0') * 100) / $total), 2, '.', '') . "</td>";
+        $htmlRetorno .= '</tr>';
+
+        $htmlRetorno .= "<tr class='alt'>";
+        $htmlRetorno .= "   <td>Fadiga Visual</td>";
+        $htmlRetorno .= "   <td>" . $this->fadigaVisual($lista, '1') . "</td>";
+        $htmlRetorno .= "   <td>" . number_format((($this->fadigaVisual($lista, '1') * 100) / $total), 2, '.', '') . "</td>";
+        $htmlRetorno .= "   <td>" . $this->fadigaVisual($lista, '0') . "</td>";
+        $htmlRetorno .= "   <td>" . number_format((($this->fadigaVisual($lista, '0') * 100) / $total), 2, '.', '') . "</td>";
+        $htmlRetorno .= '</tr>';
+
+        $htmlRetorno .= "<tr class='normal'>";
+        $htmlRetorno .= "   <td>Tensão Emocional</td>";
+        $htmlRetorno .= "   <td>" . $this->tensaoEmocional($lista, '1') . "</td>";
+        $htmlRetorno .= "   <td>" . number_format((($this->tensaoEmocional($lista, '1') * 100) / $total), 2, '.', '') . "</td>";
+        $htmlRetorno .= "   <td>" . $this->tensaoEmocional($lista, '0') . "</td>";
+        $htmlRetorno .= "   <td>" . number_format((($this->tensaoEmocional($lista, '0') * 100) / $total), 2, '.', '') . "</td>";
+        $htmlRetorno .= '</tr>';
+
+        $htmlRetorno .= "<tr class='alt'>";
+        $htmlRetorno .= "   <td>Outros</td>";
+        $htmlRetorno .= "   <td>" . $this->outros($lista, '1') . "</td>";
+        $htmlRetorno .= "   <td>" . number_format((($this->outros($lista, '1') * 100) / $total), 2, '.', '') . "</td>";
+        $htmlRetorno .= "   <td>" . $this->outros($lista, '0') . "</td>";
+        $htmlRetorno .= "   <td>" . number_format((($this->outros($lista, '0') * 100) / $total), 2, '.', '') . "</td>";
         $htmlRetorno .= '</tr>';
 
         $htmlRetorno .= "</tbody>";

@@ -435,7 +435,16 @@
                             Normal
                         </option>
                         <option value="2">
-                            Alterado
+                            Anemia
+                        </option>
+                        <option value="3">
+                            Leucocitose
+                        </option>
+                        <option value="4">
+                            Leucopenia
+                        </option>
+                        <option value="5">
+                            Outros
                         </option>
                     </select>
                 </td>
@@ -446,7 +455,10 @@
                             Normal
                         </option>
                         <option value="2">
-                            Alterado
+                            Elevado
+                        </option>
+                        <option value="3">
+                            Diminuido
                         </option>
                     </select>
                 </td>
@@ -457,7 +469,10 @@
                             Normal
                         </option>
                         <option value="2">
-                            Alterado
+                            Elevado
+                        </option>
+                        <option value="3">
+                            Diminuido
                         </option>
                     </select>
                 </td>
@@ -468,7 +483,10 @@
                             Normal
                         </option>
                         <option value="2">
-                            Alterado
+                            Elevado
+                        </option>
+                        <option value="3">
+                            Diminuido
                         </option>
                     </select>
                 </td>
@@ -514,7 +532,10 @@
                             Normal
                         </option>
                         <option value="2">
-                            Alterado
+                            Elevado
+                        </option>
+                        <option value="3">
+                            Diminuido
                         </option>
                     </select>
                 </td>
@@ -527,6 +548,15 @@
                             Normal
                         </option>
                         <option value="2">
+                            Alterado
+                        </option>
+                        <option value="3">
+                            Alterado
+                        </option>
+                        <option value="4">
+                            Alterado
+                        </option>
+                        <option value="5">
                             Alterado
                         </option>
                     </select>

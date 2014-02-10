@@ -25,7 +25,7 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
         $sql = " SELECT *
                  FROM periodico per
                  WHERE
-                 data_previsao BETWEEN '".$ano."-01-01' AND '".$ano."-12-31'";
+                 data_previsao BETWEEN '".$ano."-01-01' AND '".$ano."-12-31' AND data_fim is not null";
 
         if ($banco->abreConexao() == true) {
             $res = $banco->consultar($sql);
@@ -49,6 +49,38 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
                  WHERE
                  (NOW() > DATE_ADD(per.data_inicio, INTERVAL 30 DAY) )
                   AND MONTH(per.data_previsao) = ". $mes ." AND emp.empresa = ".$empresa." AND YEAR(NOW()) = YEAR(per.data_previsao)";
+
+        if ($banco->abreConexao() == true) {
+            $res = $banco->consultar($sql);
+            $banco->fechaConexao();
+            return $this->criaObjetos($res);
+        }
+    }
+
+    public function consultarQuantitativoDoencas(DAOBanco $banco, $dataInicial, $dataFinal ) {
+        $sql = "SELECT COUNT( p.doenca ) AS quantidade, d.descricao AS descricaodoenca
+                FROM periodico p, doenca d
+                WHERE p.doenca = d.codigo
+                AND p.data_previsao
+                BETWEEN  '".$dataInicial."'
+                AND  '".$dataFinal."'
+                GROUP BY p.doenca";
+
+        if ($banco->abreConexao() == true) {
+            $res = $banco->consultar($sql);
+            $banco->fechaConexao();
+            return $this->criaObjetos($res);
+        }
+    }
+
+    public function consultarQuantitativoEncaminhamento(DAOBanco $banco, $dataInicial, $dataFinal ) {
+        $sql = "SELECT COUNT( p.encaminhamento ) AS quantidade, d.descricao AS descricaoencaminhamento
+                FROM periodico p, encaminhamento d
+                WHERE p.encaminhamento = d.codigo
+                AND p.data_previsao
+                BETWEEN  '".$dataInicial."'
+                AND  '".$dataFinal."'
+                GROUP BY p.doenca";
 
         if ($banco->abreConexao() == true) {
             $res = $banco->consultar($sql);
@@ -240,8 +272,12 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
                     $periodico->empregado->lotacao = $valor;
                 } elseif (strcasecmp($campo, "doenca") == 0) {
                     $periodico->doenca->codigo = $valor;
+                } elseif (strcasecmp($campo, "descricaodoenca") == 0) {
+                    $periodico->doenca->descricao = $valor;
                 } elseif (strcasecmp($campo, "encaminhamento") == 0) {
                     $periodico->encaminhamento->codigo = $valor;
+                } elseif (strcasecmp($campo, "descricaoencaminhamento") == 0) {
+                    $periodico->encaminhamento->descricao = $valor;
                 } elseif (strcasecmp($campo, "ativ_desenvolvida") == 0) {
                     $periodico->atividadeDesenvolvida = $valor;
                 } elseif (strcasecmp($campo, "volume_trabalho") == 0) {
@@ -370,6 +406,8 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
                     $periodico->queixas = $valor;
                 } elseif (strcasecmp($campo, "obs") == 0) {
                     $periodico->obs = $valor;
+                } elseif (strcasecmp($campo, "quantidade") == 0) {
+                    $periodico->quantidade = $valor;
                 }
 
             }

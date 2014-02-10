@@ -48,6 +48,14 @@ class PeriodicoBC extends BC {
         return $this->DAO->consultarDoencas($banco);
     }
 
+    public function consultarQuantitativoDoencas(DAOBanco $banco, $dataInicial, $dataFinal) {
+        return $this->DAO->consultarQuantitativoDoencas($banco, $dataInicial, $dataFinal);
+    }
+
+    public function consultarQuantitativoEncaminhamento(DAOBanco $banco, $dataInicial, $dataFinal) {
+        return $this->DAO->consultarQuantitativoEncaminhamento($banco, $dataInicial, $dataFinal);
+    }
+
     public function consultarEncaminhamentos(DAOBanco $banco) {
         return $this->DAO->consultarEncaminhamentos($banco);
     }
