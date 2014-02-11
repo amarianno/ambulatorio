@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-10 08:16:39
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-11 14:02:18
          compiled from "templates/dados_emp.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:62275785252f81c732bec68-83788195%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c4c986e1860c38e1c3850646fa97acfc6a2685bf' => 
     array (
       0 => 'templates/dados_emp.tpl',
-      1 => 1392027319,
+      1 => 1392134535,
       2 => 'file',
     ),
   ),
@@ -17,6 +17,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.13',
   'unifunc' => 'content_52f81c737150d6_50735848',
+  'variables' => 
+  array (
+    'ano_corrente' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_52f81c737150d6_50735848')) {function content_52f81c737150d6_50735848($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>"Controle de Atestados - SUPGP/GPSPO"), 0);?>
@@ -38,7 +42,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         Ano
                     </label>
                     <input id="ano" name="ano"
-                           type="text" value="" maxlength="4"
+                           type="text" value="<?php echo $_smarty_tpl->tpl_vars['ano_corrente']->value;?>
+" maxlength="4"
                            tabindex="1" width="4" required />
                     <input type="button" tabindex="4" class="button black" value="Consultar" onclick="consultaConsolidacaoEMP()"/>
                 </td>

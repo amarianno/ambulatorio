@@ -36,5 +36,6 @@ if($operacao == 'buscar') {
 
 
 } else {
+    $smart->assign("ano_corrente", date('Y'));
     $smart->display('dados_emp.tpl');
 }

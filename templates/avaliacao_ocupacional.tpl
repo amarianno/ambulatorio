@@ -21,7 +21,7 @@
                         Matrícula <span class="req">*</span>
                     </label>
                     <input id="txtMatricula" name="txtMatricula"
-                           type="text" value="{$txtMatricula}" maxlength="8"
+                           type="text" value="{$ano_corrente}" maxlength="8"
                            tabindex="1" width="20" required style="width: 120px;"
                            onblur="recuperarAvaliacaoOcupacional()"/>
 

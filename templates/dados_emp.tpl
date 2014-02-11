@@ -15,7 +15,7 @@
                         Ano
                     </label>
                     <input id="ano" name="ano"
-                           type="text" value="" maxlength="4"
+                           type="text" value="{$ano_corrente}" maxlength="4"
                            tabindex="1" width="4" required />
                     <input type="button" tabindex="4" class="button black" value="Consultar" onclick="consultaConsolidacaoEMP()"/>
                 </td>

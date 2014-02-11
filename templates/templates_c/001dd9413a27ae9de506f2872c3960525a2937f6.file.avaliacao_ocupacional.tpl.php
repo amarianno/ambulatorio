@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-11 08:22:59
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-11 14:02:51
          compiled from "templates/avaliacao_ocupacional.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:176113818952f3fa37a4d953-14622249%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '001dd9413a27ae9de506f2872c3960525a2937f6' => 
     array (
       0 => 'templates/avaliacao_ocupacional.tpl',
-      1 => 1392114079,
+      1 => 1392134489,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_52f3fa37a94416_92714977',
   'variables' => 
   array (
-    'txtMatricula' => 0,
+    'ano_corrente' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -48,7 +48,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         Matrícula <span class="req">*</span>
                     </label>
                     <input id="txtMatricula" name="txtMatricula"
-                           type="text" value="<?php echo $_smarty_tpl->tpl_vars['txtMatricula']->value;?>
+                           type="text" value="<?php echo $_smarty_tpl->tpl_vars['ano_corrente']->value;?>
 " maxlength="8"
                            tabindex="1" width="20" required style="width: 120px;"
                            onblur="recuperarAvaliacaoOcupacional()"/>
