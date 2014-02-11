@@ -548,16 +548,10 @@
                             Normal
                         </option>
                         <option value="2">
-                            Alterado
+                            Elevado
                         </option>
                         <option value="3">
-                            Alterado
-                        </option>
-                        <option value="4">
-                            Alterado
-                        </option>
-                        <option value="5">
-                            Alterado
+                            Diminuido
                         </option>
                     </select>
                 </td>
@@ -568,7 +562,16 @@
                             Normal
                         </option>
                         <option value="2">
-                            Alterado
+                            Hematúria
+                        </option>
+                        <option value="3">
+                            Piúria
+                        </option>
+                        <option value="4">
+                            Proteinúria
+                        </option>
+                        <option value="5">
+                            Outros
                         </option>
                     </select>
                 </td>

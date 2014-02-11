@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 class RelatorioEMPAvaliacaoOcupUtil {
 
 
@@ -103,15 +100,15 @@ class RelatorioEMPAvaliacaoOcupUtil {
 
         $total = $this->total($lista);
 
-        $htmlRetorno .= "<strong>ITEM 1 - Avaliação Ocupacional - Satisfação com o Trabalho</strong><br>";
+        $htmlRetorno .= "<strong>ITEM 1 - AVALIAÇÃO OCUPACIONAL - SATISFAÇÃO COM O TRABALHO</strong><br>";
         $htmlRetorno .= "<div class='datagrid'>";
         $htmlRetorno .= "<table id='mainDeck'>";
         $htmlRetorno .= "<thead>";
         $htmlRetorno .= "   <tr>";
         $htmlRetorno .= "       <th></th>";
-        $htmlRetorno .= "       <th>SIM</th>";
+        $htmlRetorno .= "       <th>SATISFEITO</th>";
         $htmlRetorno .= "       <th>%</th>";
-        $htmlRetorno .= "       <th>NÃO</th>";
+        $htmlRetorno .= "       <th>INSATISFEITO</th>";
         $htmlRetorno .= "       <th>%</th>";
         $htmlRetorno .= "   </tr>";
         $htmlRetorno .= "</thead>";
@@ -155,7 +152,7 @@ class RelatorioEMPAvaliacaoOcupUtil {
 
         $htmlRetorno .= "<br>";
 
-        $htmlRetorno .= "<strong>ITEM 2 - Trabalho Provoca</strong><br>";
+        $htmlRetorno .= "<strong>ITEM 2 - TRABALHO PROVOCA</strong><br>";
         $htmlRetorno .= "<div class='datagrid'>";
         $htmlRetorno .= "<table id='mainDeck'>";
         $htmlRetorno .= "<thead>";

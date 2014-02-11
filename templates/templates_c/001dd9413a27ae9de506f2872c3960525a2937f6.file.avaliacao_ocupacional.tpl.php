@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-10 15:55:12
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-11 08:22:59
          compiled from "templates/avaliacao_ocupacional.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:176113818952f3fa37a4d953-14622249%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '001dd9413a27ae9de506f2872c3960525a2937f6' => 
     array (
       0 => 'templates/avaliacao_ocupacional.tpl',
-      1 => 1392053841,
+      1 => 1392114079,
       2 => 'file',
     ),
   ),
@@ -576,16 +576,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                             Normal
                         </option>
                         <option value="2">
-                            Alterado
+                            Elevado
                         </option>
                         <option value="3">
-                            Alterado
-                        </option>
-                        <option value="4">
-                            Alterado
-                        </option>
-                        <option value="5">
-                            Alterado
+                            Diminuido
                         </option>
                     </select>
                 </td>
@@ -596,7 +590,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                             Normal
                         </option>
                         <option value="2">
-                            Alterado
+                            Hematúria
+                        </option>
+                        <option value="3">
+                            Piúria
+                        </option>
+                        <option value="4">
+                            Proteinúria
+                        </option>
+                        <option value="5">
+                            Outros
                         </option>
                     </select>
                 </td>
