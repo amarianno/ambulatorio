@@ -91,6 +91,8 @@ if($operacao == 'incluir') {
     $campos['queixas'] = $_POST['queixas'];
     $campos['obs'] = $_POST['obs'];
 
+    $campos['doutor'] = $_POST['doutor'];
+
 
     $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("codigo" => $_POST['hidCodigo']));
     $bc->alterar($_SESSION[BANCO_SESSAO], $campos, $filtro);

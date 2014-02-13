@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-11 14:02:51
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-13 10:48:52
          compiled from "templates/avaliacao_ocupacional.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:176113818952f3fa37a4d953-14622249%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '001dd9413a27ae9de506f2872c3960525a2937f6' => 
     array (
       0 => 'templates/avaliacao_ocupacional.tpl',
-      1 => 1392134489,
+      1 => 1392295247,
       2 => 'file',
     ),
   ),
@@ -697,7 +697,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 Queixas atuais
             </b>
         </legend>
-        <textarea rows="4" cols="100" id="queixas" name="queixas" ></textarea>
+        <textarea rows="4" cols="100" id="queixas" name="queixas" tabindex="55"></textarea>
     </fieldset>
 
     <fieldset>
@@ -706,7 +706,28 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 Observações Gerais
             </b>
         </legend>
-        <textarea rows="4" cols="100" id="obs" name="obs"></textarea>
+        <textarea rows="4" cols="100" id="obs" name="obs" tabindex="56"></textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>
+            <b>
+            </b>
+        </legend>
+        Doutor(a) <br>
+        <select id="doutor" name="doutor" tabindex="57" style="width: 190px;">
+            <option value="">
+            </option>
+            <option value="1">
+                Jarbas
+            </option>
+            <option value="2">
+                Gertrudes
+            </option>
+            <option value="3">
+                Doutor da Luz
+            </option>
+        </select>
     </fieldset>
 
     <table>

@@ -408,6 +408,8 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
                     $periodico->obs = $valor;
                 } elseif (strcasecmp($campo, "quantidade") == 0) {
                     $periodico->quantidade = $valor;
+                } elseif (strcasecmp($campo, "doutor") == 0) {
+                    $periodico->doutor = $valor;
                 }
 
             }

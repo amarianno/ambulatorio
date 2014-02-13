@@ -669,7 +669,7 @@
                 Queixas atuais
             </b>
         </legend>
-        <textarea rows="4" cols="100" id="queixas" name="queixas" ></textarea>
+        <textarea rows="4" cols="100" id="queixas" name="queixas" tabindex="55"></textarea>
     </fieldset>
 
     <fieldset>
@@ -678,7 +678,28 @@
                 Observações Gerais
             </b>
         </legend>
-        <textarea rows="4" cols="100" id="obs" name="obs"></textarea>
+        <textarea rows="4" cols="100" id="obs" name="obs" tabindex="56"></textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>
+            <b>
+            </b>
+        </legend>
+        Doutor(a) <br>
+        <select id="doutor" name="doutor" tabindex="57" style="width: 190px;">
+            <option value="">
+            </option>
+            <option value="1">
+                Jarbas
+            </option>
+            <option value="2">
+                Gertrudes
+            </option>
+            <option value="3">
+                Doutor da Luz
+            </option>
+        </select>
     </fieldset>
 
     <table>

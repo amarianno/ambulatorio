@@ -1313,6 +1313,8 @@ function recuperarAvaliacaoOcupacional() {
                 $("#cid6").val(periodico.cid6);
                 document.getElementById("proximo_periodico").value = periodico.proximoPeriodico;
 
+                document.getElementById("doutor").value = periodico.doutor;
+
                 //outros
                 $("#queixas").val(periodico.queixas);
                 $("#obs").val(periodico.obs);
@@ -1400,6 +1402,7 @@ function limparCamposAvaliacaoOcupacional(limpaMatricula) {
     $("#cid5").val('');
     $("#cid6").val('');
     document.getElementById("proximo_periodico").value = '';
+    document.getElementById("doutor").value = '';
 
     //outros
     $("#queixas").val('');
@@ -1483,6 +1486,7 @@ function cadastrarAvaliacaoOcupacional() {
     //outros
     campos +=  "&queixas=" + $("#queixas").val();
     campos +=  "&obs=" + $("#obs").val();
+    campos +=  "&doutor=" +  + document.getElementById("doutor").value;
     //codigo
     campos +=  "&hidCodigo=" + $("#hidCodigo").val();
     campos += "&op=incluir";
