@@ -1508,15 +1508,16 @@ function calculaImc() {
     if($("#altura").val() == '') { return ''}
 
     var peso = $("#peso").val();
+    peso = peso.replace(",", ".");
     var altura = $("#altura").val();
+    altura = altura.replace(",", "");
 
-    altura = Number(altura) * Number(altura)
+    altura = Number(altura) * Number(altura);
     var imc = Number(peso) / altura;
     imc = imc * 10000;
     imc = imc.toFixed(2);
 
-    $("#imc").val(imc);
-
+    $("#imc").val(imc.replace(".", ","));
     /**
      * Abaixo de 17	Muito abaixo do peso
      Entre 17 e 18,49	Abaixo do peso

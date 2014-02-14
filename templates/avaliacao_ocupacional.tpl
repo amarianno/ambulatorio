@@ -687,17 +687,20 @@
             </b>
         </legend>
         Doutor(a) <br>
-        <select id="doutor" name="doutor" tabindex="57" style="width: 190px;">
+        <select id="doutor" name="doutor" tabindex="57" style="width: 330px;">
             <option value="">
             </option>
             <option value="1">
-                Jarbas
+                Jarbas de Moura Guimarães Filho - CRM:26194
             </option>
             <option value="2">
-                Gertrudes
+                Maria Gertrudes V. Focássio - CRM:16135
             </option>
             <option value="3">
-                Doutor da Luz
+                Pedro Elias Makaron - CRM:8929
+            </option>
+	    <option value="4">
+                Nelson de Mesquita Pinto - CRM:15743
             </option>
         </select>
     </fieldset>

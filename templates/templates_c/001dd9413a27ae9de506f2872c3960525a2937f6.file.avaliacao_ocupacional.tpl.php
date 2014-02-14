@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-13 10:48:52
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-14 09:56:15
          compiled from "templates/avaliacao_ocupacional.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:176113818952f3fa37a4d953-14622249%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '001dd9413a27ae9de506f2872c3960525a2937f6' => 
     array (
       0 => 'templates/avaliacao_ocupacional.tpl',
-      1 => 1392295247,
+      1 => 1392378974,
       2 => 'file',
     ),
   ),
@@ -715,17 +715,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             </b>
         </legend>
         Doutor(a) <br>
-        <select id="doutor" name="doutor" tabindex="57" style="width: 190px;">
+        <select id="doutor" name="doutor" tabindex="57" style="width: 330px;">
             <option value="">
             </option>
             <option value="1">
-                Jarbas
+                Jarbas de Moura Guimarães Filho - CRM:26194
             </option>
             <option value="2">
-                Gertrudes
+                Maria Gertrudes V. Focássio - CRM:16135
             </option>
             <option value="3">
-                Doutor da Luz
+                Pedro Elias Makaron - CRM:8929
+            </option>
+	    <option value="4">
+                Nelson de Mesquita Pinto - CRM:15743
             </option>
         </select>
     </fieldset>
@@ -780,4 +783,5 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     </div>
 
 
-</form><?php }} ?>
+</form>
+<?php }} ?>
