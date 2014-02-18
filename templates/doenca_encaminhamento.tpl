@@ -40,6 +40,60 @@
                     </select>
                 </td>
             </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    Doença <br>
+                    <select id="selDoenca2" name="selDoenca2" tabindex="4" style="width: 300px;">
+                        <option value=""></option>
+                        {$doencas_options}
+                    </select>
+                </td>
+                <td>
+                    Encaminhamento <br>
+                    <select id="selEncaminhamento2" name="selEncaminhamento2" tabindex="5" style="width: 140px;">
+                        <option value=""></option>
+                        {$encaminhamento_options}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    Doença <br>
+                    <select id="selDoenca3" name="selDoenca3" tabindex="6" style="width: 300px;">
+                        <option value=""></option>
+                        {$doencas_options}
+                    </select>
+                </td>
+                <td>
+                    Encaminhamento <br>
+                    <select id="selEncaminhamento3" name="selEncaminhamento3" tabindex="7" style="width: 140px;">
+                        <option value=""></option>
+                        {$encaminhamento_options}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    Doença <br>
+                    <select id="selDoenca4" name="selDoenca4" tabindex="8" style="width: 300px;">
+                        <option value=""></option>
+                        {$doencas_options}
+                    </select>
+                </td>
+                <td>
+                    Encaminhamento <br>
+                    <select id="selEncaminhamento4" name="selEncaminhamento4" tabindex="9" style="width: 140px;">
+                        <option value=""></option>
+                        {$encaminhamento_options}
+                    </select>
+                </td>
+            </tr>
         </table>
     </fieldset>
     <table>

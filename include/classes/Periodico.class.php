@@ -13,6 +13,12 @@ class Periodico extends Persistivel {
     public $isMaisQuarentaAnos;
     public $doenca;
     public $encaminhamento;
+    public $doenca2;
+    public $encaminhamento2;
+    public $doenca3;
+    public $encaminhamento3;
+    public $doenca4;
+    public $encaminhamento4;
 
     //Avaliacao Ocupacional
     public $atividadeDesenvolvida;

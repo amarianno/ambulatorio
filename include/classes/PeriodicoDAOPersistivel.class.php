@@ -410,6 +410,18 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
                     $periodico->quantidade = $valor;
                 } elseif (strcasecmp($campo, "doutor") == 0) {
                     $periodico->doutor = $valor;
+                } elseif (strcasecmp($campo, "doenca2") == 0) {
+                    $periodico->doenca2->codigo = $valor;
+                } elseif (strcasecmp($campo, "doenca3") == 0) {
+                    $periodico->doenca3->codigo = $valor;
+                } elseif (strcasecmp($campo, "doenca4") == 0) {
+                    $periodico->doenca4->codigo = $valor;
+                } elseif (strcasecmp($campo, "encaminhamento2") == 0) {
+                    $periodico->encaminhamento2->codigo = $valor;
+                } elseif (strcasecmp($campo, "encaminhamento3") == 0) {
+                    $periodico->encaminhamento3->codigo = $valor;
+                } elseif (strcasecmp($campo, "encaminhamento4") == 0) {
+                    $periodico->encaminhamento4->codigo = $valor;
                 }
 
             }

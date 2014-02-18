@@ -41,6 +41,12 @@ if($operacao == 'incluir') {
     $campos = array();
     $campos['doenca'] = $_POST['selDoenca'];
     $campos['encaminhamento'] = $_POST['selEncaminhamento'];
+    $campos['doenca2'] = $_POST['selDoenca2'];
+    $campos['encaminhamento2'] = $_POST['selEncaminhamento2'];
+    $campos['doenca3'] = $_POST['selDoenca3'];
+    $campos['encaminhamento3'] = $_POST['selEncaminhamento3'];
+    $campos['doenca4'] = $_POST['selDoenca4'];
+    $campos['encaminhamento4'] = $_POST['selEncaminhamento4'];
 
     $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("codigo" => $_POST['hidCodigo']));
     $bc->alterar($_SESSION[BANCO_SESSAO], $campos, $filtro);

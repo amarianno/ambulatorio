@@ -35,8 +35,32 @@ class PeriodicoBC extends BC {
                 $periodico->doenca = $this->DAO->consultarDoencaPorChave($banco, $periodico->doenca->codigo);
             }
 
+            if($periodico->doenca2->codigo != '' && $periodico->doenca2->codigo != null) {
+                $periodico->doenca2 = $this->DAO->consultarDoencaPorChave($banco, $periodico->doenca2->codigo);
+            }
+
+            if($periodico->doenca3->codigo != '' && $periodico->doenca3->codigo != null) {
+                $periodico->doenca3 = $this->DAO->consultarDoencaPorChave($banco, $periodico->doenca3->codigo);
+            }
+
+            if($periodico->doenca4->codigo != '' && $periodico->doenca4->codigo != null) {
+                $periodico->doenca4 = $this->DAO->consultarDoencaPorChave($banco, $periodico->doenca4->codigo);
+            }
+
             if($periodico->encaminhamento->codigo != '' && $periodico->encaminhamento->codigo != null) {
                 $periodico->encaminhamento = $this->DAO->consultarEncaminhamentoPorChave($banco, $periodico->encaminhamento->codigo);
+            }
+
+            if($periodico->encaminhamento2->codigo != '' && $periodico->encaminhamento2->codigo != null) {
+                $periodico->encaminhamento2 = $this->DAO->consultarEncaminhamentoPorChave($banco, $periodico->encaminhamento2->codigo);
+            }
+
+            if($periodico->encaminhamento3->codigo != '' && $periodico->encaminhamento3->codigo != null) {
+                $periodico->encaminhamento3 = $this->DAO->consultarEncaminhamentoPorChave($banco, $periodico->encaminhamento3->codigo);
+            }
+
+            if($periodico->encaminhamento4->codigo != '' && $periodico->encaminhamento4->codigo != null) {
+                $periodico->encaminhamento4 = $this->DAO->consultarEncaminhamentoPorChave($banco, $periodico->encaminhamento4->codigo);
             }
         }
 

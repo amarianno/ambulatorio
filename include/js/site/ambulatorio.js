@@ -1172,6 +1172,12 @@ function recuperarPeriodicoAno() {
 
     document.getElementById("selDoenca").value = '';
     document.getElementById("selEncaminhamento").value = '';
+    document.getElementById("selDoenca2").value = '';
+    document.getElementById("selEncaminhamento2").value = '';
+    document.getElementById("selDoenca3").value = '';
+    document.getElementById("selEncaminhamento3").value = '';
+    document.getElementById("selDoenca4").value = '';
+    document.getElementById("selEncaminhamento4").value = '';
 
     $.ajax({
         type: "POST",
@@ -1183,6 +1189,12 @@ function recuperarPeriodicoAno() {
                 $("#hidCodigo").val(periodico.codigo);
                 document.getElementById("selDoenca").value = periodico.doenca.codigo;
                 document.getElementById("selEncaminhamento").value = periodico.encaminhamento.codigo;
+                document.getElementById("selDoenca2").value = periodico.doenca2.codigo;
+                document.getElementById("selEncaminhamento2").value = periodico.encaminhamento2.codigo;
+                document.getElementById("selDoenca3").value = periodico.doenca3.codigo;
+                document.getElementById("selEncaminhamento3").value = periodico.encaminhamento3.codigo;
+                document.getElementById("selDoenca4").value = periodico.doenca4.codigo;
+                document.getElementById("selEncaminhamento4").value = periodico.encaminhamento4.codigo;
             }
         }
     });
@@ -1192,6 +1204,12 @@ function limparCamposDoencaEncaminhamento() {
     $("#txtMatricula").val('');
     document.getElementById("selDoenca").value = '';
     document.getElementById("selEncaminhamento").value = '';
+    document.getElementById("selDoenca2").value = '';
+    document.getElementById("selEncaminhamento2").value = '';
+    document.getElementById("selDoenca3").value = '';
+    document.getElementById("selEncaminhamento3").value = '';
+    document.getElementById("selDoenca4").value = '';
+    document.getElementById("selEncaminhamento4").value = '';
     $("#nomeEmpregado").html('');
     $("#hidCodigo").val('');
 }
@@ -1203,6 +1221,12 @@ function cadastrarDoencaEncaminhamento() {
     var campos =  "txtMatricula=" + $("#txtMatricula").val();
     campos +=  "&selDoenca=" + document.getElementById("selDoenca").value;
     campos +=  "&selEncaminhamento=" + document.getElementById("selEncaminhamento").value;
+    campos +=  "&selDoenca2=" + document.getElementById("selDoenca2").value;
+    campos +=  "&selEncaminhamento2=" + document.getElementById("selEncaminhamento2").value;
+    campos +=  "&selDoenca3=" + document.getElementById("selDoenca3").value;
+    campos +=  "&selEncaminhamento3=" + document.getElementById("selEncaminhamento3").value;
+    campos +=  "&selDoenca4=" + document.getElementById("selDoenca4").value;
+    campos +=  "&selEncaminhamento4=" + document.getElementById("selEncaminhamento4").value;
     campos +=  "&hidCodigo=" + $("#hidCodigo").val();
     campos += "&op=incluir";
 
@@ -1215,6 +1239,12 @@ function cadastrarDoencaEncaminhamento() {
             $("#txtMatricula").val('');
             document.getElementById("selDoenca").value = '';
             document.getElementById("selEncaminhamento").value = '';
+            document.getElementById("selDoenca2").value = '';
+            document.getElementById("selEncaminhamento2").value = '';
+            document.getElementById("selDoenca3").value = '';
+            document.getElementById("selEncaminhamento3").value = '';
+            document.getElementById("selDoenca4").value = '';
+            document.getElementById("selEncaminhamento4").value = '';
             $("#nomeEmpregado").html('');
             $("#hidCodigo").val('');
         }

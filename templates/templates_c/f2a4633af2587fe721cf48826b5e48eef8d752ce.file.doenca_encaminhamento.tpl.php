@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-07 22:58:52
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-17 11:20:18
          compiled from "templates/doenca_encaminhamento.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:203580945652f3e89abbed54-71659272%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f2a4633af2587fe721cf48826b5e48eef8d752ce' => 
     array (
       0 => 'templates/doenca_encaminhamento.tpl',
-      1 => 1391820425,
+      1 => 1392646806,
       2 => 'file',
     ),
   ),
@@ -66,6 +66,66 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <td>
                     Encaminhamento <br>
                     <select id="selEncaminhamento" name="selEncaminhamento" tabindex="3" style="width: 140px;">
+                        <option value=""></option>
+                        <?php echo $_smarty_tpl->tpl_vars['encaminhamento_options']->value;?>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    Doença <br>
+                    <select id="selDoenca2" name="selDoenca2" tabindex="4" style="width: 300px;">
+                        <option value=""></option>
+                        <?php echo $_smarty_tpl->tpl_vars['doencas_options']->value;?>
+
+                    </select>
+                </td>
+                <td>
+                    Encaminhamento <br>
+                    <select id="selEncaminhamento2" name="selEncaminhamento2" tabindex="5" style="width: 140px;">
+                        <option value=""></option>
+                        <?php echo $_smarty_tpl->tpl_vars['encaminhamento_options']->value;?>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    Doença <br>
+                    <select id="selDoenca3" name="selDoenca3" tabindex="6" style="width: 300px;">
+                        <option value=""></option>
+                        <?php echo $_smarty_tpl->tpl_vars['doencas_options']->value;?>
+
+                    </select>
+                </td>
+                <td>
+                    Encaminhamento <br>
+                    <select id="selEncaminhamento3" name="selEncaminhamento3" tabindex="7" style="width: 140px;">
+                        <option value=""></option>
+                        <?php echo $_smarty_tpl->tpl_vars['encaminhamento_options']->value;?>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    Doença <br>
+                    <select id="selDoenca4" name="selDoenca4" tabindex="8" style="width: 300px;">
+                        <option value=""></option>
+                        <?php echo $_smarty_tpl->tpl_vars['doencas_options']->value;?>
+
+                    </select>
+                </td>
+                <td>
+                    Encaminhamento <br>
+                    <select id="selEncaminhamento4" name="selEncaminhamento4" tabindex="9" style="width: 140px;">
                         <option value=""></option>
                         <?php echo $_smarty_tpl->tpl_vars['encaminhamento_options']->value;?>
 
