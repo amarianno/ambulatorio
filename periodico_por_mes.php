@@ -55,7 +55,12 @@ if($op == 'consultar') {
             $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("codigo" => $codigo));
             $bc->alterar($_SESSION[BANCO_SESSAO], $camposValores, $filtro);
         } else {
-            $camposValores['data_previsao'] = date('Y')."-".date('m')."-01";
+            if(date('m') == '1' || date('m') == '2') {
+                $camposValores['data_previsao'] = date('Y')."-03-01";
+            } else {
+                $camposValores['data_previsao'] = date('Y')."-".date('m')."-01";
+            }
+
             $camposValores['matricula'] = $matriculas[$cont];
             $bc->incluir($_SESSION[BANCO_SESSAO], $camposValores);
         }
