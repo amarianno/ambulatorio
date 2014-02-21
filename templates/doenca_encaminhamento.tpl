@@ -96,6 +96,14 @@
             </tr>
         </table>
     </fieldset>
+    <fieldset>
+        <legend>
+            <b>
+                Observações Gerais
+            </b>
+        </legend>
+        <textarea rows="4" cols="100" id="obs" name="obs" tabindex="10"></textarea>
+    </fieldset>
     <table>
         <tr>
             <td style="text-align: left" colspan="2">

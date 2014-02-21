@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-05-13 17:34:37
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-19 23:16:46
          compiled from "templates/relatorio_dia_atestados.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1039415078518b753d0298a1-77357779%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'acbb52388c15e092f4713f1127d36fd4798e34bb' => 
     array (
       0 => 'templates/relatorio_dia_atestados.tpl',
-      1 => 1368477185,
+      1 => 1390691019,
       2 => 'file',
     ),
   ),

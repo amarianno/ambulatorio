@@ -589,6 +589,8 @@
                 <td>
                     Outros <br>
                     <select id="outro_exa_comp" name="outro_exa_comp" tabindex="55" style="width: 120px;">
+                        <option value="0">
+                        </option>
                         <option value="1">
                             Normal
                         </option>

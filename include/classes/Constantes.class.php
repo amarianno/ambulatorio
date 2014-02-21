@@ -6,6 +6,10 @@ final class Constantes {
     const EXCLUIR = "excluir";
     const CONSULTAR = "consultar";
     const OBJETO_USUARIO = "objeto_usuario";
+    const ID_USUARIO = "id_usuario";
+    const NOME_USUARIO = "nome_usuario";
+    const PERFIL_USUARIO = "perfil_usuario";
+    const EMPRESA_USUARIO = "empresa_usuario";
     const SET_PAGINA_INICIAL = 5;
     const TABELA_MAGICCARDS = "magiccards";
     const TABELA_SETS = "sets";

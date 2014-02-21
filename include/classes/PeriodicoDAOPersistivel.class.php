@@ -422,6 +422,8 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
                     $periodico->encaminhamento3->codigo = $valor;
                 } elseif (strcasecmp($campo, "encaminhamento4") == 0) {
                     $periodico->encaminhamento4->codigo = $valor;
+                } elseif (strcasecmp($campo, "obs_doenca_encaminhamento") == 0) {
+                    $periodico->obsDoencaEncaminhamento = $valor;
                 }
 
             }

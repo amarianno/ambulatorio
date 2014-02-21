@@ -1163,7 +1163,7 @@ function planejarPeriodico() {
         }
     });
 }
-
+//******** DOENCA E ENCAMINHAMENTO **************************************
 function recuperarPeriodicoAno() {
     completaCopyPaste();
 
@@ -1178,6 +1178,7 @@ function recuperarPeriodicoAno() {
     document.getElementById("selEncaminhamento3").value = '';
     document.getElementById("selDoenca4").value = '';
     document.getElementById("selEncaminhamento4").value = '';
+    $("#obs").val('');
 
     $.ajax({
         type: "POST",
@@ -1187,6 +1188,7 @@ function recuperarPeriodicoAno() {
             var periodico = jQuery.parseJSON ( data );
             if(periodico != null && periodico != '') {
                 $("#hidCodigo").val(periodico.codigo);
+                $("#obs").val(periodico.obsDoencaEncaminhamento);
                 document.getElementById("selDoenca").value = periodico.doenca.codigo;
                 document.getElementById("selEncaminhamento").value = periodico.encaminhamento.codigo;
                 document.getElementById("selDoenca2").value = periodico.doenca2.codigo;
@@ -1210,13 +1212,36 @@ function limparCamposDoencaEncaminhamento() {
     document.getElementById("selEncaminhamento3").value = '';
     document.getElementById("selDoenca4").value = '';
     document.getElementById("selEncaminhamento4").value = '';
+    $("#obs").val('');
     $("#nomeEmpregado").html('');
     $("#hidCodigo").val('');
+}
+
+function necessidaObservacaoDoencaEncaminhamento(componente, value) {
+   return (document.getElementById(componente).value == value && $("#obs").val() == '');
 }
 
 function cadastrarDoencaEncaminhamento() {
 
     if($("#txtMatricula").val() == '') {return false;}
+
+    if(necessidaObservacaoDoencaEncaminhamento('selDoenca', '20') ||
+        necessidaObservacaoDoencaEncaminhamento('selDoenca2', '20') ||
+        necessidaObservacaoDoencaEncaminhamento('selDoenca3', '20') ||
+        necessidaObservacaoDoencaEncaminhamento('selDoenca4', '20')) {
+        alert('Campo Doença marcado com OUTROS. Especifique a doença encontrada');
+        $("#obs").focus();
+        return false;
+    }
+
+    if(necessidaObservacaoDoencaEncaminhamento('selEncaminhamento', '5') ||
+        necessidaObservacaoDoencaEncaminhamento('selEncaminhamento2', '5') ||
+        necessidaObservacaoDoencaEncaminhamento('selEncaminhamento3', '5') ||
+        necessidaObservacaoDoencaEncaminhamento('selEncaminhamento4', '5')) {
+        alert('Campo Encaminhamento marcado com OUTROS. Especifique o especialista indicado.');
+        $("#obs").focus();
+        return false;
+    }
 
     var campos =  "txtMatricula=" + $("#txtMatricula").val();
     campos +=  "&selDoenca=" + document.getElementById("selDoenca").value;
@@ -1227,6 +1252,7 @@ function cadastrarDoencaEncaminhamento() {
     campos +=  "&selEncaminhamento3=" + document.getElementById("selEncaminhamento3").value;
     campos +=  "&selDoenca4=" + document.getElementById("selDoenca4").value;
     campos +=  "&selEncaminhamento4=" + document.getElementById("selEncaminhamento4").value;
+    campos +=  "&obs=" + $("#obs").val();
     campos +=  "&hidCodigo=" + $("#hidCodigo").val();
     campos += "&op=incluir";
 
@@ -1245,6 +1271,7 @@ function cadastrarDoencaEncaminhamento() {
             document.getElementById("selEncaminhamento3").value = '';
             document.getElementById("selDoenca4").value = '';
             document.getElementById("selEncaminhamento4").value = '';
+            $("#obs").val('');
             $("#nomeEmpregado").html('');
             $("#hidCodigo").val('');
         }
@@ -1443,6 +1470,12 @@ function limparCamposAvaliacaoOcupacional(limpaMatricula) {
 function cadastrarAvaliacaoOcupacional() {
 
     if($("#txtMatricula").val() == '') {return false;}
+
+    if($("#outro_exa_comp").val() != '0' && $("#obs").val() == '') {
+        alert('Campo [Exames Complementares > Outros] foi alterado. Especificar os detalhes no campo Observações Gerais');
+        $("#obs").focus();
+        return false;
+    }
 
     var campos =  "txtMatricula=" + $("#txtMatricula").val();
     //Avaliação Ocupacional

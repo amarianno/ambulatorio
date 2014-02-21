@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-05-13 07:09:03
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-19 22:52:06
          compiled from "templates/cid_por_matricula.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18138708451880403f22686-77443407%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4f51468ad5706f3d3c834a55df52f9c713ebc27a' => 
     array (
       0 => 'templates/cid_por_matricula.tpl',
-      1 => 1368033224,
+      1 => 1390691019,
       2 => 'file',
     ),
   ),

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-14 09:56:15
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-19 23:14:38
          compiled from "templates/avaliacao_ocupacional.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:176113818952f3fa37a4d953-14622249%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '001dd9413a27ae9de506f2872c3960525a2937f6' => 
     array (
       0 => 'templates/avaliacao_ocupacional.tpl',
-      1 => 1392378974,
+      1 => 1392861664,
       2 => 'file',
     ),
   ),
@@ -617,6 +617,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <td>
                     Outros <br>
                     <select id="outro_exa_comp" name="outro_exa_comp" tabindex="55" style="width: 120px;">
+                        <option value="0">
+                        </option>
                         <option value="1">
                             Normal
                         </option>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-04-23 07:21:11
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-19 22:32:08
          compiled from "templates/login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:964755378513f20a2006d81-52733366%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '81a0270564c79ee7a1c4f40d2a5e8bcfac7e3570' => 
     array (
       0 => 'templates/login.tpl',
-      1 => 1366722985,
+      1 => 1392753070,
       2 => 'file',
     ),
   ),
@@ -19,72 +19,47 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_513f20a208d923_75420552',
   'variables' => 
   array (
-    'mensagem' => 0,
+    'senha_invalida' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_513f20a208d923_75420552')) {function content_513f20a208d923_75420552($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>"Buscartas - login"), 0);?>
+<?php if ($_valid && !is_callable('content_513f20a208d923_75420552')) {function content_513f20a208d923_75420552($_smarty_tpl) {?><html>
+<head>
+    <link href="include/css/login-box.css" rel="stylesheet" type="text/css" />
+    <style>
+        .errorblock {
+            color: #ff0000;
+            background-color: #ffEEEE;
+            border: 3px solid #ff0000;
+            padding: 8px;
+            margin: 16px;
+        }
+    </style>
+</head>
+<body onload="document.forms[0].j_username.focus();" >
 
-<?php echo $_smarty_tpl->getSubTemplate ("menu_top_2.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
-
-
-<div class="centerDiv">
-    <form id="loginForm" action="login.php" method="post">
-        <div class="center">
-            <?php echo $_smarty_tpl->tpl_vars['mensagem']->value;?>
-
-            <br>
-            E-mail: <input type="text" name="edtlogin" size="40">
-            <br>
-            Senha: <input type="password" name="edtsenha" size="40">
-            <br>
-            <span onclick="$(this).parents('form').submit(); return false;" class="button black size">Login</span>
-            <br>
-            <span id="access_account" style="cursor: pointer;">Não consegue acessar a sua conta?</span>
-
-            <br>
-            <br>
-            <a href="/auth/facebook">
-                <img src="include/img/facebook-button.png" class="grayscale" title="Logar com o Facebook"/>
-            </a>
-            <a href="/auth/google">
-                <img src="include/img/google-button.png" class="grayscale" title="Logar com o Google+"/>
-            </a>
-
-            <input type="hidden" id="btnlogin" name="btnlogin" value="login">
+<form action="login.php" method="post" name="formLogin" >
+    <div style="padding: 100px 0 0 250px;">
+        <div id="login-box">
+            <!-- <h2>Login</h2>  -->
+            <img src="include/img/icon/serpro.png" width="103" height="42" style="margin-left: 90px;" /> <br />
+            Acesso ao sistema SCA - Sistema de Controle de Atestados. <br /> <br />
+            <div id="login-box-name" style="margin-top: 20px;">CPF:</div>
+            <div id="login-box-field" style="margin-top: 20px;">
+                <input name="j_username" id="j_username" class="form-login" title="Username" value="" size="30" maxlength="11" />
+            </div>
+            <div id="login-box-name">Senha:</div>
+            <div id="login-box-field">
+                <input name="j_password" id="j_password" type="password" class="form-login" title="Password" value="" size="30" maxlength="8" />
+            </div>
+            <br />
+            <?php if (isset($_smarty_tpl->tpl_vars['senha_invalida']->value)){?>
+                <span style="color: red"><strong>Usuário ou senha inválidos</strong></span>
+            <?php }?>
+            <br />
+            <img src="include/img/login-btn.png" width="103" height="42" style="margin-left: 90px;" onclick="document.forms[0].submit()" />
         </div>
-    </form>
-</div>
-
-<div id="dialogNovaSenha" title="Nova Senha" style="display: none">
-    <form id="addForm">
-        <label for="novoEmail">Digite o seu e-mail: </label> <input type="text" id="novoEmail" placeholder="Email">
-        <br>
-        <br>
-        <span class="button black" onclick="enviarNovaSenha();">ENVIAR</span>
-
-        <div id="resultado"></div>
-    </form>
-</div>
-
-<?php echo $_smarty_tpl->getSubTemplate ("footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
-
-
-
-    <script>
-        $(function () {
-            $("#dialogNovaSenha").dialog({
-                autoOpen: false,
-                maxHeight: 640,
-                width: 480,
-                closeOnEscape: true
-            })
-
-            $("#access_account").click(function () {
-                $("#dialogNovaSenha").dialog("open");
-            })
-        });
-
-    </script>
-
-<?php }} ?>
+    </div>
+</form>
+</body>
+</html><?php }} ?>
