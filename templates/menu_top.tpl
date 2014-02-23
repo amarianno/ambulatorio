@@ -86,6 +86,17 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#">ENFERMAGEM <img src="include/img/icon/arrowdown-icon.png"/></a>
+                        <ul>
+                            <li>
+                                <a href="proc_medicos.php"><span>Procedimentos Médicos</span></a>
+                            </li>
+                            <li>
+                                <a href="periodico_por_mes.php"><span>Relatório Procedimentos Por Período</span></a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -231,6 +242,17 @@
                             </li>
                             <li>
                                 <a href="dados_emp.php"><span>Consolidação dos dados</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">ENFERMAGEM <img src="include/img/icon/arrowdown-icon.png"/></a>
+                        <ul>
+                            <li>
+                                <a href="proc_medicos.php"><span>Procedimentos Médicos</span></a>
+                            </li>
+                            <li>
+                                <a href="periodico_por_mes.php"><span>Relatório Procedimentos Por Período</span></a>
                             </li>
                         </ul>
                     </li>

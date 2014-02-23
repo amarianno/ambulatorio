@@ -17,8 +17,7 @@
     <div style="padding: 100px 0 0 250px;">
         <div id="login-box">
             <!-- <h2>Login</h2>  -->
-            <img src="include/img/icon/serpro.png" width="103" height="42" style="margin-left: 90px;" /> <br />
-            Acesso ao sistema SCA - Sistema de Controle de Atestados. <br /> <br />
+            <img src="include/img/icon/serpro.png" width="200" height="90" style="margin-left: 90px;" /> <br />
             <div id="login-box-name" style="margin-top: 20px;">CPF:</div>
             <div id="login-box-field" style="margin-top: 20px;">
                 <input name="j_username" id="j_username" class="form-login" title="Username" value="" size="30" maxlength="11" />
@@ -29,7 +28,11 @@
             </div>
             <br />
             {if isset($senha_invalida)}
-                <span style="color: red"><strong>Usuário ou senha inválidos</strong></span>
+                <span style="color: red; text-align: center">
+                    <strong>
+                        Usuário ou senha inválidos
+                    </strong>
+                </span>
             {/if}
             <br />
             <img src="include/img/login-btn.png" width="103" height="42" style="margin-left: 90px;" onclick="document.forms[0].submit()" />

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-19 22:32:08
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-21 22:31:54
          compiled from "templates/login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:964755378513f20a2006d81-52733366%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '81a0270564c79ee7a1c4f40d2a5e8bcfac7e3570' => 
     array (
       0 => 'templates/login.tpl',
-      1 => 1392753070,
+      1 => 1393032709,
       2 => 'file',
     ),
   ),
@@ -42,8 +42,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <div style="padding: 100px 0 0 250px;">
         <div id="login-box">
             <!-- <h2>Login</h2>  -->
-            <img src="include/img/icon/serpro.png" width="103" height="42" style="margin-left: 90px;" /> <br />
-            Acesso ao sistema SCA - Sistema de Controle de Atestados. <br /> <br />
+            <img src="include/img/icon/serpro.png" width="200" height="90" style="margin-left: 90px;" /> <br />
             <div id="login-box-name" style="margin-top: 20px;">CPF:</div>
             <div id="login-box-field" style="margin-top: 20px;">
                 <input name="j_username" id="j_username" class="form-login" title="Username" value="" size="30" maxlength="11" />
@@ -54,7 +53,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             </div>
             <br />
             <?php if (isset($_smarty_tpl->tpl_vars['senha_invalida']->value)){?>
-                <span style="color: red"><strong>Usuário ou senha inválidos</strong></span>
+                <span style="color: red; text-align: center">
+                    <strong>
+                        Usuário ou senha inválidos
+                    </strong>
+                </span>
             <?php }?>
             <br />
             <img src="include/img/login-btn.png" width="103" height="42" style="margin-left: 90px;" onclick="document.forms[0].submit()" />

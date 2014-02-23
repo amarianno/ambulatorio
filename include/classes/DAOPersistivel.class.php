@@ -28,6 +28,8 @@
             }
             $sql .= ")";
 
+            //print_r($sql);
+
             if ($banco->abreConexao() == true) {
                 $retorno = $banco->incluir($sql);
                 $lastID = mysql_insert_id();

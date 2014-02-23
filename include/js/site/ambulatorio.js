@@ -1770,3 +1770,58 @@ function consultaConsolidacaoEMP() {
     campos += "&op=buscar"
     consulta('dados_emp.php', campos, 'conteudoGrid');
 }
+//*******************************ENFERMAGEM - PROCEDIMENTOS MEDICOS ******************************
+
+function disableMatricula() {
+    if(document.getElementById("tipo_funcionario").value != '1') {
+        document.getElementById('txtMatricula').disabled = true;
+        $("#nomeEmpregado").html('');
+        $("#txtMatricula").val('');
+    } else {
+        document.getElementById('txtMatricula').disabled = false;
+    }
+}
+
+function consultarProcedimentoEnfermagem() {
+    var campos = "data=" + retornaDataFormatada($('#diaRelatorio').val());
+    campos += "&operacao=visualizar";
+
+    consulta('proc_medicos.php', campos, 'conteudoGrid');
+}
+
+function limparProcedimentoEnfermagem() {
+    $("#txtMatricula").val('');
+    $("#nomeEmpregado").html('');
+    document.getElementById('tipo_funcionario').value = '1';
+    document.getElementById('procedimento').value = '1';
+    $("#obs").val('');
+}
+
+function cadastraProcedimentoEnfermagem() {
+
+    if(document.getElementById("procedimento").value == 8 && $("#obs").val() == '') {
+        alert('Procedimento é igual a OUTROS. Por favor especifique o procedimento executado.')
+        $("#obs").focus();
+        return false;
+    }
+
+    var campos =  "matricula=" + $("#txtMatricula").val();
+    campos += "&data=" + retornaDataFormatada($('#diaRelatorio').val());
+    campos += "&tipo_funcionario=" + document.getElementById('tipo_funcionario').value;
+    campos += "&procedimento=" + document.getElementById('procedimento').value;
+    campos += "&obs="  + $("#obs").val();
+    campos += "&usuario="  + $("#usuario").val();
+    campos += "&operacao=incluir";
+
+    $.ajax({
+        type: "POST",
+        url: 'proc_medicos.php',
+        data: campos,
+        success: function (data) {
+            alert('Cadastrado com sucesso');
+            limparProcedimentoEnfermagem();
+            consultarProcedimentoEnfermagem();
+
+        }
+    });
+}
