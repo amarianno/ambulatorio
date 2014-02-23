@@ -8,7 +8,7 @@ require_once ('include/retornaconexao.inc.php');
 $smart = retornaSmarty();
 $bc = new EnfermagemBC();
 
-$operacao = $_POST['operacao'];
+$operacao = (isset( $_POST['operacao'])) ? $_POST['operacao'] :  $_GET['operacao'];
 
 function grid($lista, $tipoFuncionario) {
 
@@ -70,6 +70,25 @@ if($operacao == 'visualizar') {
     $html .= grid($bc->consultarQuantitativoPorData($_SESSION[BANCO_SESSAO], $dataIni, $dataFim , "3"), 'ESTAGIÁRIO');
 
     echo($html);
+
+} else if($operacao == 'pdf') {
+
+    $dataIni = implode("-",array_reverse(explode("/", $_GET['dtRelatorioIni'])));
+    $dataFim = implode("-",array_reverse(explode("/", $_GET['dtRelatorioFIM'])));
+
+    $html = '<strong> Procedimentos Médicos / Enfermagem para o período '.$_GET['dtRelatorioIni'].' até '.$_GET['dtRelatorioFIM'].'</strong><br><br>';
+    $html .= grid($bc->consultarQuantitativoPorData($_SESSION[BANCO_SESSAO], $dataIni, $dataFim , "1"), 'SERPRO');
+    $html .= grid($bc->consultarQuantitativoPorData($_SESSION[BANCO_SESSAO], $dataIni, $dataFim , "2"), 'TERCEIRIZADO');
+    $html .= grid($bc->consultarQuantitativoPorData($_SESSION[BANCO_SESSAO], $dataIni, $dataFim , "3"), 'ESTAGIÁRIO');
+
+    require_once('MPDF56/mpdf.php');
+
+    $mpdf = new mPDF();
+    $stylesheet = file_get_contents('include/css/template.css');
+    $mpdf->WriteHTML($stylesheet,1);
+    $mpdf->WriteHTML($html, 2);
+    $mpdf->Output();
+    exit;
 
 } else {
     $smart->display('proc_medico_periodo.tpl');

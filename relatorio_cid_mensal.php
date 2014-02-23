@@ -183,7 +183,7 @@ if($op == 'consultar') {
     require_once('MPDF56/mpdf.php');
 
     $mpdf = new mPDF();
-    $stylesheet = file_get_contents('../include/css/template.css');
+    $stylesheet = file_get_contents('include/css/template.css');
     $mpdf->WriteHTML($stylesheet,1);
     $mpdf->WriteHTML($html, 2);
     $mpdf->Output();

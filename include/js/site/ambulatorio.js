@@ -1787,9 +1787,15 @@ function consultarProcedimentoEnfermagem() {
     campos += "&dtRelatorioFIM=" + retornaDataFormatada($('#dtRelatorioFIM').val());
     campos += "&operacao=visualizar";
 
-//    /alert(campos);
-
     consulta('proc_medicos_periodo.php', campos, 'conteudoGrid');
+}
+
+function consultarProcedimentoEnfermagemPDF() {
+    var campos = "dtRelatorioIni=" + retornaDataFormatada($('#dtRelatorioIni').val());
+    campos += "&dtRelatorioFIM=" + retornaDataFormatada($('#dtRelatorioFIM').val());
+    campos += "&operacao=pdf";
+
+    window.open('proc_medicos_periodo.php?' + campos);
 }
 
 function gridProcedimentoEnfermagem() {
