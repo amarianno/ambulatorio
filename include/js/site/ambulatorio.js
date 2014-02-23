@@ -1799,6 +1799,22 @@ function gridProcedimentoEnfermagem() {
     consulta('proc_medicos.php', campos, 'conteudoGrid');
 }
 
+function excluirProcedimentoEnfermagem(valor) {
+    var campos = "codigo=" + valor;
+    campos += "&operacao=excluir";
+
+    $.ajax({
+        type: "POST",
+        url: 'proc_medicos.php',
+        data: campos,
+        success: function (data) {
+            alert('Excluído com sucesso');
+            gridProcedimentoEnfermagem();
+
+        }
+    });
+}
+
 function limparProcedimentoEnfermagem() {
     $("#txtMatricula").val('');
     $("#nomeEmpregado").html('');

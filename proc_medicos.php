@@ -33,6 +33,7 @@ function grid($lista, $tipoFuncionario) {
     $htmlRetorno .= "       <th>Procedimento</th>";
     $htmlRetorno .= "       <th>Observações</th>";
     $htmlRetorno .= "       <th>Feito por</th>";
+    $htmlRetorno .= "       <th></th>";
     $htmlRetorno .= "   </tr>";
     $htmlRetorno .= "</thead>";
     $htmlRetorno .= "<tbody>";
@@ -45,6 +46,7 @@ function grid($lista, $tipoFuncionario) {
             $htmlRetorno .= "   <td>" . $enfermagem->procedimento . "</td>";
             $htmlRetorno .= "   <td>" . $enfermagem->obs . "</td>";
             $htmlRetorno .= "   <td>" . $enfermagem->usuario->nome . "</td>";
+            $htmlRetorno .= "   <td><a href='#' onclick='excluirProcedimentoEnfermagem(".$enfermagem->codigo.");return false;'>apagar</a></td>";
             $htmlRetorno .= '</tr>';
         }
     } else {
@@ -94,7 +96,12 @@ if($operacao == 'incluir') {
 
     echo($html);
 
-} else {
+} else if($operacao == 'excluir') {
+
+    $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("codigo" => $_POST['codigo']));
+    $bc->excluir($_SESSION[BANCO_SESSAO], $filtro);
+
+}else {
     $smart->assign('usuario',$_SESSION[Constantes::ID_USUARIO]);
     $data = preg_split('"/"', date("d/m/Y"), -1);
     $smart->assign('diaRelatorio', $data[0]."/".$data[1]."/".$data[2][2].$data[2][3]);
