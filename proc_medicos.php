@@ -30,8 +30,9 @@ function grid($lista, $tipoFuncionario) {
     $htmlRetorno .= "<table id='mainDeck'>";
     $htmlRetorno .= "<thead>";
     $htmlRetorno .= "   <tr>";
-    $htmlRetorno .= "       <th>Total</th>";
     $htmlRetorno .= "       <th>Procedimento</th>";
+    $htmlRetorno .= "       <th>Observações</th>";
+    $htmlRetorno .= "       <th>Feito por</th>";
     $htmlRetorno .= "   </tr>";
     $htmlRetorno .= "</thead>";
     $htmlRetorno .= "<tbody>";
@@ -41,8 +42,9 @@ function grid($lista, $tipoFuncionario) {
 
             $classe = ($cor = !$cor) ? 'normal' : 'alt';
             $htmlRetorno .= "<tr class='" . $classe . "'>";
-            $htmlRetorno .= "   <td>" . $enfermagem->total . "</td>";
             $htmlRetorno .= "   <td>" . $enfermagem->procedimento . "</td>";
+            $htmlRetorno .= "   <td>" . $enfermagem->obs . "</td>";
+            $htmlRetorno .= "   <td>" . $enfermagem->usuario->nome . "</td>";
             $htmlRetorno .= '</tr>';
         }
     } else {
@@ -73,12 +75,22 @@ if($operacao == 'incluir') {
 
     $bc->incluir($_SESSION[BANCO_SESSAO], $campos);
 
-} else if($operacao == 'visualizar') {
+} else if($operacao == 'procedimentos_dia') {
 
     $html = '';
-    $html .= grid($bc->consultarQuantitativoPorData($_SESSION[BANCO_SESSAO], implode("-",array_reverse(explode("/", $_POST['data']))), "1"), 'SERPRO');
-    $html .= grid($bc->consultarQuantitativoPorData($_SESSION[BANCO_SESSAO], implode("-",array_reverse(explode("/", $_POST['data']))), "2"), 'TERCEIRIZADO');
-    $html .= grid($bc->consultarQuantitativoPorData($_SESSION[BANCO_SESSAO], implode("-",array_reverse(explode("/", $_POST['data']))), "3"), 'ESTAGIÁRIO');
+    $data = implode("-",array_reverse(explode("/", $_POST['data'])));
+
+    $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("data" => $data, 'tipo_funcionario' => '1'));
+    $lista = $bc->consultar($_SESSION[BANCO_SESSAO], null, $filtro);
+    $html .= grid($lista, 'SERPRO');
+
+    $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("data" => $data, 'tipo_funcionario' => '2'));
+    $lista = $bc->consultar($_SESSION[BANCO_SESSAO], null, $filtro);
+    $html .= grid($lista, 'TERCEIRIZADO');
+
+    $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("data" => $data, 'tipo_funcionario' => '3'));
+    $lista = $bc->consultar($_SESSION[BANCO_SESSAO], null, $filtro);
+    $html .= grid($lista, 'ESTAGIÁRIO');
 
     echo($html);
 

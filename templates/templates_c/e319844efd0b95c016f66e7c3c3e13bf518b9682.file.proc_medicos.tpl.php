@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-23 00:48:57
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-23 14:40:34
          compiled from "templates/proc_medicos.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:137565612953094e89e29f71-43796088%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e319844efd0b95c016f66e7c3c3e13bf518b9682' => 
     array (
       0 => 'templates/proc_medicos.tpl',
-      1 => 1393127335,
+      1 => 1393177230,
       2 => 'file',
     ),
   ),
@@ -133,5 +133,5 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     </fieldset>
 </form>
 <script>
-    consultarProcedimentoEnfermagem();
+    gridProcedimentoEnfermagem();
 </script><?php }} ?>

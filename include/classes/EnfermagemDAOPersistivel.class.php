@@ -21,11 +21,11 @@ class EnfermagemDAOPersistivel extends DAOPersistivel {
         return parent::excluir($banco, $filtro);
     }
 
-    public function consultarQuantitativoPorData(DAOBanco $banco, $data, $tipo_funcionario ) {
+    public function consultarQuantitativoPorData(DAOBanco $banco, $dataINI, $dataFim, $tipo_funcionario ) {
         $sql = "SELECT COUNT( enf.procedimento ) AS total , enfproc.descricao AS procedimento
                 FROM enfermagem enf, enferm_procedimento enfproc
                 WHERE enf.procedimento = enfproc.codigo
-                AND enf.data = '".$data."'
+                AND enf.data BETWEEN '".$dataINI."' AND  '".$dataFim."'
                 AND enf.tipo_funcionario = ".$tipo_funcionario."
                 GROUP BY enf.procedimento";
 
@@ -36,8 +36,22 @@ class EnfermagemDAOPersistivel extends DAOPersistivel {
         }
     }
 
+    public function obterProcedimentoPorPk(DAOBanco $banco, $codigo ) {
+        $sql = "SELECT enfproc.descricao AS procedimento
+                FROM enfermagem enf, enferm_procedimento enfproc
+                WHERE enf.procedimento = enfproc.codigo
+                AND enf.procedimento = ".$codigo."";
+
+        if ($banco->abreConexao() == true) {
+            $res = $banco->consultar($sql);
+            $banco->fechaConexao();
+            $lista = $this->criaObjetos($res);
+            return $lista[0];
+        }
+    }
+
     public function consultar(DAOBanco $banco, $campos, FiltroSQL $filtro = null) {
-        $resultados = parent::consultar($banco, $campos, $filtro, "lotacao, nome");
+        $resultados = parent::consultar($banco, $campos, $filtro, "data");
 
         return $this->criaObjetos($resultados);
     }

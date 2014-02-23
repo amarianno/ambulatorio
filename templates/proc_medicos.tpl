@@ -101,5 +101,5 @@
     </fieldset>
 </form>
 <script>
-    consultarProcedimentoEnfermagem();
+    gridProcedimentoEnfermagem();
 </script>

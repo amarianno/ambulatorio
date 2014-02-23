@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-22 22:45:31
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-23 14:29:49
          compiled from "templates/menu_top.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:247225102513e393fbc0d59-06006437%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fe7c85233d620599bb99040f9b6fe166056bb67b' => 
     array (
       0 => 'templates/menu_top.tpl',
-      1 => 1393119927,
+      1 => 1393176477,
       2 => 'file',
     ),
   ),
@@ -114,7 +114,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                                 <a href="proc_medicos.php"><span>Procedimentos Médicos</span></a>
                             </li>
                             <li>
-                                <a href="periodico_por_mes.php"><span>Relatório Procedimentos Por Período</span></a>
+                                <a href="proc_medicos_periodo.php"><span>Relatório Procedimentos Por Período</span></a>
                             </li>
                         </ul>
                     </li>
@@ -273,7 +273,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                                 <a href="proc_medicos.php"><span>Procedimentos Médicos</span></a>
                             </li>
                             <li>
-                                <a href="periodico_por_mes.php"><span>Relatório Procedimentos Por Período</span></a>
+                                <a href="proc_medicos_periodo.php"><span>Relatório Procedimentos Por Período</span></a>
                             </li>
                         </ul>
                     </li>

@@ -22,10 +22,20 @@ class EnfermagemBC extends BC {
     }
 
     public function consultar(DAOBanco $banco, $campos, FiltroSQL $filtro = null) {
-        return $this->DAO->consultar($banco, $campos, $filtro);
+        $lista = $this->DAO->consultar($banco, $campos, $filtro);
+        $usuarioBC = new UsuarioBC();
+
+        foreach($lista as $enfermagem) {
+            //$enfermagem = new Enfermagem();
+            $enfermagem->usuario = $usuarioBC->obterPorPk($banco, $enfermagem->usuario->codigo);
+            $enfermagem->procedimento = $this->DAO->obterProcedimentoPorPk($banco, $enfermagem->procedimento)->procedimento;
+        }
+
+        return $lista;
+
     }
 
-    public function consultarQuantitativoPorData(DAOBanco $banco, $data, $tipo_funcionario ) {
-        return $this->DAO->consultarQuantitativoPorData($banco, $data, $tipo_funcionario);
+    public function consultarQuantitativoPorData(DAOBanco $banco, $dataIni, $dataFim, $tipo_funcionario ) {
+        return $this->DAO->consultarQuantitativoPorData($banco, $dataIni, $dataFim, $tipo_funcionario);
     }
 }

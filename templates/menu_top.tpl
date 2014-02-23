@@ -93,7 +93,7 @@
                                 <a href="proc_medicos.php"><span>Procedimentos Médicos</span></a>
                             </li>
                             <li>
-                                <a href="periodico_por_mes.php"><span>Relatório Procedimentos Por Período</span></a>
+                                <a href="proc_medicos_periodo.php"><span>Relatório Procedimentos Por Período</span></a>
                             </li>
                         </ul>
                     </li>
@@ -252,7 +252,7 @@
                                 <a href="proc_medicos.php"><span>Procedimentos Médicos</span></a>
                             </li>
                             <li>
-                                <a href="periodico_por_mes.php"><span>Relatório Procedimentos Por Período</span></a>
+                                <a href="proc_medicos_periodo.php"><span>Relatório Procedimentos Por Período</span></a>
                             </li>
                         </ul>
                     </li>

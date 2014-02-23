@@ -1783,8 +1783,18 @@ function disableMatricula() {
 }
 
 function consultarProcedimentoEnfermagem() {
-    var campos = "data=" + retornaDataFormatada($('#diaRelatorio').val());
+    var campos = "dtRelatorioIni=" + retornaDataFormatada($('#dtRelatorioIni').val());
+    campos += "&dtRelatorioFIM=" + retornaDataFormatada($('#dtRelatorioFIM').val());
     campos += "&operacao=visualizar";
+
+//    /alert(campos);
+
+    consulta('proc_medicos_periodo.php', campos, 'conteudoGrid');
+}
+
+function gridProcedimentoEnfermagem() {
+    var campos = "data=" + retornaDataFormatada($('#diaRelatorio').val());
+    campos += "&operacao=procedimentos_dia";
 
     consulta('proc_medicos.php', campos, 'conteudoGrid');
 }
@@ -1820,7 +1830,7 @@ function cadastraProcedimentoEnfermagem() {
         success: function (data) {
             alert('Cadastrado com sucesso');
             limparProcedimentoEnfermagem();
-            consultarProcedimentoEnfermagem();
+            gridProcedimentoEnfermagem();
 
         }
     });
