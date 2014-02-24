@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-23 14:40:34
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-24 08:09:03
          compiled from "templates/proc_medicos.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:137565612953094e89e29f71-43796088%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e319844efd0b95c016f66e7c3c3e13bf518b9682' => 
     array (
       0 => 'templates/proc_medicos.tpl',
-      1 => 1393177230,
+      1 => 1393240140,
       2 => 'file',
     ),
   ),
@@ -52,7 +52,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     </label>
                     <input id="diaRelatorio" name="diaRelatorio"
                            type="text" value="<?php echo $_smarty_tpl->tpl_vars['diaRelatorio']->value;?>
-" maxlength="5"
+" maxlength="5" onblur="gridProcedimentoEnfermagem()"
                            tabindex="1" width="30" style="width: 120px;"/>
                 </td>
                 <td>
@@ -134,4 +134,5 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </form>
 <script>
     gridProcedimentoEnfermagem();
-</script><?php }} ?>
+</script>
+<?php }} ?>

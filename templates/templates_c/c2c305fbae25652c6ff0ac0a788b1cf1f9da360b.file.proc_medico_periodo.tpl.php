@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-23 14:29:49
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-24 08:02:10
          compiled from "templates/proc_medico_periodo.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1336985937530a300d8c0727-10335696%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c2c305fbae25652c6ff0ac0a788b1cf1f9da360b' => 
     array (
       0 => 'templates/proc_medico_periodo.tpl',
-      1 => 1393176059,
+      1 => 1393239469,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.13',
   'unifunc' => 'content_530a300d93e9d1_24247951',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_530a300d93e9d1_24247951')) {function content_530a300d93e9d1_24247951($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>"Controle de Atestados - SUPGP/GPSPO"), 0);?>
 

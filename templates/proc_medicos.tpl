@@ -21,7 +21,7 @@
                         Data
                     </label>
                     <input id="diaRelatorio" name="diaRelatorio"
-                           type="text" value="{$diaRelatorio}" maxlength="5"
+                           type="text" value="{$diaRelatorio}" maxlength="5" onblur="gridProcedimentoEnfermagem()"
                            tabindex="1" width="30" style="width: 120px;"/>
                 </td>
                 <td>
