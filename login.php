@@ -17,6 +17,14 @@ $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array(
 $lista = $usuarioBC->consultar($banco, null, $filtro);
 
 if(count($lista) > 0) {
+    /* Define o limitador de cache para 'private' */
+    session_cache_limiter('private');
+    $cache_limiter = session_cache_limiter();
+
+    /* Define o limite de tempo do cache em 30 minutos */
+    session_cache_expire(180);
+    $cache_expire = session_cache_expire();
+
     session_start();
 
     $_SESSION[Constantes::ID_USUARIO] = $lista[0]->codigo;
