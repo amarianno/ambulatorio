@@ -1117,10 +1117,15 @@ function marcarPeriodico(inicioOuFim) {
         }
     }
 
+    var mes = document.getElementById("selMes").value;
+    if(mes < 10) {
+        mes = '0' + mes;
+    }
+
     $.ajax({
         type: "POST",
         url: 'periodico_por_mes.php',
-        data: 'op=datas&matriculas=' + retorno + "&inicioOuFim=" + inicioOuFim,
+        data: 'op=datas&matriculas=' + retorno + "&inicioOuFim=" + inicioOuFim + "&selMes=" + mes,
         success: function (data) {
             consultaPeriodicoPendentesPorMes();
         }
