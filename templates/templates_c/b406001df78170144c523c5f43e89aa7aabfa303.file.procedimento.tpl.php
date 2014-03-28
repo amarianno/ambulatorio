@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-05-16 10:57:28
+<?php /* Smarty version Smarty-3.1.13, created on 2014-03-27 22:21:32
          compiled from "templates/procedimento.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18520156865194e5c84577d1-89258448%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b406001df78170144c523c5f43e89aa7aabfa303' => 
     array (
       0 => 'templates/procedimento.tpl',
-      1 => 1368711934,
+      1 => 1390691019,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.13',
   'unifunc' => 'content_5194e5c84989d9_73977005',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5194e5c84989d9_73977005')) {function content_5194e5c84989d9_73977005($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>"Controle de Atestados -SUPGP/GPSPO"), 0);?>
 

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-24 08:01:46
+<?php /* Smarty version Smarty-3.1.13, created on 2014-03-27 22:19:36
          compiled from "templates/menu_top.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:247225102513e393fbc0d59-06006437%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fe7c85233d620599bb99040f9b6fe166056bb67b' => 
     array (
       0 => 'templates/menu_top.tpl',
-      1 => 1393239469,
+      1 => 1395969569,
       2 => 'file',
     ),
   ),
@@ -42,6 +42,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                             </li>
                             <li>
                                 <a href="procedimento.php"><span>Procedimento e Exames</span></a>
+                            </li>
+                            <li>
+                                <a href="senha.php"><span>Senhas</span></a>
                             </li>
                         </ul>
                     </li>

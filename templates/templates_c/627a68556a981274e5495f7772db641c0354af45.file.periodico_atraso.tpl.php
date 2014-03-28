@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-01-28 16:46:40
+<?php /* Smarty version Smarty-3.1.13, created on 2014-03-25 22:06:52
          compiled from "templates/periodico_atraso.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:132885350452e7fb10341c82-26044140%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '627a68556a981274e5495f7772db641c0354af45' => 
     array (
       0 => 'templates/periodico_atraso.tpl',
-      1 => 1390934588,
+      1 => 1391728932,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.13',
   'unifunc' => 'content_52e7fb103b8f57_92855407',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_52e7fb103b8f57_92855407')) {function content_52e7fb103b8f57_92855407($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>"Controle de Atestados - SUPGP/GPSPO"), 0);?>
 

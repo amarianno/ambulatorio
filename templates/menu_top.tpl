@@ -22,6 +22,9 @@
                             <li>
                                 <a href="procedimento.php"><span>Procedimento e Exames</span></a>
                             </li>
+                            <li>
+                                <a href="senha.php"><span>Senhas</span></a>
+                            </li>
                         </ul>
                     </li>
                     <li>

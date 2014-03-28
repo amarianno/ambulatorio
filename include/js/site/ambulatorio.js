@@ -25,7 +25,9 @@ jQuery(function($){
     if($("#txtDataNascimento").size() > 0) {
         $("#txtDataNascimento").mask("99/99/9999");
     }
-
+    if($("#txtCpf").size() > 0) {
+        $("#txtCpf").mask("999.999.999-99");
+    }
 
 });
 
