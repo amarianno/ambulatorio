@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-25 10:38:06
+<?php /* Smarty version Smarty-3.1.13, created on 2014-03-28 14:24:14
          compiled from "templates/avaliacao_ocupacional.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:176113818952f3fa37a4d953-14622249%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '001dd9413a27ae9de506f2872c3960525a2937f6' => 
     array (
       0 => 'templates/avaliacao_ocupacional.tpl',
-      1 => 1393239469,
+      1 => 1396026917,
       2 => 'file',
     ),
   ),
@@ -316,6 +316,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <fieldset>
         <legend>
             <b>
+                Queixas atuais
+            </b>
+        </legend>
+        <textarea rows="4" cols="100" id="queixas" name="queixas" tabindex="55"></textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>
+            <b>
                 Exame Clínico
             </b>
         </legend>
@@ -532,7 +541,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     </select>
                 </td>
                 <td>
-                    LDL<br>
+                    Ácido Úrico<br>
                     <select id="ldl" name="ldl" tabindex="49" style="width: 120px;">
                         <option value="1">
                             Normal
@@ -543,7 +552,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     </select>
                 </td>
                 <td>
-                    VLDL<br>
+                    TSH<br>
                     <select id="vldl" name="vldl" tabindex="50" style="width: 120px;">
                         <option value="1">
                             Normal
@@ -584,7 +593,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     </select>
                 </td>
                 <td>
-                    EAS <br>
+                    T4L <br>
                     <select id="eas" name="eas" tabindex="53" style="width: 120px;">
                         <option value="1">
                             Normal
@@ -691,15 +700,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </td>
             </tr>
         </table>
-    </fieldset>
-
-    <fieldset>
-        <legend>
-            <b>
-                Queixas atuais
-            </b>
-        </legend>
-        <textarea rows="4" cols="100" id="queixas" name="queixas" tabindex="55"></textarea>
     </fieldset>
 
     <fieldset>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-24 08:01:38
+<?php /* Smarty version Smarty-3.1.13, created on 2014-03-28 14:37:29
          compiled from "templates/login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:964755378513f20a2006d81-52733366%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '81a0270564c79ee7a1c4f40d2a5e8bcfac7e3570' => 
     array (
       0 => 'templates/login.tpl',
-      1 => 1393239469,
+      1 => 1396027851,
       2 => 'file',
     ),
   ),
@@ -49,7 +49,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             </div>
             <div id="login-box-name">Senha:</div>
             <div id="login-box-field">
-                <input name="j_password" id="j_password" type="password" class="form-login" title="Password" value="" size="30" maxlength="8" />
+                <input name="j_password" id="j_password" type="password" class="form-login" title="Password" value="" size="30" maxlength="10" />
             </div>
             <br />
             <?php if (isset($_smarty_tpl->tpl_vars['senha_invalida']->value)){?>

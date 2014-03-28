@@ -25,7 +25,7 @@
                     Senha<span class="req">*</span>
                 </label>
                 <input id="txtSenha" name="txtSenha"
-                       type="password" value="{$txtSenha}" maxlength="60"
+                       type="password" value="{$txtSenha}" maxlength="10"
                        tabindex="2" style="width: 320px;" />
             </td>
         </tr>

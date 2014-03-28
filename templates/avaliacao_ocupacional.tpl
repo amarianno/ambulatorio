@@ -288,6 +288,15 @@
     <fieldset>
         <legend>
             <b>
+                Queixas atuais
+            </b>
+        </legend>
+        <textarea rows="4" cols="100" id="queixas" name="queixas" tabindex="55"></textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>
+            <b>
                 Exame Clínico
             </b>
         </legend>
@@ -504,7 +513,7 @@
                     </select>
                 </td>
                 <td>
-                    LDL<br>
+                    Ácido Úrico<br>
                     <select id="ldl" name="ldl" tabindex="49" style="width: 120px;">
                         <option value="1">
                             Normal
@@ -515,7 +524,7 @@
                     </select>
                 </td>
                 <td>
-                    VLDL<br>
+                    TSH<br>
                     <select id="vldl" name="vldl" tabindex="50" style="width: 120px;">
                         <option value="1">
                             Normal
@@ -556,7 +565,7 @@
                     </select>
                 </td>
                 <td>
-                    EAS <br>
+                    T4L <br>
                     <select id="eas" name="eas" tabindex="53" style="width: 120px;">
                         <option value="1">
                             Normal
@@ -663,15 +672,6 @@
                 </td>
             </tr>
         </table>
-    </fieldset>
-
-    <fieldset>
-        <legend>
-            <b>
-                Queixas atuais
-            </b>
-        </legend>
-        <textarea rows="4" cols="100" id="queixas" name="queixas" tabindex="55"></textarea>
     </fieldset>
 
     <fieldset>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-19 23:19:08
+<?php /* Smarty version Smarty-3.1.13, created on 2014-02-26 09:16:11
          compiled from "templates/doenca_encaminhamento.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:203580945652f3e89abbed54-71659272%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f2a4633af2587fe721cf48826b5e48eef8d752ce' => 
     array (
       0 => 'templates/doenca_encaminhamento.tpl',
-      1 => 1392862716,
+      1 => 1393239469,
       2 => 'file',
     ),
   ),

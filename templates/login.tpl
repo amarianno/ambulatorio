@@ -24,7 +24,7 @@
             </div>
             <div id="login-box-name">Senha:</div>
             <div id="login-box-field">
-                <input name="j_password" id="j_password" type="password" class="form-login" title="Password" value="" size="30" maxlength="8" />
+                <input name="j_password" id="j_password" type="password" class="form-login" title="Password" value="" size="30" maxlength="10" />
             </div>
             <br />
             {if isset($senha_invalida)}

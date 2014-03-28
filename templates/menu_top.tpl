@@ -37,7 +37,7 @@
                                 <a href="cid_por_matricula.php"><span>CID Por Matrícula</span></a>
                             </li>
                             <li>
-                                <a href="empregadoCAD.php?op=listar"><span>Matrícula Por Nome</span></a>
+                                <a href="empregado_por_nome.php"><span>Matrícula Por Nome</span></a>
                             </li>
                             <li>
                                 <a href="consulta_inss.php"><span>Licença INSS</span></a>

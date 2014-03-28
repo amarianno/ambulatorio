@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-03-27 22:19:36
+<?php /* Smarty version Smarty-3.1.13, created on 2014-03-28 10:46:53
          compiled from "templates/menu_top.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:247225102513e393fbc0d59-06006437%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fe7c85233d620599bb99040f9b6fe166056bb67b' => 
     array (
       0 => 'templates/menu_top.tpl',
-      1 => 1395969569,
+      1 => 1396013537,
       2 => 'file',
     ),
   ),
@@ -58,7 +58,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                                 <a href="cid_por_matricula.php"><span>CID Por Matrícula</span></a>
                             </li>
                             <li>
-                                <a href="empregadoCAD.php?op=listar"><span>Matrícula Por Nome</span></a>
+                                <a href="empregado_por_nome.php"><span>Matrícula Por Nome</span></a>
                             </li>
                             <li>
                                 <a href="consulta_inss.php"><span>Licença INSS</span></a>
