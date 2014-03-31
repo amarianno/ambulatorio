@@ -60,15 +60,7 @@
                     Empresa
                 </label>
                 <select id="selEmpresa" name="selEmpresa" tabindex="3">
-                    <option value="1" selected="selected">
-                        SOCORRO
-                    </option>
-                    <option value="2">
-                        LUZ
-                    </option>
-                    <option value="3">
-                        EXTERNO
-                    </option>
+                    {$combo}
                 </select>
             </td>
             <td>

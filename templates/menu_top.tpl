@@ -93,7 +93,7 @@
                         <a href="#">ENFERMAGEM <img src="include/img/icon/arrowdown-icon.png"/></a>
                         <ul>
                             <li>
-                                <a href="proc_medicos.php"><span>Procedimentos Médicos</span></a>
+                                <a href="proc_medicos.php"><span>Procedimentos de Enfermagem</span></a>
                             </li>
                             <li>
                                 <a href="proc_medicos_periodo.php"><span>Relatório Procedimentos Por Período</span></a>
@@ -193,6 +193,9 @@
                             <li>
                                 <a href="procedimento.php"><span>Procedimento e Exames</span></a>
                             </li>
+                            <li>
+                                <a href="senha.php"><span>Senhas</span></a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -252,7 +255,7 @@
                         <a href="#">ENFERMAGEM <img src="include/img/icon/arrowdown-icon.png"/></a>
                         <ul>
                             <li>
-                                <a href="proc_medicos.php"><span>Procedimentos Médicos</span></a>
+                                <a href="proc_medicos.php"><span>Procedimentos de Enfermagem</span></a>
                             </li>
                             <li>
                                 <a href="proc_medicos_periodo.php"><span>Relatório Procedimentos Por Período</span></a>

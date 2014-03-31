@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-02-13 22:06:16
+<?php /* Smarty version Smarty-3.1.13, created on 2014-03-31 11:38:42
          compiled from "templates/periodico_por_mes.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3127305352ced01d197e58-52680682%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '672cc97668b7a1560940719666c22453baf1924d' => 
     array (
       0 => 'templates/periodico_por_mes.tpl',
-      1 => 1390691019,
+      1 => 1396276717,
       2 => 'file',
     ),
   ),
@@ -17,6 +17,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.13',
   'unifunc' => 'content_52ced01d220e84_30388304',
+  'variables' => 
+  array (
+    'combo' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_52ced01d220e84_30388304')) {function content_52ced01d220e84_30388304($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>"Controle de Atestados - SUPGP/GPSPO"), 0);?>
@@ -83,15 +87,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     Empresa
                 </label>
                 <select id="selEmpresa" name="selEmpresa" tabindex="3">
-                    <option value="1" selected="selected">
-                        SOCORRO
-                    </option>
-                    <option value="2">
-                        LUZ
-                    </option>
-                    <option value="3">
-                        EXTERNO
-                    </option>
+                    <?php echo $_smarty_tpl->tpl_vars['combo']->value;?>
+
                 </select>
             </td>
             <td>

@@ -6,7 +6,7 @@
     <fieldset>
         <legend>
             <b>
-                Procedimentos médicos / Enfermagem
+                Procedimentos de Enfermagem
             </b>
         </legend>
         <table style="width: 100%; margin: 0 auto;" border="0">

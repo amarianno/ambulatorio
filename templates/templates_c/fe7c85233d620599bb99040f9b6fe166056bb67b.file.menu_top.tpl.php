@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-03-28 20:40:50
+<?php /* Smarty version Smarty-3.1.13, created on 2014-03-31 10:35:40
          compiled from "templates/menu_top.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:247225102513e393fbc0d59-06006437%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fe7c85233d620599bb99040f9b6fe166056bb67b' => 
     array (
       0 => 'templates/menu_top.tpl',
-      1 => 1396049307,
+      1 => 1396272926,
       2 => 'file',
     ),
   ),
@@ -114,7 +114,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <a href="#">ENFERMAGEM <img src="include/img/icon/arrowdown-icon.png"/></a>
                         <ul>
                             <li>
-                                <a href="proc_medicos.php"><span>Procedimentos Médicos</span></a>
+                                <a href="proc_medicos.php"><span>Procedimentos de Enfermagem</span></a>
                             </li>
                             <li>
                                 <a href="proc_medicos_periodo.php"><span>Relatório Procedimentos Por Período</span></a>
@@ -214,6 +214,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                             <li>
                                 <a href="procedimento.php"><span>Procedimento e Exames</span></a>
                             </li>
+                            <li>
+                                <a href="senha.php"><span>Senhas</span></a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -273,7 +276,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <a href="#">ENFERMAGEM <img src="include/img/icon/arrowdown-icon.png"/></a>
                         <ul>
                             <li>
-                                <a href="proc_medicos.php"><span>Procedimentos Médicos</span></a>
+                                <a href="proc_medicos.php"><span>Procedimentos de Enfermagem</span></a>
                             </li>
                             <li>
                                 <a href="proc_medicos_periodo.php"><span>Relatório Procedimentos Por Período</span></a>

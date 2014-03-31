@@ -24,7 +24,7 @@ function grid($lista, $tipoFuncionario) {
     $htmlRetorno .= "</table>";
 
     if(count($lista) > 0) {
-        $htmlRetorno .= count($lista)." procedimentos médicos para a data pesquisada";
+        $htmlRetorno .= count($lista)." procedimentos de enfermagem para a data pesquisada";
     }
     $htmlRetorno .= "<div class='datagrid'>";
     $htmlRetorno .= "<table id='mainDeck'>";
@@ -55,7 +55,7 @@ function grid($lista, $tipoFuncionario) {
         }
     } else {
         $htmlRetorno .= "   <tr class='conteudo'>";
-        $htmlRetorno .= "       <td class='semCartas' colspan='5'>Nenhum procedimento médico Cadastrado</td>";
+        $htmlRetorno .= "       <td class='semCartas' colspan='5'>Nenhum procedimento de Enfermagem Cadastrado</td>";
         $htmlRetorno .= "   </tr>";
     }
 
