@@ -46,7 +46,11 @@ function grid($lista, $tipoFuncionario) {
             $htmlRetorno .= "   <td>" . $enfermagem->procedimento . "</td>";
             $htmlRetorno .= "   <td>" . $enfermagem->obs . "</td>";
             $htmlRetorno .= "   <td>" . $enfermagem->usuario->nome . "</td>";
-            $htmlRetorno .= "   <td><a href='#' onclick='excluirProcedimentoEnfermagem(".$enfermagem->codigo.");return false;'>apagar</a></td>";
+            if($enfermagem->usuario->codigo == $_SESSION[Constantes::ID_USUARIO]) {
+                $htmlRetorno .= "   <td><a href='#' onclick='excluirProcedimentoEnfermagem(".$enfermagem->codigo.");return false;'>apagar</a></td>";
+            } else {
+                $htmlRetorno .= "   <td></td>";
+            }
             $htmlRetorno .= '</tr>';
         }
     } else {

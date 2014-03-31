@@ -47,8 +47,9 @@ class PeriodicoDAOPersistivel extends DAOPersistivel {
                  FROM periodico per
                  JOIN empregado emp ON ( emp.matricula = per.matricula )
                  WHERE
-                 (NOW() > DATE_ADD(per.data_inicio, INTERVAL 30 DAY) )
-                  AND MONTH(per.data_previsao) = ". $mes ." AND emp.empresa = ".$empresa." AND YEAR(NOW()) = YEAR(per.data_previsao)";
+                 (NOW() > DATE_ADD(per.data_inicio, INTERVAL 30 DAY) ) AND per.data_fim is null
+                  AND MONTH(per.data_previsao) = ". $mes ." AND emp.empresa = ".$empresa." AND YEAR(NOW()) = YEAR(per.data_previsao)
+                  order by per.data_inicio, emp.nome";
 
         if ($banco->abreConexao() == true) {
             $res = $banco->consultar($sql);

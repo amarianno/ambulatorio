@@ -100,6 +100,10 @@ class RelatorioEMPAvaliacaoOcupUtil {
 
         $total = $this->total($lista);
 
+        foreach($lista as $periodico) {
+            echo "ativ(".$periodico->atividadeDesenvolvida.");<br>";
+        }
+
         $htmlRetorno .= "<strong>ITEM 1 - AVALIAÇÃO OCUPACIONAL - SATISFAÇÃO COM O TRABALHO</strong><br>";
         $htmlRetorno .= "<div class='datagrid'>";
         $htmlRetorno .= "<table id='mainDeck'>";
@@ -117,9 +121,9 @@ class RelatorioEMPAvaliacaoOcupUtil {
         $htmlRetorno .= "<tr class='normal'>";
         $htmlRetorno .= "   <td>Atividade desenvolvida</td>";
         $htmlRetorno .= "   <td>" . $this->atividadeDesenvolvida($lista, '1') . "</td>";
-        $htmlRetorno .= "   <td>" . number_format((($this->atividadeDesenvolvida($lista, '1') * 100) / $total), 2, '.', '') . "</td>";
+        $htmlRetorno .= "   <td>" . number_format((($this->atividadeDesenvolvida($lista, '1') * 100) / $total), 2, ',', '') . "</td>";
         $htmlRetorno .= "   <td>" . $this->atividadeDesenvolvida($lista, '0') . "</td>";
-        $htmlRetorno .= "   <td>" . number_format((($this->atividadeDesenvolvida($lista, '0') * 100) / $total), 2, '.', '') . "</td>";
+        $htmlRetorno .= "   <td>" . number_format((($this->atividadeDesenvolvida($lista, '0') * 100) / $total), 2, ',', '') . "</td>";
         $htmlRetorno .= '</tr>';
 
         $htmlRetorno .= "<tr class='alt'>";
