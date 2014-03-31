@@ -4,6 +4,57 @@ require_once('Loader.class.php');
 
 class Util {
 
+    public static function mask($val, $mask)
+    {
+        $maskared = '';
+        $k = 0;
+        for($i = 0; $i<=strlen($mask)-1; $i++)
+        {
+            if($mask[$i] == '#')
+            {
+                if(isset($val[$k]))
+                    $maskared .= $val[$k++];
+            }
+            else
+            {
+                if(isset($mask[$i]))
+                    $maskared .= $mask[$i];
+            }
+        }
+        return $maskared;
+    }
+
+    /**
+     * @param $empresa
+     * @return string
+     */
+    public static function montarOptionEmpresa($empresa) {
+
+        $comboSetadoPorEmpresa = '';
+
+        if($empresa == '1') {
+            $comboSetadoPorEmpresa .= '<option value="1" selected="true">';
+        }else {
+            $comboSetadoPorEmpresa .= '<option value="1">';
+        }
+
+        $comboSetadoPorEmpresa .= '   SOCORRO';
+        $comboSetadoPorEmpresa .= '</option>';
+        if($empresa == '2') {
+            $comboSetadoPorEmpresa .= '<option value="2" selected="true">';
+        } else {
+            $comboSetadoPorEmpresa .= '<option value="2">';
+        }
+        $comboSetadoPorEmpresa .= '     LUZ';
+        $comboSetadoPorEmpresa .= '</option>';
+        $comboSetadoPorEmpresa .= '<option value="3">';
+        $comboSetadoPorEmpresa .= '     EXTERNO';
+        $comboSetadoPorEmpresa .= '</option>';
+
+        return $comboSetadoPorEmpresa;
+
+    }
+
     public static function mesPorExtenso($mes) {
         if($mes == '1') {
             return "JANEIRO";

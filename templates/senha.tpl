@@ -16,7 +16,7 @@
                 </label>
                 <input id="txtCpf" name="txtCpf"
                        type="text" value="{$txtCpf}" maxlength="14"
-                       tabindex="1" required style="width: 320px;"/>
+                       tabindex="1" required style="width: 320px;" readonly="true"/>
             </td>
         </tr>
         <tr>

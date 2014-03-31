@@ -20,6 +20,7 @@ if(count($lista) > 0) {
     session_start();
 
     $_SESSION[Constantes::ID_USUARIO] = $lista[0]->codigo;
+    $_SESSION[Constantes::CPF_USUARIO] = $_POST['j_username'];
     $_SESSION[Constantes::NOME_USUARIO] = $lista[0]->nome;
     $_SESSION[Constantes::PERFIL_USUARIO] = $lista[0]->perfil;
     $_SESSION[Constantes::EMPRESA_USUARIO] = $lista[0]->empresa;

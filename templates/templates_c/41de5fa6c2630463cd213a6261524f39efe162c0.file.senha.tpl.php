@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-03-28 14:40:10
+<?php /* Smarty version Smarty-3.1.13, created on 2014-03-31 13:53:09
          compiled from "templates/senha.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:347195334ce31c4d096-01996453%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '41de5fa6c2630463cd213a6261524f39efe162c0' => 
     array (
       0 => 'templates/senha.tpl',
-      1 => 1396027859,
+      1 => 1396284782,
       2 => 'file',
     ),
   ),
@@ -46,7 +46,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <input id="txtCpf" name="txtCpf"
                        type="text" value="<?php echo $_smarty_tpl->tpl_vars['txtCpf']->value;?>
 " maxlength="14"
-                       tabindex="1" required style="width: 320px;"/>
+                       tabindex="1" required style="width: 320px;" readonly="true"/>
             </td>
         </tr>
         <tr>

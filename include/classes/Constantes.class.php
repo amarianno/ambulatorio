@@ -7,6 +7,7 @@ final class Constantes {
     const CONSULTAR = "consultar";
     const OBJETO_USUARIO = "objeto_usuario";
     const ID_USUARIO = "id_usuario";
+    const CPF_USUARIO = "cpf_usuario";
     const NOME_USUARIO = "nome_usuario";
     const PERFIL_USUARIO = "perfil_usuario";
     const EMPRESA_USUARIO = "empresa_usuario";

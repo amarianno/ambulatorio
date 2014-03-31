@@ -25,14 +25,14 @@ if($operacao == 'cadastrar') {
     $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("cpf" => $cpf));
     $usuarioBC->alterar($_SESSION[BANCO_SESSAO], $campos, $filtro);
 
-    $smart->assign('txtCpf', '');
+    $smart->assign('txtCpf', Util::mask($_SESSION[Constantes::CPF_USUARIO], '###.###.###-##'));
     $smart->assign('txtSenha', '');
     $smart->assign('message', 'Cadastrado com sucesso');
     $smart->display('senha.tpl');
 
 
 } else {
-    $smart->assign('txtCpf', '');
+    $smart->assign('txtCpf', Util::mask($_SESSION[Constantes::CPF_USUARIO], '###.###.###-##'));
     $smart->assign('txtSenha', '');
     $smart->display('senha.tpl');
 }

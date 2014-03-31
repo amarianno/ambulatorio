@@ -63,28 +63,7 @@ if($op == 'consultar') {
 
 } else {
 
-    $comboSetadoPorEmpresa = '';
-
-    if($_SESSION[Constantes::EMPRESA_USUARIO] == '1') {
-        $comboSetadoPorEmpresa .= '<option value="1" selected="true">';
-    }else {
-        $comboSetadoPorEmpresa .= '<option value="1">';
-    }
-
-    $comboSetadoPorEmpresa .= '   SOCORRO';
-    $comboSetadoPorEmpresa .= '</option>';
-    if($_SESSION[Constantes::EMPRESA_USUARIO] == '2') {
-        $comboSetadoPorEmpresa .= '<option value="2" selected="true">';
-    } else {
-        $comboSetadoPorEmpresa .= '<option value="2">';
-    }
-    $comboSetadoPorEmpresa .= '     LUZ';
-    $comboSetadoPorEmpresa .= '</option>';
-    $comboSetadoPorEmpresa .= '<option value="3">';
-    $comboSetadoPorEmpresa .= '     EXTERNO';
-    $comboSetadoPorEmpresa .= '</option>';
-
-    $smart->assign("combo", $comboSetadoPorEmpresa);
+    $smart->assign("combo", Util::montarOptionEmpresa($_SESSION[Constantes::EMPRESA_USUARIO]));
     $smart->display('periodico_por_mes.tpl');
 }
 
