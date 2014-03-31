@@ -100,10 +100,6 @@ class RelatorioEMPAvaliacaoOcupUtil {
 
         $total = $this->total($lista);
 
-        foreach($lista as $periodico) {
-            echo "ativ(".$periodico->atividadeDesenvolvida.");<br>";
-        }
-
         $htmlRetorno .= "<strong>ITEM 1 - AVALIAÇÃO OCUPACIONAL - SATISFAÇÃO COM O TRABALHO</strong><br>";
         $htmlRetorno .= "<div class='datagrid'>";
         $htmlRetorno .= "<table id='mainDeck'>";

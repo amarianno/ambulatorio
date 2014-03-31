@@ -4,6 +4,11 @@ require_once('Loader.class.php');
 
 class Util {
 
+    /**
+     * @param $val
+     * @param $mask
+     * @return string
+     */
     public static function mask($val, $mask)
     {
         $maskared = '';
