@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-03-31 10:35:40
+<?php /* Smarty version Smarty-3.1.13, created on 2014-04-01 15:21:32
          compiled from "templates/menu_top.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:247225102513e393fbc0d59-06006437%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fe7c85233d620599bb99040f9b6fe166056bb67b' => 
     array (
       0 => 'templates/menu_top.tpl',
-      1 => 1396272926,
+      1 => 1396376477,
       2 => 'file',
     ),
   ),
@@ -139,6 +139,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <a href="#">CONSULTAS <img src="include/img/icon/arrowdown-icon.png"/></a>
                         <ul>
                             <li>
+                                <a href="empregado_por_nome.php"><span>Matrícula Por Nome</span></a>
+                            </li>
+                            <li>
                                 <a href="consulta_inss.php"><span>Licença INSS</span></a>
                             </li>
                         </ul>
@@ -222,6 +225,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <li>
                         <a href="#">CONSULTAS <img src="include/img/icon/arrowdown-icon.png"/></a>
                         <ul>
+                            <li>
+                                <a href="empregado_por_nome.php"><span>Matrícula Por Nome</span></a>
+                            </li>
                             <li>
                                 <a href="consulta_inss.php"><span>Licença INSS</span></a>
                             </li>

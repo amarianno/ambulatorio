@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2014-03-31 10:36:07
+<?php /* Smarty version Smarty-3.1.13, created on 2014-04-01 15:33:29
          compiled from "templates/proc_medicos.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:137565612953094e89e29f71-43796088%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e319844efd0b95c016f66e7c3c3e13bf518b9682' => 
     array (
       0 => 'templates/proc_medicos.tpl',
-      1 => 1396272964,
+      1 => 1396377206,
       2 => 'file',
     ),
   ),
@@ -92,11 +92,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <option value="2">
                             ATENDIMENTOS DE URGÊNCIA
                         </option>
-                        <option value="3">
-                            PA
-                        </option>
-                        <option value="4">
-                            PESO
+                        <option value="9">
+                            CAT - ACIDENTE DE TRABALHO
                         </option>
                         <option value="5">
                             CURATIVOS
@@ -106,6 +103,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         </option>
                         <option value="7">
                             MEDICAÇÃO PARENTERAL
+                        </option>
+                        <option value="3">
+                            PA
+                        </option>
+                        <option value="4">
+                            PESO
                         </option>
                         <option value="8">
                             OUTROS
