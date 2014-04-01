@@ -118,6 +118,9 @@
                         <a href="#">CONSULTAS <img src="include/img/icon/arrowdown-icon.png"/></a>
                         <ul>
                             <li>
+                                <a href="empregado_por_nome.php"><span>Matrícula Por Nome</span></a>
+                            </li>
+                            <li>
                                 <a href="consulta_inss.php"><span>Licença INSS</span></a>
                             </li>
                         </ul>
@@ -201,6 +204,9 @@
                     <li>
                         <a href="#">CONSULTAS <img src="include/img/icon/arrowdown-icon.png"/></a>
                         <ul>
+                            <li>
+                                <a href="empregado_por_nome.php"><span>Matrícula Por Nome</span></a>
+                            </li>
                             <li>
                                 <a href="consulta_inss.php"><span>Licença INSS</span></a>
                             </li>

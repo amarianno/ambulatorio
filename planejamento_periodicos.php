@@ -25,6 +25,9 @@ $op = $_POST['op'];
 $smart = retornaSmarty();
 
 if($op == 'consultar') {
+
+    $htmlRetorno = '';
+
     $periodicoBC = new PeriodicoBC();
     $periodico = new Periodico();
 
@@ -33,7 +36,17 @@ if($op == 'consultar') {
     $mes = $_POST['selMes'];
     $periodico->dataInicio = $mes;
 
-    echo(PeriodicoUtil::GRID_Planejamento($periodicoBC->consultarEmpregadosPendentePeriodicoPorMes($_SESSION[BANCO_SESSAO], $periodico), $mes));
+    //echo($htmlRetorno = PeriodicoUtil::GRID_Planejamento($periodicoBC->consultarEmpregadosPendentePeriodicoPorMes($_SESSION[BANCO_SESSAO], $periodico), $mes));
+
+    if(isset($_POST['selMes']) && $_POST['selMes'] != '') {
+        $htmlRetorno = PeriodicoUtil::GRID_Planejamento($periodicoBC->consultarEmpregadosPendentePeriodicoPorMes($_SESSION[BANCO_SESSAO], $periodico), $mes);
+    } else {
+        $htmlRetorno = PeriodicoUtil::GRID_Planejamento($periodicoBC->consultarEMPPorMatricula($_SESSION[BANCO_SESSAO], $periodico->empregado->matricula, $periodico->empregado->localidade), '');
+    }
+
+    echo($htmlRetorno);
+
+
 
 } else if($op == 'mudarplanejamento') {
 

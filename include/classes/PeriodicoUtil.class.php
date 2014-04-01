@@ -81,7 +81,7 @@ class PeriodicoUtil {
         $cor = false;
         $htmlRetorno = "";
 
-        if(count($listaPeriodicos) > 0) {
+        if(count($listaPeriodicos) > 0 && $mes != '') {
             $htmlRetorno .= count($listaPeriodicos)." empregados planejados para o mês de <b>". Util::mesPorExtenso($mes) ."</b><br>";
         }
         $htmlRetorno .= "<div class='datagrid'>";
@@ -89,6 +89,7 @@ class PeriodicoUtil {
         $htmlRetorno .= "<thead>";
         $htmlRetorno .= "   <tr>";
         $htmlRetorno .= "       <th></th>";
+        $htmlRetorno .= "       <th>Mês</th>";
         $htmlRetorno .= "       <th>Matrícula</th>";
         $htmlRetorno .= "       <th>Nome</th>";
         $htmlRetorno .= "   </tr>";
@@ -101,6 +102,7 @@ class PeriodicoUtil {
                 $classe = ($cor = !$cor) ? 'normal' : 'alt';
                 $htmlRetorno .= "<tr class='" . $classe . "'>";
                 $htmlRetorno .= "   <td>" . "<input type='checkbox' class='chkEmpregado' value='".$periodico->empregado->matricula."'>" . "</td>";
+                $htmlRetorno .= "   <td>" . Util::mesPorExtenso($periodico->mesPeriodico) . "</td>";
                 $htmlRetorno .= "   <td>" . $periodico->empregado->matricula . "</td>";
                 $htmlRetorno .= "   <td>" . $periodico->empregado->nome . "</td>";
                 $htmlRetorno .= '</tr>';

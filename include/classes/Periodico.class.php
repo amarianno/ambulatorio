@@ -100,6 +100,8 @@ class Periodico extends Persistivel {
 
     //Relatorio
     public $quantidade;
+    public $mesPeriodico;
+
 
     public $doutor;
 

@@ -60,11 +60,8 @@
                         <option value="2">
                             ATENDIMENTOS DE URGÊNCIA
                         </option>
-                        <option value="3">
-                            PA
-                        </option>
-                        <option value="4">
-                            PESO
+                        <option value="9">
+                            CAT - ACIDENTE DE TRABALHO
                         </option>
                         <option value="5">
                             CURATIVOS
@@ -74,6 +71,12 @@
                         </option>
                         <option value="7">
                             MEDICAÇÃO PARENTERAL
+                        </option>
+                        <option value="3">
+                            PA
+                        </option>
+                        <option value="4">
+                            PESO
                         </option>
                         <option value="8">
                             OUTROS
