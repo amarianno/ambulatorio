@@ -32,6 +32,7 @@ function grid($lista, $tipoFuncionario) {
     $htmlRetorno .= "   <tr>";
     $htmlRetorno .= "       <th>Procedimento</th>";
     $htmlRetorno .= "       <th>Observações</th>";
+    $htmlRetorno .= "       <th>Hora</th>";
     $htmlRetorno .= "       <th>Feito por</th>";
     $htmlRetorno .= "       <th></th>";
     $htmlRetorno .= "   </tr>";
@@ -45,6 +46,7 @@ function grid($lista, $tipoFuncionario) {
             $htmlRetorno .= "<tr class='" . $classe . "'>";
             $htmlRetorno .= "   <td>" . $enfermagem->procedimento . "</td>";
             $htmlRetorno .= "   <td>" . $enfermagem->obs . "</td>";
+            $htmlRetorno .= "   <td>" . substr($enfermagem->hora ,11,2) . ":" . substr($enfermagem->hora ,14,2) . "</td>";
             $htmlRetorno .= "   <td>" . $enfermagem->usuario->nome . "</td>";
             if($enfermagem->usuario->codigo == $_SESSION[Constantes::ID_USUARIO]) {
                 $htmlRetorno .= "   <td><a href='#' onclick='excluirProcedimentoEnfermagem(".$enfermagem->codigo.");return false;'>apagar</a></td>";

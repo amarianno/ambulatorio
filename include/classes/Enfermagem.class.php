@@ -11,6 +11,7 @@ class Enfermagem extends Persistivel {
     public $procedimento;
     public $obs;
     public $usuario;
+    public $hora;
 
     public $total;
 

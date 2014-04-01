@@ -100,6 +100,7 @@ class MySQLDAOBanco extends DAOBanco {
         $registros = array();
         $linha = null;
         $conta = 0;
+        mysql_query("SET NAMES utf8");
         $this->comandoSQL = mysql_query($sql);
         try {
             if (!$this->comandoSQL) {

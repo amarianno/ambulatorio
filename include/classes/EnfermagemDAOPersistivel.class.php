@@ -78,6 +78,8 @@ class EnfermagemDAOPersistivel extends DAOPersistivel {
                     $enfermagem->usuario->codigo = $valor;
                 } elseif (strcasecmp($campo, "total") == 0) {
                     $enfermagem->total = $valor;
+                } elseif (strcasecmp($campo, "hora") == 0) {
+                    $enfermagem->hora = $valor;
                 }
             }
             $resultsets[] = $enfermagem;
