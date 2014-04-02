@@ -33,6 +33,7 @@ function grid($lista, $tipoFuncionario) {
     $htmlRetorno .= "       <th>Procedimento</th>";
     if($tipoFuncionario == 'SERPRO') {
         $htmlRetorno .= "       <th>Nome</th>";
+        $htmlRetorno .= "       <th>Lotação</th>";
     }
     $htmlRetorno .= "       <th>Observações</th>";
     $htmlRetorno .= "       <th>Hora</th>";
@@ -50,6 +51,7 @@ function grid($lista, $tipoFuncionario) {
             $htmlRetorno .= "   <td>" . $enfermagem->procedimento . "</td>";
             if($tipoFuncionario == 'SERPRO') {
                 $htmlRetorno .= "   <td>" . $enfermagem->empregado->nome . "</td>";
+                $htmlRetorno .= "   <td>" . $enfermagem->empregado->lotacao . "</td>";
             }
             $htmlRetorno .= "   <td>" . $enfermagem->obs . "</td>";
             $htmlRetorno .= "   <td>" . substr($enfermagem->hora ,11,2) . ":" . substr($enfermagem->hora ,14,2) . "</td>";
