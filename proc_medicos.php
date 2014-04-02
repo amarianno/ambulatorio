@@ -31,6 +31,9 @@ function grid($lista, $tipoFuncionario) {
     $htmlRetorno .= "<thead>";
     $htmlRetorno .= "   <tr>";
     $htmlRetorno .= "       <th>Procedimento</th>";
+    if($tipoFuncionario == 'SERPRO') {
+        $htmlRetorno .= "       <th>Nome</th>";
+    }
     $htmlRetorno .= "       <th>Observações</th>";
     $htmlRetorno .= "       <th>Hora</th>";
     $htmlRetorno .= "       <th>Feito por</th>";
@@ -45,6 +48,9 @@ function grid($lista, $tipoFuncionario) {
             $classe = ($cor = !$cor) ? 'normal' : 'alt';
             $htmlRetorno .= "<tr class='" . $classe . "'>";
             $htmlRetorno .= "   <td>" . $enfermagem->procedimento . "</td>";
+            if($tipoFuncionario == 'SERPRO') {
+                $htmlRetorno .= "   <td>" . $enfermagem->empregado->nome . "</td>";
+            }
             $htmlRetorno .= "   <td>" . $enfermagem->obs . "</td>";
             $htmlRetorno .= "   <td>" . substr($enfermagem->hora ,11,2) . ":" . substr($enfermagem->hora ,14,2) . "</td>";
             $htmlRetorno .= "   <td>" . $enfermagem->usuario->nome . "</td>";

@@ -43,6 +43,8 @@ if($op == 'consultar') {
 
     $camposValores = array();
 
+    //$dateGravar = $_POST['txtData'];
+
     if($_POST['inicioOuFim'] == '1') {
         $camposValores['data_inicio'] = date('Y-m-d');
     } else {

@@ -24,9 +24,11 @@ class EnfermagemBC extends BC {
     public function consultar(DAOBanco $banco, $campos, FiltroSQL $filtro = null) {
         $lista = $this->DAO->consultar($banco, $campos, $filtro);
         $usuarioBC = new UsuarioBC();
+        $empregadoBC = new EmpregadoBC();
 
         foreach($lista as $enfermagem) {
             //$enfermagem = new Enfermagem();
+            $enfermagem->empregado = $empregadoBC->obterPorPk($banco, $enfermagem->empregado->matricula);
             $enfermagem->usuario = $usuarioBC->obterPorPk($banco, $enfermagem->usuario->codigo);
             $enfermagem->procedimento = $this->DAO->obterProcedimentoPorPk($banco, $enfermagem->procedimento)->procedimento;
         }

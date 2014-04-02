@@ -65,7 +65,7 @@ class EnfermagemDAOPersistivel extends DAOPersistivel {
                 if (strcasecmp($campo, "codigo") == 0) {
                     $enfermagem->codigo = $valor;
                 } elseif (strcasecmp($campo, "matricula") == 0) {
-                    $enfermagem->matricula = $valor;
+                    $enfermagem->empregado->matricula = $valor;
                 } elseif (strcasecmp($campo, "data") == 0) {
                     $enfermagem->data = $valor;
                 } elseif (strcasecmp($campo, "tipo_funcionario") == 0) {

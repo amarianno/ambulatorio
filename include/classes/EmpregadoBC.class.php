@@ -24,4 +24,10 @@ class EmpregadoBC extends BC {
     public function consultar(DAOBanco $banco, $campos, FiltroSQL $filtro = null) {
         return $this->DAO->consultar($banco, $campos, $filtro);
     }
+
+    public function obterPorPk(DAOBanco $banco, $codigo) {
+        $filtro = new FiltroSQL(FiltroSQL::CONECTOR_E, FiltroSQL::OPERADOR_IGUAL, array("matricula" => $codigo));
+        $lista = $this->DAO->consultar($banco, null, $filtro);
+        return $lista[0];
+    }
 }
