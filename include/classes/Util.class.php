@@ -11,6 +11,11 @@ class Util {
      */
     public static function mask($val, $mask)
     {
+
+        if(!isset($val) || $val == '') {
+            return "";
+        }
+
         $maskared = '';
         $k = 0;
         for($i = 0; $i<=strlen($mask)-1; $i++)

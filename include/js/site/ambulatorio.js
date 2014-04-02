@@ -28,6 +28,9 @@ jQuery(function($){
     if($("#txtCpf").size() > 0) {
         $("#txtCpf").mask("999.999.999-99");
     }
+    if($("#txtTelefone").size() > 0) {
+        $("#txtTelefone").mask("(99)99999-9999");
+    }
 
 });
 
@@ -507,6 +510,7 @@ function addEmpregado() {
     campos += "&txtDataNascimento=" + $("#txtDataNascimento").val();
     campos += "&selLocalidade=" + document.getElementById("selLocalidade").value;
     campos += "&cadastraOuAlterar=" + $("#cadastraOuAlterar").val();
+    campos += "&txtTelefone=" + $("#txtTelefone").val().replace("(","").replace(")","").replace("-","");
     campos += "&op=gravar";
 
 
@@ -528,6 +532,7 @@ function limparCamposEmpregado() {
     $("#txtLotacao").val('');
     $("#txtAdmissao").val('');
     $("#txtDataNascimento").val('');
+    $("#txtTelefone").val('');
     document.getElementById("selLocalidade").selectedIndex = 0;
 }
 function existeFuncionario() {
@@ -558,6 +563,7 @@ function existeFuncionario() {
                 $('#txtNumCarteira').val(funcionario.numCarteira);
                 $('#txtAdmissao').val(funcionario.dataAdmissao);
                 $('#txtDataNascimento').val(funcionario.dataNascimento);
+                $('#txtTelefone').val(funcionario.telefone);
                 if(funcionario.localidade != '') {
                     var meuSelect = document.getElementById("selLocalidade");
                     var i = 0;

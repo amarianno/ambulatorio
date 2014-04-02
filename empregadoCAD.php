@@ -40,6 +40,7 @@ function grid($listaEmpregados) {
     $htmlRetorno .= "       <th>Matrícula</th>";
     $htmlRetorno .= "       <th>Lotação</th>";
     $htmlRetorno .= "       <th>Empresa</th>";
+    $htmlRetorno .= "       <th>Telefone</th>";
     $htmlRetorno .= "   </tr>";
     $htmlRetorno .= "</thead>";
     $htmlRetorno .= "<tbody>";
@@ -53,6 +54,7 @@ function grid($listaEmpregados) {
             $htmlRetorno .= "   <td class='tipo'>" . $emp->matricula . "</td>";
             $htmlRetorno .= "   <td class='tipo'>" . $emp->lotacao . "</td>";
             $htmlRetorno .= "   <td class='tipo'>" . retornaEmpresa($emp->localidade) . "</td>";
+            $htmlRetorno .= "   <td class='tipo'>" . Util::mask($emp->telefone, "(##)#####-####") . "</td>";
             $htmlRetorno .= '</tr>';
 
 
@@ -78,6 +80,7 @@ if($operacao == 'existe') {
 
     $empregadoDTO[0]->dataNascimento = Util::dataMysqlToTela($empregadoDTO[0]->dataNascimento);
     $empregadoDTO[0]->dataAdmissao = Util::dataMysqlToTela($empregadoDTO[0]->dataAdmissao);
+    $empregadoDTO[0]->telefone = Util::mask($empregadoDTO[0]->telefone, "(##)#####-####");
 
     if(count($empregadoDTO) > 0) {
         echo(json_encode($empregadoDTO[0]));
@@ -98,6 +101,7 @@ if($operacao == 'existe') {
     $campos['num_carteira'] = $_POST['txtNumCarteira'];
     $campos['data_admissao'] = Util::dataTelaToMysql($_POST['txtAdmissao']);
     $campos['data_nascimento'] = Util::dataTelaToMysql($_POST['txtDataNascimento']);
+    $campos['telefone'] = $_POST['txtTelefone'];
 
     $cadastraOuAlterar = $_POST['cadastraOuAlterar'];
     if($cadastraOuAlterar == 'cad') {
