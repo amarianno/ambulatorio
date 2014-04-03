@@ -31,7 +31,9 @@ jQuery(function($){
     if($("#txtTelefone").size() > 0) {
         $("#txtTelefone").mask("(99)99999-9999");
     }
-
+    if($("#data_manual").size() > 0) {
+        $("#data_manual").mask("99/99/9999");
+    }
 });
 
 function numdias(mes,ano) {
@@ -511,6 +513,7 @@ function addEmpregado() {
     campos += "&selLocalidade=" + document.getElementById("selLocalidade").value;
     campos += "&cadastraOuAlterar=" + $("#cadastraOuAlterar").val();
     campos += "&txtTelefone=" + $("#txtTelefone").val().replace("(","").replace(")","").replace("-","");
+    campos += "&chkProvisorio=" + (document.getElementById("chkProvisorio").checked ? '1' : '0');
     campos += "&op=gravar";
 
 
@@ -533,6 +536,7 @@ function limparCamposEmpregado() {
     $("#txtAdmissao").val('');
     $("#txtDataNascimento").val('');
     $("#txtTelefone").val('');
+    document.getElementById("chkProvisorio").checked = false;
     document.getElementById("selLocalidade").selectedIndex = 0;
 }
 function existeFuncionario() {
@@ -564,6 +568,8 @@ function existeFuncionario() {
                 $('#txtAdmissao').val(funcionario.dataAdmissao);
                 $('#txtDataNascimento').val(funcionario.dataNascimento);
                 $('#txtTelefone').val(funcionario.telefone);
+                document.getElementById("chkProvisorio").checked = ((funcionario.provisorio == 1) ? true : false);
+
                 if(funcionario.localidade != '') {
                     var meuSelect = document.getElementById("selLocalidade");
                     var i = 0;
@@ -1130,10 +1136,13 @@ function marcarPeriodico(inicioOuFim) {
         mes = '0' + mes;
     }
 
+    var campos = 'op=datas&matriculas=' + retorno + "&inicioOuFim=" + inicioOuFim + "&selMes=" + mes
+        + "&data_manual=" + $('#data_manual').val();
+
     $.ajax({
         type: "POST",
         url: 'periodico_por_mes.php',
-        data: 'op=datas&matriculas=' + retorno + "&inicioOuFim=" + inicioOuFim + "&selMes=" + mes,
+        data: campos,
         success: function (data) {
             consultaPeriodicoPendentesPorMes();
         }

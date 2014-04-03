@@ -102,6 +102,7 @@ if($operacao == 'existe') {
     $campos['data_admissao'] = Util::dataTelaToMysql($_POST['txtAdmissao']);
     $campos['data_nascimento'] = Util::dataTelaToMysql($_POST['txtDataNascimento']);
     $campos['telefone'] = $_POST['txtTelefone'];
+    $campos['provisorio'] = $_POST['chkProvisorio'];
 
     $cadastraOuAlterar = $_POST['cadastraOuAlterar'];
     if($cadastraOuAlterar == 'cad') {

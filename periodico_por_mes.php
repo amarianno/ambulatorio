@@ -43,12 +43,16 @@ if($op == 'consultar') {
 
     $camposValores = array();
 
-    //$dateGravar = $_POST['txtData'];
+    if(isset($_POST['data_manual']) && $_POST['data_manual'] != '') {
+        $dateGravar = Util::dataTelaToMysql($_POST['data_manual']);
+    } else {
+        $dateGravar = date('Y-m-d');
+    }
 
     if($_POST['inicioOuFim'] == '1') {
-        $camposValores['data_inicio'] = date('Y-m-d');
+        $camposValores['data_inicio'] = $dateGravar;
     } else {
-        $camposValores['data_fim'] = date('Y-m-d');
+        $camposValores['data_fim'] = $dateGravar;
     }
 
     for($cont = 0; $cont < count($matriculas); $cont++) {

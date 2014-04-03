@@ -48,6 +48,8 @@ class EmpregadoDAOPersistivel extends DAOPersistivel {
                     $empregado->dataNascimento = $valor;
                 } elseif (strcasecmp($campo, "telefone") == 0) {
                     $empregado->telefone = $valor;
+                } elseif (strcasecmp($campo, "provisorio") == 0) {
+                    $empregado->provisorio = $valor;
                 }
             }
             $resultsets[] = $empregado;

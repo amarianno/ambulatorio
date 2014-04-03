@@ -43,6 +43,8 @@
                 <input id="txtNumCarteira" name="txtNumCarteira"
                        type="text" value="{$txtNumCarteira}" maxlength="20"
                        tabindex="4" style="width: 320px;" />
+                <input type="checkbox" name="chkProvisorio" id="chkProvisorio">
+                Carteira Provisória
             </td>
         </tr>
         <tr>
