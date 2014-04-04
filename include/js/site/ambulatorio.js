@@ -504,6 +504,19 @@ function buscarEmpregado() {
 
 function addEmpregado() {
 
+    if($("#txtNumCarteira").val() != '' &&
+        $("#txtNumCarteira").val() != '310300' &&
+        $("#txtNumCarteira").val().length < 16) {
+
+        alert('Número da carteira deve ter 16 dígitos');
+        $("#txtNumCarteira").focus();
+        return false;
+    }
+
+    if($("#txtNumCarteira").val() == '310300') {
+        $("#txtNumCarteira").val('');
+    }
+
     var campos = "txtMatricula=" + $("#txtMatricula").val();
     campos += "&txtNome=" + $("#txtNome").val();
     campos += "&txtLotacao=" + $("#txtLotacao").val();
@@ -564,7 +577,11 @@ function existeFuncionario() {
                 $('#cadastraOuAlterar').val('alt');
                 $('#txtNome').val(funcionario.nome);
                 $('#txtLotacao').val(funcionario.lotacao);
-                $('#txtNumCarteira').val(funcionario.numCarteira);
+                if(funcionario.numCarteira == '') {
+                    $('#txtNumCarteira').val('310300');
+                } else {
+                    $('#txtNumCarteira').val(funcionario.numCarteira);
+                }
                 $('#txtAdmissao').val(funcionario.dataAdmissao);
                 $('#txtDataNascimento').val(funcionario.dataNascimento);
                 $('#txtTelefone').val(funcionario.telefone);

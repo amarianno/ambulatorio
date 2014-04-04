@@ -2,7 +2,7 @@
 {include file="menu_top.tpl"}
 
 {if $tela == 'cad'}
-<form id="cadEmpregadoForm" autocomplete="off" method="POST" action="../empregadoCAD.php" onsubmit="addEmpregado();return false;">
+<form id="cadEmpregadoForm" autocomplete="off" method="POST" action="../empregadoCAD.php" onsubmit="return false;">
     <table style="width: 70%; margin: 0 auto;" border="0">
         <tr>
             <td>
@@ -41,7 +41,7 @@
                     Número da Carteira
                 </label>
                 <input id="txtNumCarteira" name="txtNumCarteira"
-                       type="text" value="{$txtNumCarteira}" maxlength="20"
+                       type="text" value="310300" maxlength="16"
                        tabindex="4" style="width: 320px;" />
                 <input type="checkbox" name="chkProvisorio" id="chkProvisorio">
                 Carteira Provisória
@@ -96,7 +96,7 @@
 
         <tr>
             <td style="text-align: left" colspan="2">
-                <input type="submit" tabindex="9" class="button black" value="Gravar Registro"/>
+                <input type="button" tabindex="9" class="button black" value="Gravar Registro" onclick="addEmpregado();"/>
                 <input type="button" tabindex="10" class="button black" value="Limpar Campos" onclick="limparCamposEmpregado()"/>
                 <a href="empregadoCAD.php?op=listar">
                     <input type="button" tabindex="11" class="button black" value="Procurar Empregado" />
