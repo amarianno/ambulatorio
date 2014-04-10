@@ -29,10 +29,13 @@ jQuery(function($){
         $("#txtCpf").mask("999.999.999-99");
     }
     if($("#txtTelefone").size() > 0) {
-        $("#txtTelefone").mask("(99)99999-9999");
+        $("#txtTelefone").mask("(99)9999-9999");
+    }
+    if($("#txtCelular").size() > 0) {
+        $("#txtCelular").mask("(99)99999-9999");
     }
     if($("#data_manual").size() > 0) {
-        $("#data_manual").mask("99/99/9999");
+        $("#data_manual").mask("99/99/99");
     }
 });
 
@@ -154,6 +157,11 @@ function limparMatriculaAtestado() {
 }
 
 function retornaDataFormatada(data) {
+
+    if(data == '') {
+        return '';
+    }
+
     data=data.split('/');
     return data[0] + "/" + data[1] + "/" + "20"+data[2];
 }
@@ -281,6 +289,11 @@ $(function() {
 });
 
 function formataData(dataParaFormatar) {
+
+    if(dataParaFormatar == '') {
+        return '';
+    }
+
     var dataSplit = dataParaFormatar.split("-");
     return dataSplit[2] + "/" + dataSplit[1] + "/" + dataSplit[0][2]+dataSplit[0][3];
 }
@@ -526,6 +539,7 @@ function addEmpregado() {
     campos += "&selLocalidade=" + document.getElementById("selLocalidade").value;
     campos += "&cadastraOuAlterar=" + $("#cadastraOuAlterar").val();
     campos += "&txtTelefone=" + $("#txtTelefone").val().replace("(","").replace(")","").replace("-","");
+    campos += "&txtCelular=" + $("#txtCelular").val().replace("(","").replace(")","").replace("-","");
     campos += "&chkProvisorio=" + (document.getElementById("chkProvisorio").checked ? '1' : '0');
     campos += "&op=gravar";
 
@@ -549,6 +563,7 @@ function limparCamposEmpregado() {
     $("#txtAdmissao").val('');
     $("#txtDataNascimento").val('');
     $("#txtTelefone").val('');
+    $("#txtCelular").val('');
     document.getElementById("chkProvisorio").checked = false;
     document.getElementById("selLocalidade").selectedIndex = 0;
 }
@@ -585,6 +600,7 @@ function existeFuncionario() {
                 $('#txtAdmissao').val(funcionario.dataAdmissao);
                 $('#txtDataNascimento').val(funcionario.dataNascimento);
                 $('#txtTelefone').val(funcionario.telefone);
+                $('#txtCelular').val(funcionario.celular);
                 document.getElementById("chkProvisorio").checked = ((funcionario.provisorio == 1) ? true : false);
 
                 if(funcionario.localidade != '') {
@@ -834,6 +850,12 @@ function gerarGuia() {
     if(document.getElementById("chkPSA").checked) {
         campos +=  "&txtCod" + cont +"=" + document.getElementById("chkPSA").value;
         campos +=  "&txtDesc" + cont +"=" + document.getElementById("chkPSA").name;
+        cont++;
+    }
+
+    if(document.getElementById("chkConsultaClinicaMedica").checked) {
+        campos +=  "&txtCod" + cont +"=" + document.getElementById("chkConsultaClinicaMedica").value;
+        campos +=  "&txtDesc" + cont +"=" + document.getElementById("chkConsultaClinicaMedica").name;
         cont++;
     }
 
@@ -1095,6 +1117,7 @@ function desmarcarTodosExames() {
     document.getElementById("chkOftalmologista").checked = false;
     document.getElementById("chkTonometriaBinocular").checked = false;
     document.getElementById("chkPSA").checked = false;
+    document.getElementById("chkConsultaClinicaMedica").checked = false;
 
 }
 
@@ -1128,6 +1151,11 @@ function marcarExames() {
         document.getElementById("chkOftalmologista").checked = true;
         document.getElementById("chkTonometriaBinocular").checked = true;
 
+    } else if(document.getElementById("selGrupoExames").value == '5') {
+
+        desmarcarTodosExames();
+        document.getElementById("chkConsultaClinicaMedica").checked = true;
+
     } else {
         desmarcarTodosExames();
     }
@@ -1154,7 +1182,7 @@ function marcarPeriodico(inicioOuFim) {
     }
 
     var campos = 'op=datas&matriculas=' + retorno + "&inicioOuFim=" + inicioOuFim + "&selMes=" + mes
-        + "&data_manual=" + $('#data_manual').val();
+        + "&data_manual=" + retornaDataFormatada($('#data_manual').val());
 
     $.ajax({
         type: "POST",

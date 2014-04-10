@@ -123,6 +123,9 @@
                             <li>
                                 <a href="consulta_inss.php"><span>Licença INSS</span></a>
                             </li>
+                            <li>
+                                <a href="senha.php"><span>Senhas</span></a>
+                            </li>
                         </ul>
                     </li>
                     <li>

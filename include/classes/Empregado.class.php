@@ -11,6 +11,7 @@ class Empregado extends Persistivel {
     public $dataNascimento;
     public $dataAdmissao;
     public $telefone;
+    public $celular;
     public $provisorio;
 
     public function getChavePrimaria() {

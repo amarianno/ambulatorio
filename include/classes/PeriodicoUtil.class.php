@@ -63,7 +63,8 @@ class PeriodicoUtil {
         $htmlRetorno .= "<thead>";
         $htmlRetorno .= "   <tr>";
         $htmlRetorno .= "       <th><input type='button' value='Iniciar' class='button black' onclick='marcarPeriodico(1)'></th>";
-        $htmlRetorno .= "       <th>Data Manual: <input type='text' value='".date('d/m/Y')."' name='data_manual' id='data_manual'></th>";
+        $data = preg_split('"/"', date("d/m/Y"), -1);
+        $htmlRetorno .= "       <th>Data Manual: <input type='text' value='".$data[0]."/".$data[1]."/".$data[2][2].$data[2][3]."' name='data_manual' id='data_manual'></th>";
         $htmlRetorno .= "       <th><input type='button' value='Finalizar' class='button black' onclick='marcarPeriodico(2)'></th>";
         $htmlRetorno .= "   </tr>";
         $htmlRetorno .= "</thead>";

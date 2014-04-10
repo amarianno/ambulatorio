@@ -92,6 +92,9 @@
                         <option value="4">
                             Grupo 4
                         </option>
+                        <option value="5">
+                            Grupo 5
+                        </option>
                     </select>
                 </td>
             </tr>
@@ -158,6 +161,8 @@
                     Tonometria -binocular
                 </td>
                 <td>
+                    <input id="chkConsultaClinicaMedica" name="Consulta Clinica Medica" type="checkbox" value="0.096.03.0151" tabindex="20">
+                    Consulta Clínica Medica
                 </td>
                 <td>
                 </td>

@@ -79,6 +79,16 @@
         </tr>
         <tr>
             <td>
+                <label for="txtCelular">
+                    Celular
+                </label>
+                <input id="txtCelular" name="txtCelular"
+                       type="text" value="{$txtCelular}" maxlength="14"
+                       tabindex="7" style="width: 150px;" />
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Empresa <br>
                 <select id="selLocalidade" name="selLocalidade" tabindex="8" style="width: 320px;" >
                     <option value="1" selected="selected">
